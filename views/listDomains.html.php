@@ -30,19 +30,27 @@
 			<h3 class="center"><?php echo T_('Domains') ?></h3>
 		    <br /><br />
 		    <p class="row mailrow parentaliasrow" style="display: none;">
-			    <label class="span2 labeluser" for="domains"><?php echo T_('Name') ?></label>
+			    <label class="span2 labeluser" for="domains"><?php echo T_('Domain') ?></label>
 			    <input class="span3" type="text" name="domains[]" placeholder="<?php echo T_('New domain name') ?>" />
 			    <a href="#" class="removeAlias"><i class="icon-remove-sign"></i></a>
 		    </p>
+		   	<input type="hidden" name="domains[]" value="<?php echo $mainDomain ?>">
 		    <?php foreach ($domains as $domain) { ?>
 				    	<p class="row mailrow aliasrow">
-						    <label class="span2 labeluser" for="domains"><?php echo T_('Name') ?></label>
-						    <input class="span3" type="text" name="domains[]" value="<?php echo $domain['virtualdomain'] ?>" />
+						    <label class="span2 labeluser" for="domains"><?php echo ($domain['virtualdomain'] == $mainDomain) ? T_('Main domain') : T_('Domain') ?></label>
+						    <input class="span3" type="text" name="domains[]" value="<?php echo $domain['virtualdomain'] ?>" <?php echo ($domain['virtualdomain'] == $mainDomain) ? 'disabled' : '' ?>/>
+						    <?php if ($domain['virtualdomain'] != $mainDomain) { ?>
 						    <a href="#" class="removeAlias"><i class="icon-remove-sign"></i></a>
+						    <?php } ?>
 				    	</p>
 		    <?php } ?>
 		    <p class="row" style="text-align: center;">
-		    	<a class="btn" id="addAlias"><i class="icon-plus" style="margin: 2px 6px 0 0;"></i><?php echo T_('Add a domain') ?></a>
+		    	<a class="btn" id="addAlias">
+		    		<i class="icon-plus" style="margin: 2px 6px 0 0;"></i><?php echo T_('Add a domain') ?>
+		    	</a>
+		    	<a class="btn" href="/domain/changeMain">
+		    		<i class="icon-edit" style="margin: 2px 6px 0 0;"></i><?php echo T_('Change main domain') ?>
+		    	</a>
 		    </p>
 		   	<div style="clear: both;"></div>
 			<hr>

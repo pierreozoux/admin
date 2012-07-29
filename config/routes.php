@@ -34,6 +34,8 @@ dispatch('/images/*.jpg/:size', 'image_show_jpeg_only');
 dispatch('/domain', 'domains');
 dispatch('/domain/list', 'listDomains');
 dispatch_put('/domain/update', 'updateDomains');
+dispatch('/domain/changeMain', 'changeMainForm');
+dispatch_put('/domain/changeMain', 'changeMain');
 
 /**
  * => controllers/app.php
