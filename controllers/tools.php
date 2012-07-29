@@ -242,6 +242,13 @@ function getUpgradeNumber () {
   return $html;
 }
 
+/**
+ * GET /tools/upgrade/number/only (AJAX access only)
+ */
+function getUpgradeNumberOnly () {
+  $number = exec('sudo yunohost upgradable-pkgs number');
+  return $number;
+}
 
 /**
  * GET /tools/upgrade

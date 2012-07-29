@@ -140,7 +140,7 @@
       <hr>
 
       <footer>
-        <span><?php echo T_('Powered by') ?> <a href="http://yunohost.org/">YunoHost</a> (Beta 2) 
+        <span><?php echo T_('Powered by') ?> <a href="http://yunohost.org/">YunoHost</a> (1.0) 
           <div class="btn-group dropup pull-right">
             <button data-toggle="dropdown" class="btn btn-mini" style="height: 20px;"><i class="icon-flag"></i> <?php echo T_('Lang') ?></button>
             <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">

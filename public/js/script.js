@@ -154,6 +154,11 @@ jQuery(document).ready(function() {
 		jQuery("#upgrade-result").html(html);
 		jQuery.get('/tools/upgrade/packages', function(data) {
 			jQuery("#upgrade-result").html(data);
+			html = '<a href="#" title="" style="color: #fff" id="check-upgrades"><img src="/public/img/ajax-loader-white.gif" /></a>';
+			jQuery('#upgrade-li').html(html);
+			jQuery.get('/tools/upgrade/number', function(data) {
+				jQuery("#upgrade-li").html(data);
+			});
 		});
 	});
 
@@ -233,6 +238,11 @@ jQuery(document).ready(function() {
 		domainCheck("public");
 		domainCheck("apps");
 		domainCheck("admin");
+
+		jQuery.get('/tools/upgrade/number', function(data) {
+				jQuery("#upgrade-number").html(data);
+				jQuery("#upgrade-li").html(data);
+		});
 	}
 });
 
