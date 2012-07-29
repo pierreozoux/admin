@@ -189,31 +189,51 @@ jQuery(document).ready(function() {
 	    });
 	});
 
-        if (typeof operationAjaxUrl != 'undefined') {
-          jQuery.get(operationAjaxUrl,
-          function(data) {
-            jQuery("#operation-result").html("<pre>"+data.result+"</pre>");
-            if(data.errorCode == 0) {
-              jQuery("#operation-success").show();
-            }
-            else {
-              jQuery("#operation-fail").show();
-            }
-          });
+    if (typeof operationAjaxUrl != 'undefined') {
+      jQuery.get(operationAjaxUrl,
+      function(data) {
+        jQuery("#operation-result").html("<pre>"+data.result+"</pre>");
+        if(data.errorCode == 0) {
+          jQuery("#operation-success").show();
         }
+        else {
+          jQuery("#operation-fail").show();
+        }
+      });
+    }
 
-        jQuery(".install-confirm, .delete-confirm").click(function(event) {
-          event.preventDefault();
-          var operation = $(this).attr("data-operation");
-          var app = $(this).attr("data-app");
+    jQuery(".install-confirm, .delete-confirm").click(function(event) {
+      event.preventDefault();
+      var operation = $(this).attr("data-operation");
+      var app = $(this).attr("data-app");
 
-          jQuery("#confirm-modal .hide").hide();
-          jQuery("#confirm-modal ."+operation+"-text").show();
-          jQuery("#confirm-modal .appname").text(app);
+      jQuery("#confirm-modal .hide").hide();
+      jQuery("#confirm-modal ."+operation+"-text").show();
+      jQuery("#confirm-modal .appname").text(app);
 
-          jQuery("#confirm-link").attr('href', $(this).attr('href'));
-          jQuery("#confirm-modal").modal();
-        });
+      jQuery("#confirm-link").attr('href', $(this).attr('href'));
+      jQuery("#confirm-modal").modal();
+    });
+
+    /**
+	 *	Domain checker
+	 */
+
+	if ( jQuery("#domainChecker").length > 0 ) {
+		jQuery("#domainNotice").hide();
+		function domainCheck(vhost) {
+			jQuery.get("/ping/"+ vhost)
+			  	.success(function() { jQuery("#"+ vhost +"Check").attr("src","/public/img/icon_ok.gif"); })
+			  	.error(function() { 
+			  		jQuery("#"+ vhost +"Check").attr("src","/public/img/icon_nok.gif");
+			  		jQuery("#domainNotice").show();
+			  	});
+		}
+
+		domainCheck("public");
+		domainCheck("apps");
+		domainCheck("admin");
+	}
 });
 
 

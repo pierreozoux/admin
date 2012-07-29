@@ -27,6 +27,7 @@ dispatch('/logout', 'logout');
 dispatch('/lang/:locale', 'changeLocale');
 dispatch('/images/:name/:size', 'image_show'); 
 dispatch('/images/*.jpg/:size', 'image_show_jpeg_only');
+dispatch('/ping/:apps', 'ping');
 
 /**
  * => controllers/domain.php

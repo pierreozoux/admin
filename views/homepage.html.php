@@ -31,5 +31,28 @@
     </div>
 	</div>
   <div class="span6">
+    <div class="well">
+      <h3><?php echo T_('Quick access') ?></h3>
+      <br />
+      <div id="domainChecker">
+        <span class="pull-left">
+          <strong><?php echo T_('Public site') ?></strong> : <a href="https://<?php echo $_SESSION['mainDomain'] ?>"><?php echo $_SESSION['mainDomain'] ?></a>
+        </span>
+        <span class="pull-right"><img id="publicCheck" src="/public/img/ajax-loader.gif" /></span>
+        <div style="clear: both; height: 5px;"></div>
+        <span class="pull-left">
+          <strong><?php echo T_('Applications') ?></strong> : <a href="https://apps.<?php echo $_SESSION['mainDomain'] ?>">apps.<?php echo $_SESSION['mainDomain'] ?></a>
+        </span>
+        <span class="pull-right"><img id="appsCheck" src="/public/img/ajax-loader.gif" /></span>
+        <div style="clear: both; height: 5px;"></div>
+        <span class="pull-left">
+          <strong><?php echo T_('Administration') ?></strong> : <a href="https://admin.<?php echo $_SESSION['mainDomain'] ?>">admin.<?php echo $_SESSION['mainDomain'] ?></a>
+        </span>
+        <span class="pull-right"><img id="adminCheck" src="/public/img/ajax-loader.gif" /></span>
+        <div style="clear: both; height: 5px;"></div>
+        <br />
+        <span id="domainNotice"><a style="color: red" href="http://wiki.yunohost.org/Setup#DNS" target="_blank"><?php echo T_('You should fix your DNS configuration.') ?></a></span>
+      </div>
+    </div>
   </div>
 </div>
