@@ -74,7 +74,6 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li><a href="/tools/monitor"><?php echo T_('System monitor') ?></a></li>
-                  <li><a href="<?php echo url_for('tools', 'tasks'); ?>"><?php echo T_('Tasks manager') ?></a></li>
                   <li><a href="/tools/chat"><?php echo T_('Support chat') ?></a></li>
                   <li><a href="/tools/upgrade"><?php echo T_('Upgrade system') ?></a></li>
                 </ul>
