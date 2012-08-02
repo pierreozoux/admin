@@ -58,4 +58,11 @@
       </div>
     </div>
   </div>
+  <div class="span6">
+    <div class="well">
+      <h3><?php echo T_('Certification') ?></h3>
+      <p style="color: #444; font-style: italic; font-size: 12px; padding-top: 5px;"><?php echo T_('To avoid untrusted security certificate warnings, you have to import certificate authority into your browser.') ?></p>
+      <a href="/ca-crt.pem" class="btn btn-primary"><i class="icon-arrow-down icon-white" style="margin-top: 3px"></i> <?php echo T_('Import certificate authority') ?></a> &nbsp; <a href="http://wiki.yunohost.org/CA" title="<?php echo T_('Need help ?') ?>" target="_blank"><i class="icon-question-sign" style="margin-top: 4px"></i></a>
+    </div>
+  </div>
 </div>

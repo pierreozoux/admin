@@ -132,10 +132,10 @@ mail.<?php echo $domain ?>     (<?php echo T_('type') ?> CNAME)       <?php echo
                 <div class="tab-pane" id="tab5">
                   <h4><?php echo T_("Don't worry, you will be able to reproduce these steps later.") ?></h4>
                   <br />
-                  <p><?php echo T_('If you need some more informations, do not hesitate to:') ?></p>
+                  <p><?php echo T_('If you want to go further, do not hesitate to:') ?></p>
                     <ul>
                       <li><a href="http://wiki.yunohost.org/Setup" target="_blank"><?php echo T_("Read the documentation") ?></li>
-                      <li><a href="http://google.com" target="_blank"><?php echo T_("Make enquiries about self-hosting") ?></a></li>
+                      <li><a href="/ca-crt.pem" target="_blank"><?php echo T_('Import certificate authority') ?></a> <a href="http://wiki.yunohost.org/CA" title="<?php echo T_('Need help ?') ?>" target="_blank"><i class="icon-question-sign" style="margin-top: 2px"></i></a></li>
                       <li><a href="/tools/chat" target="_blank"><?php echo T_("Activate the support chat to ask us") ?></li>
                     </ul>
                   <hr />
