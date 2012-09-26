@@ -34,6 +34,7 @@ class Virtualdomain extends LdapEntry
 		(		
 			'required' => true,
 			'unique'	=> true,
+			'pattern'   => '#^[\w.-]+$#'
         )
 	);
     
