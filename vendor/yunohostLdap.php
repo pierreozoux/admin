@@ -28,7 +28,9 @@ class YunoHostLdap extends LdapEntry
 	public function installBackground() 
 	{
 
-		$_SESSION['first-install'] = true;
+		//$_SESSION['first-install'] = true;
+
+		flash('success', T_('Please make post-install manually (as root): yunohost-cli tools postinstall'));
 
 		redirect_to('/');
 	}
