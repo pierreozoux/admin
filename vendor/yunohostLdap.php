@@ -30,7 +30,7 @@ class YunoHostLdap extends LdapEntry
 
 		//$_SESSION['first-install'] = true;
 
-		flash('success', T_('Please make post-install manually (as root): yunohost-cli tools postinstall'));
+		flash('error', T_('Please execute post-install manually (as root): yunohost-cli tools postinstall'));
 
 		redirect_to('/');
 	}
