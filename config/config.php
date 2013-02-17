@@ -62,12 +62,12 @@ function before($route)
    */
 
   if (!isset($_SESSION['domain']))
-    $_SESSION['domain'] = exec('hostname -d');
+    $_SESSION['domain'] = 'yunohost.org';
 
   if (!isset($_SESSION['mainDomain']))
     $_SESSION['mainDomain'] = exec('cat /usr/share/yunohost/yunohost-config/others/current_host');
 
-  $ldap = new YunohostLdap('localhost', $_SESSION['domain'], dirname(__FILE__).'/../models');
+  $ldap = new YunohostLdap('localhost', 'yunohost.org', dirname(__FILE__).'/../models');
 
 
   /**
@@ -98,7 +98,7 @@ function before($route)
    */
   function authenticate() {
     if(isset($_SESSION['isConnected'])) unset($_SESSION['isConnected']);
-    header('WWW-Authenticate: Basic realm="'.T_('admin OR username / password').'"');
+    header('WWW-Authenticate: Basic realm="'.T_('admin / password').'"');
     header('HTTP/1.0 401 Unauthorized');
     header('Content-Type: text/html; charset=UTF-8');
     echo T_('You must identify yourself to access to this page.');
@@ -136,7 +136,7 @@ function before($route)
    */
   if (isset($_SERVER['PHP_AUTH_USER'])) {
     if ($ldap->connect(array('cn' => $_SERVER['PHP_AUTH_USER']), $_SERVER['PHP_AUTH_PW'])) {
-      if (isset($_SESSION['isConnected']) && $_SESSION['isConnected'] == true) {
+      if (isset($_SESSION['isConnected']) && $_SESSION['isConnected']) {
         continueRouting($route);
       } elseif (!isset($_SESSION['isConnected'])) {
         if (!$ldap->backgroundInstalled()) {
@@ -147,11 +147,7 @@ function before($route)
         }       
         continueRouting($route);
       } else authenticate();
-    } elseif ($ldap->connectAs($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'], true)) {
-      continueRouting($route);
-    } else {
-      authenticate();
-    }
+    } else authenticate();
   } else authenticate();
 }
 
