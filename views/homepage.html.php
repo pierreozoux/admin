@@ -25,9 +25,9 @@
 	<div class="span6"> 
 		<div class="center" style="padding: 20px;">
       <img src="<?php echo PUBLIC_DIR ?>/img/logo-big.png">
-      <h3>YunoHost 1.0</h3>
+      <h3>YunoHost 2.0</h3>
       <br />
-      <p style="color: #666; font-style: italic">*le derp</p>
+      <p style="color: #666; font-style: italic">*megusta</p>
       <br />
       <br />
       <a href="/tools/upgrade" class="btn btn-inverse"><?php echo T_('System upgrade') ?><span style="margin-top: 3px; margin-left: 6px;" id="upgrade-number"><img src="/public/img/ajax-loader-white.gif" /></span></a>
