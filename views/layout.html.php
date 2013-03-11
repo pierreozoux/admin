@@ -1,8 +1,8 @@
-<?php 
+<?php
 
  /**
   *  YunoHost - Self-hosting for all
-  *  Copyright (C) 2012  
+  *  Copyright (C) 2012
   *     Kload <kload@kload.fr>
   *     Guillaume DOTT <github@dott.fr>
   *
@@ -19,7 +19,7 @@
   *  You should have received a copy of the GNU Affero General Public License
   *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
   */
-  
+
  ?>
 <!doctype html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
@@ -30,94 +30,51 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>YunoHost <?php echo (isset($title)) ? "| ".$title : "" ?></title>
+	<title>YNH <?php echo (isset($title)) ? "| ".$title : "" ?></title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 
 	<meta name="viewport" content="width=device-width">
-  <!-- LESS for development -->
-	<!-- <link rel="stylesheet/less" href="<?php echo PUBLIC_DIR ?>/less/style.less"> -->
-	<script src="<?php echo PUBLIC_DIR ?>/js/libs/less-1.2.1.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="<?php echo PUBLIC_DIR ?>/js/libs/jquery-1.7.1.min.js"><\/script>')</script>
-  <!-- CSS for production -->
-  <link media="all" type="text/css" href="<?php echo PUBLIC_DIR ?>/css/style.css" rel="stylesheet">
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="<?php echo PUBLIC_DIR ?>/js/libs/jquery-1.7.1.min.js"><\/script>')</script>-->
+    <link media="all" type="text/css" href="<?php echo PUBLIC_DIR ?>/css/app.css" rel="stylesheet">
 	<script src="<?php echo PUBLIC_DIR ?>/js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
 </head>
-<body class="gradient">
-<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="https://www.mozilla.org/firefox">install Firefox</a> to experience this site.</p><![endif]-->
-
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="/"><img src="<?php echo PUBLIC_DIR ?>/img/logo.png"></a>
-          <div class="nav-collapse">
-            <ul class="nav pull-right">
+<body class="">
+    <div id="top-bar-container" class="fixed">
+      <nav class="top-bar">
+        <div class="top-bar-wrapper">
+          <ul class="title-area">
+            <li class="name">
+                <h1><a class="brand" href="/">YUNOHOST</a></h1>
+            </li>
+            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+          </ul>
+          <div class="top-bar-section">
+            <ul class="right">
               <li class="<?php echo ($tab == 'user') ? 'active' : '' ?>">
-                <a href="/user/list"><i class="icon-user icon-white" style="margin: 2px 6px 0 0"></i><?php echo T_('Users') ?></a>
+                <a href="/user/list"><?php echo T_('Users') ?></a>
               </li>
               <li class="<?php echo ($tab == 'domain') ? 'active' : '' ?>">
-                <a href="/domain/list"><i class="icon-globe icon-white" style="margin: 2px 6px 0 0"></i><?php echo T_('Domains') ?></a>
+                <a href="/domain/list"><?php echo T_('Domains') ?></a>
               </li>
               <li class="<?php echo ($tab == 'app') ? 'active' : '' ?>">
-                <a href="/app/list"><i class="icon-leaf icon-white" style="margin: 2px 6px 0 0"></i><?php echo T_('Applications') ?></a>
+                <a href="/app/list"><?php echo T_('Applications') ?></a>
               </li>
-              <li class="dropdown <?php echo ($tab == 'tools') ? 'active' : '' ?>">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="icon-wrench icon-white" style="margin: 2px 6px 0 0"></i><?php echo T_('Tools') ?>
-                  <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="/tools/monitor"><?php echo T_('System monitor') ?></a></li>
-                  <li><a href="/tools/chat"><?php echo T_('Support chat') ?></a></li>
-                  <li><a href="/tools/upgrade"><?php echo T_('Upgrade system') ?></a></li>
-                </ul>
-              </li>
-              <li class="divider-vertical"></li>
-              <li id="upgrade-li">
-              <?php if (!isset($_SESSION['upgradeNumber'])) { ?>
-                <a href="#" title="<?php echo T_('Check upgrades') ?>" style="color: #fff"><i class="icon-refresh icon-white" style="margin: 2px 0 0 0"></i></a>
-              <?php } elseif ($_SESSION['upgradeNumber'] == 0) { ?>
-                <a href="#" title="<?php echo T_('Your system is up-to-date') ?>" style="color: #fff"><i class="icon-ok icon-white" style="margin: 2px 0 0 0"></i></a>
-              <?php } else { ?>
-                <a href="/tools/upgrade" title="<?php echo T_('Upgrade') ?>" style="color: #fff"><i class="icon-download-alt icon-white" style="margin: 2px 6px 0 0"></i><span class="label label-info"><?php echo $_SESSION['upgradeNumber'] ?></span></a>
-              <?php } ?>
-              </li>
-              <li class="divider-vertical"></li>
               <li class="">
-                <a href="/logout" title="<?php echo T_('Log out') ?>" style="color: #fff"><i class="icon-off icon-white" style="margin: 2px 6px 0 0"></i><strong><?php echo $userUid ?></strong></a>
+                <a href="/logout" title="<?php echo T_('Log out') ?>"><strong><?php echo $userUid ?></strong></a>
               </li>
             </ul>
-          </div><!--/.nav-collapse -->
+          </div>
         </div>
-      </div>
+      </nav>
     </div>
 
     <div class="container">
 
-      <?php if (isset($_SESSION['first-install']) && $_SESSION['first-install']) { 
+      <?php if (isset($_SESSION['first-install']) && $_SESSION['first-install']) {
         include 'welcomePopUp.html.php';
       } ?>
-
-
-
-      <ul class="breadcrumb">
-        <li>
-          <?php echo ($tab == 'home') ? '<a href="/">'.T_('Home').'</a>' : '' ?> 
-          <?php echo ($tab == 'user') ? '<a href="/user">'.T_('Users').'</a>' : '' ?> 
-          <?php echo ($tab == 'domain') ? '<a href="/domain">'.T_('Domains').'</a>' : '' ?>
-          <?php echo ($tab == 'app') ? '<a href="/app">'.T_('Applications').'</a>' : '' ?> 
-          <?php echo ($tab == 'tools') ? '<a href="/tools">'.T_('Tools').'</a>' : '' ?> 
-          <span class="divider">/</span>
-        </li>
-        <li class="active"><?php echo (isset($title)) ? $title : "" ?></li>
-      </ul>
-
 
       <?php if (isset($flash['error'])) { ?>
         <div class="alert alert-error fade in">
@@ -135,12 +92,12 @@
           <?php echo $flash['success'] ?>
         </div>
       <?php } ?>
-      
+
       <?php echo $content?>
       <hr>
 
       <footer>
-        <span><?php echo T_('Powered by') ?> <a href="http://yunohost.org/">YunoHost</a> (1.0) 
+        <span><?php echo T_('Powered by') ?> <a href="http://yunohost.org/">YunoHost</a> (1.0)
           <div class="btn-group dropup pull-right">
             <button data-toggle="dropdown" class="btn btn-mini" style="height: 20px;"><i class="icon-flag"></i> <?php echo T_('Lang') ?></button>
             <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">
@@ -164,17 +121,41 @@
     "sInfoFiltered": "<?php echo T_('(filtered from _MAX_ total entries)'); ?>",
   };
 </script>
+<script type="text/javascript">
+      document.write('<script src=' +
+      ('__proto__' in {} ? '<?php echo PUBLIC_DIR ?>/js/libs/zepto' : '<?php echo PUBLIC_DIR ?>/js/libs/jquery') +
+      '.js><\/script>');
+</script>
+
+<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.alerts.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.clearing.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.cookie.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.dropdown.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.forms.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.joyride.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.magellan.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.orbit.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.placeholder.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.reveal.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.section.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.tooltips.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.topbar.js"></script>
+<script>
+    $(document).foundation();
+</script>
+
+
 <script src="<?php echo PUBLIC_DIR ?>/js/libs/jquery.dataTables.min.js"></script>
 
 <!-- scripts concatenated and minified via ant build script-->
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/bootstrap/bootstrap.min.js"></script>
 <script src="<?php echo PUBLIC_DIR ?>/js/plugins.js"></script>
 <script src="<?php echo PUBLIC_DIR ?>/js/script.js"></script>
 
 <?php if (isset($_SESSION['chat'])) { ?>
-  <script src="http://im.jappix.org/php/get.php?l=<?php echo $locale ?>&t=js&g=mini.xml" type="text/javascript"></script>
   <script type="text/javascript">
-    jQuery(document).ready(function() {
+    jQuery.ajaxSetup({cache: true});
+    jQuery.getScript("https://static.jappix.com/php/get.php?l=<?php echo $locale ?>&t=js&g=mini.xml", function() {
       MINI_GROUPCHATS = ["support@conference.yunohost.org"];
       HOST_ANONYMOUS = "yunohost.org";
       HOST_MUC = "conference.yunohost.org";

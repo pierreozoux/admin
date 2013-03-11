@@ -1,0 +1,27 @@
+@import "yunohost";
+
+/* YunoSite specific */
+
+div#container {
+    background: $whaite;
+    div.whitebox.stroked {
+        margin-top: 20px;
+        p {
+            margin-top: 20px;
+        }
+    }
+    @media screen and (min-width: 790px) {
+        p.epic {
+            padding-left: 20px;
+        }
+        div.triplette {
+            div.large-4:first-child {
+                padding-left: 0;
+            }
+            div.large-4:last-child {
+                padding-right: 0;
+            }
+        }
+    }
+}
+

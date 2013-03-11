@@ -135,19 +135,7 @@ function before($route)
    * Check authentcation
    */
   if (isset($_SERVER['PHP_AUTH_USER'])) {
-    if ($ldap->connect(array('cn' => $_SERVER['PHP_AUTH_USER']), $_SERVER['PHP_AUTH_PW'])) {
-      if (isset($_SESSION['isConnected']) && $_SESSION['isConnected']) {
-        continueRouting($route);
-      } elseif (!isset($_SESSION['isConnected'])) {
-        if (!$ldap->backgroundInstalled()) {
-          if ($ldap->installBackground()) {
-            flash('success', T_('Please add a new user to complete setup.'));
-            redirect_to('/user/add');
-          }          
-        }       
-        continueRouting($route);
-      } else authenticate();
-    } else authenticate();
+      continueRouting($route);
   } else authenticate();
 }
 
@@ -171,6 +159,17 @@ function after($output, $route)
 # ============================================================================ #
 #   4. OTHERS                                                                  #
 # ============================================================================ #
+
+
+function moulinette($command) {
+    exec('python /root/moulinette/parse_args '+ $command, $result, $result_code);
+
+    if ($result_code == 0) {
+        return json_decode($result[0], true);
+    } else {
+	return false;
+    }
+}
 
 // Turn off all error reporting (prod: 0 | dev: E_ALL ^ E_NOTICE)
 // error_reporting(0);

@@ -1,0 +1,68 @@
+/*
+Syntax error: File to import not found or unreadable: foundation/foundation-global.
+              Load path: /home/alexis/sshfs/v2/public/scss
+        on line 2 of _settings.scss
+        from line 28 of _yunohost.scss
+        from line 1 of app.scss
+
+1: @import "yunohost";
+2: 
+3: /* YunoSite specific */
+4: 
+5: div#container {
+6:     background: $whaite;
+7:     div.whitebox.stroked {
+
+Backtrace:
+_settings.scss:2
+_yunohost.scss:28
+app.scss:1
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/import_node.rb:45:in `import'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/import_node.rb:28:in `imported_file'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/import_node.rb:37:in `css_import?'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:217:in `visit_import'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/base.rb:37:in `visit'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:227:in `block in visit_import'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:227:in `map'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:227:in `visit_import'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/base.rb:37:in `visit'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:227:in `block in visit_import'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:227:in `map'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:227:in `visit_import'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/base.rb:37:in `visit'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/base.rb:53:in `map'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:128:in `visit_root'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/base.rb:37:in `visit'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/tree/root_node.rb:20:in `render'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/engine.rb:315:in `_render'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/engine.rb:262:in `render'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/plugin/compiler.rb:341:in `update_stylesheet'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/plugin/compiler.rb:201:in `each'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/plugin/compiler.rb:235:in `watch'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/plugin.rb:107:in `method_missing'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/exec.rb:445:in `watch_or_update'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/exec.rb:307:in `process_result'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/exec.rb:41:in `parse'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/lib/sass/exec.rb:21:in `parse!'
+/home/alexis/.gem/ruby/1.9.1/gems/sass-3.2.7/bin/sass:9:in `<top (required)>'
+/usr/bin/sass:23:in `load'
+/usr/bin/sass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: File to import not found or unreadable: foundation/foundation-global.\A               Load path: /home/alexis/sshfs/v2/public/scss\A         on line 2 of _settings.scss\A         from line 28 of _yunohost.scss\A         from line 1 of app.scss\A \A 1: @import \"yunohost\";\A 2: \A 3: /* YunoSite specific */\A 4: \A 5: div#container {\A 6:     background: $whaite;\A 7:     div.whitebox.stroked {"; }
