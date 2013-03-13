@@ -20,8 +20,18 @@
 
  ?>
 <div class="row row-tab">
-	<?php foreach ($users as $user) { ?>
-		<div class="span6"> 
+    <ul class="small-block-grid-2 large-block-grid-4">
+        <?php foreach ($users as $user) { ?>
+           <li style="border: 3px solid #222; padding: 10px;">
+                   <img src="<?php echo PUBLIC_DIR ?>/img/user.png">
+           </li>
+        <?php } ?>
+    </ul>
+    <div class="span6" style="text-align: center; padding-top: 10px;"> 
+        <a class="btn btn-primary btn-large" href="/user/add"><i class="icon-plus icon-white" style="margin-top: 3px"></i> <?php echo T_('New user'); ?></a>
+	</div>
+</div>
+		<!-- <div class="span6"> 
 			<div class="well">
 				<div class="row">
 					<div class="avatar span2">
@@ -45,9 +55,4 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	<?php } ?>
-	<div class="span6" style="text-align: center; padding-top: 10px;"> 
-		<a class="btn btn-primary btn-large" href="/user/add"><i class="icon-plus icon-white" style="margin-top: 3px"></i> <?php echo T_('New user'); ?></a>
-	</div>
-</div>
+		</div>-->

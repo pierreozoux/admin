@@ -37,7 +37,7 @@
 	<meta name="viewport" content="width=device-width">
     <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="<?php echo PUBLIC_DIR ?>/js/libs/jquery-1.7.1.min.js"><\/script>')</script>-->
-    <link media="all" type="text/css" href="<?php echo PUBLIC_DIR ?>/css/app.css" rel="stylesheet">
+    <link media="all" type="text/css" href="<?php echo PUBLIC_DIR ?>/stylesheets/app.css" rel="stylesheet">
 	<script src="<?php echo PUBLIC_DIR ?>/js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
 </head>
 <body class="">
@@ -70,48 +70,12 @@
       </nav>
     </div>
 
-    <div class="container">
-
-      <?php if (isset($_SESSION['first-install']) && $_SESSION['first-install']) {
-        include 'welcomePopUp.html.php';
-      } ?>
-
-      <?php if (isset($flash['error'])) { ?>
-        <div class="alert alert-error fade in">
-          <a class="close" data-dismiss="alert">×</a>
-          <strong><?php echo T_('Error') ?>:</strong> <?php echo $flash['error'] ?>
-        </div>
-      <?php } elseif (isset($flash['notice'])) { ?>
-        <div class="alert fade in">
-          <a class="close" data-dismiss="alert">×</a>
-          <strong><?php echo T_('Notice') ?>:</strong> <?php echo $flash['notice'] ?>
-        </div>
-      <?php } elseif (isset($flash['success'])) { ?>
-        <div class="alert alert-success fade in">
-          <a class="close" data-dismiss="alert">×</a>
-          <?php echo $flash['success'] ?>
-        </div>
-      <?php } ?>
+    <div id="container" class="row small-fix">
 
       <?php echo $content?>
-      <hr>
-
-      <footer>
-        <span><?php echo T_('Powered by') ?> <a href="http://yunohost.org/">YunoHost</a> (1.0)
-          <div class="btn-group dropup pull-right">
-            <button data-toggle="dropdown" class="btn btn-mini" style="height: 20px;"><i class="icon-flag"></i> <?php echo T_('Lang') ?></button>
-            <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">
-            <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu pull-right" style="text-align: left">
-              <li<?php if($locale == 'en') echo ' class="active"'; ?>><a href="<?php echo url_for('lang', 'en', array('redirect_to' => request_uri())); ?>"><?php echo T_('English') ?></a></li>
-              <li<?php if($locale == 'fr') echo ' class="active"'; ?>><a href="<?php echo url_for('lang', 'fr', array('redirect_to' => request_uri())); ?>"><?php echo T_('French') ?></a></li>
-            </ul>
-          </div>
-        </span>
-      </footer>
 
     </div> <!-- /container -->
+
 
 <script type="text/javascript">
   // i18n
@@ -121,6 +85,8 @@
     "sInfoFiltered": "<?php echo T_('(filtered from _MAX_ total entries)'); ?>",
   };
 </script>
+
+
 <script type="text/javascript">
       document.write('<script src=' +
       ('__proto__' in {} ? '<?php echo PUBLIC_DIR ?>/js/libs/zepto' : '<?php echo PUBLIC_DIR ?>/js/libs/jquery') +

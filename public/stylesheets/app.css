@@ -4480,3 +4480,9 @@ div#container {
       padding-left: 0; }
     div#container div.triplette div.large-4:last-child {
       padding-right: 0; } }
+
+#top-bar-container {
+  border-bottom: 3px solid #222; }
+
+#container {
+  padding-top: 108px; }
