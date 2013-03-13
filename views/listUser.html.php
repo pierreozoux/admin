@@ -1,4 +1,4 @@
-<?php 
+<?php
 
  /**
   *  YunoHost - Self-hosting for all
@@ -20,34 +20,12 @@
 
  ?>
 <div class="row row-tab">
-	<?php foreach ($users as $user) { ?>
-		<div class="span6"> 
-			<div class="well">
-				<div class="row">
-					<div class="avatar span2">
-						<img src="<?php echo PUBLIC_DIR ?>/img/user.png" />
-					</div>
-					<div class="entityInfo">
-						<?php foreach ($adminsDn as $adminDn) {
-							if (preg_match('#^cn='.$user['cn'].'#', $adminDn)) { ?>
-								<span class="label label-important">Admin</span>&nbsp;
-						<?php }} ?>
-						<a href="/user/update/<?php echo $user['uid']; ?>" title="<?php echo T_('Edit').' '.$user['uid'] ?>"
-						style="color: inherit;"><strong><?php echo $user['uid']; ?></strong></a> 
-							<span style="color: #999; font-size: 11px;">(<?php echo $user['cn']; ?>)</span>
-						<div class="maillist"><?php echo $user['mail']; ?></div>
-					</div>
-					<div class="span1" style="margin-left: 3px; width: 55px; float: right;">
-						<div style="text-align: right" class="btn-group">
-							<a href="/user/update/<?php echo $user['uid']; ?>" title="<?php echo T_('Edit').' '.$user['uid'] ?>" class="btn btn-mini"><i class="icon-edit"></i></a>
-							<a href="/user/delete/<?php echo $user['uid']; ?>" title="<?php echo T_('Delete').' '.$user['uid'] ?>" class="btn btn-mini"><i class="icon-trash"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
+	<?php foreach ($users['Domains'] as $user) { ?>
+        <div class="yayaya">
+            <p>Username: <?php echo $user ?></p>
 		</div>
 	<?php } ?>
-	<div class="span6" style="text-align: center; padding-top: 10px;"> 
+	<div class="span6" style="text-align: center; padding-top: 10px;">
 		<a class="btn btn-primary btn-large" href="/user/add"><i class="icon-plus icon-white" style="margin-top: 3px"></i> <?php echo T_('New user'); ?></a>
 	</div>
 </div>
