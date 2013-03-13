@@ -1,0 +1,299 @@
+@import "fonts";
+@import "normalize";
+
+@import "settings"; // contains generic identity overwritings
+@import "apps_settings";
+@import "foundation";
+
+
+/* Identity SCSS */
+
+body {
+    background: $whaite;
+}
+
+@media screen and (min-width: 1024px) {
+    html {
+        border: 3px solid $black;
+    }
+}
+
+@mixin colorbox($color) {
+    box-shadow: 2px -3px $color;
+    background-color: $color;
+    //border: 3px solid $black;
+}
+
+.button,
+input.button,
+nav.top-bar div.top-bar-section ul li a.button {
+    @include colorbox($grey);
+    font-family: 'Source Code Pro';
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 26px;
+    border: 3px solid $black;
+    color: $black;
+    padding: 0 10px;
+    &.big {
+        font-size: 26px;
+        padding: 5px 15px;
+        letter-spacing: -1px;
+    }
+    &.red {
+        @include colorbox($red);
+        &:hover, &:active {
+            background-color: lighten($red, 20%);
+        }
+    }
+    &.blue {
+        @include colorbox($blue);
+        &:hover, &:active {
+            background-color: lighten($blue, 20%);
+        }
+    }
+    &.yellow {
+        @include colorbox($yellow);
+        &:hover, &:active {
+            background-color: lighten($blue, 20%);
+        }
+    }
+    &.green {
+        @include colorbox($green);
+        &:hover, &:active {
+            background-color: lighten($green, 20%);
+        }
+    }
+    &:focus {
+        background-color: inherit;
+        color: $black;
+    }
+    &:active {
+        background-color: inherit;
+        color: $black;
+        box-shadow: none;
+        //margin-top: 2px;
+        //margin-left: 2px;
+    }
+    &:hover {
+        background-color: inherit;
+        color: $black;
+    }
+}
+
+textarea,
+input[type=text],
+input[type=reset] {
+    @include colorbox($whaite);
+    font-size: 16px;
+    line-height: 26px;
+    border: 3px solid $black;
+    color: $black;
+    padding: 0 10px;
+    &:focus {
+        border-color: $black;
+        background-color: #fff;
+        //border-style: dashed;
+    }
+}
+
+textarea {
+    padding: 10px;
+    line-height: 20px;
+}
+
+
+.panel {
+    border: none;
+}
+
+h3 {
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    font-weight: 700;
+    //font-size: emCalc(30px); set as var in settings
+    text-shadow: 2px -2px 0px $green;
+    margin: 18px 10px;
+}
+
+h4 {
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    font-family: 'Source Sans Pro';
+    //font-size: emCalc(22px); set as var in settings
+    font-weight: 700;
+}
+
+div.fixed {
+    border: 3px solid $black;
+    border-width: 3px 3px 0 3px;
+}
+
+@media screen and (max-width: 1024px) {
+    div.fixed {
+        border-width: 3px;
+    }
+}
+
+nav.top-bar {
+    .top-bar-wrapper {
+        max-width: 1120px;
+        margin: 0 auto;
+    }
+    font-family: 'Source Code Pro';
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    ul.title-area {
+        li.name {
+            h1 a {
+                font-weight: 800;
+                letter-spacing: -1px;
+                color: $black;
+                //text-shadow: 3px -3px 0px #fff;
+            }
+        }
+        li.menu-icon a {
+            font-family: 'Source Code Pro';
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 31px;
+            text-indent: -70px;
+            color: $black;
+        }
+    }
+    div.top-bar-section {
+        ul {
+            li {
+                background: $whaite;
+            }
+            li > a {
+                color: $black;
+            }
+            li a:not(.button) {
+                font-weight: 700;
+                background: $whaite;
+            }
+            li.active a:not(.button) {
+                text-shadow: 1px -2px 0 $green;
+                background: $whaite;
+            }
+            li a.button {
+                margin-top: 16px;
+                margin-right: 10px;
+            }
+            li a.button:active {
+                box-shadow: none;
+                margin-top: 16px;
+                margin-right: 10px;
+                margin-left: 0;
+            }
+            li a:hover:not(.button) {
+                background: $whaite;
+                text-shadow: 1px -2px 0 $yellow;
+            }
+        }
+    }
+}
+
+.whitebox {
+    background: #fff;
+    box-shadow: 4px -5px #fff;
+}
+
+.blackbox {
+    background: #555;
+    box-shadow: 4px -5px #555;
+    color: #fff;
+}
+
+.padded {
+    padding: 15px 30px;
+}
+
+span.big {
+    font-size: 28px;
+}
+
+span.bold {
+    font-weight: 700;
+}
+
+span.uppercase {
+    font-weight: 700;
+    font-family: "Source Code Pro";
+    letter-spacing: -1.5px;
+}
+
+
+.justify {
+    text-align: justify;
+}
+
+pre {
+    font-family: "Source Code Pro";
+    font-size: 14px;
+}
+
+.stroked {
+    border: 3px solid $black;
+}
+
+.clear {
+    clear: both;
+}
+
+.margin-kill {
+    margin-left: 30px;
+}
+
+.padding-kill,
+.row .columns.padding-kill {
+    padding: 0;
+}
+
+.top-spaced {
+    margin-top: 20px;
+}
+
+div.spacer {
+    height: 40px;
+}
+
+.center {
+    text-align: center;
+    margin: 0 auto;
+}
+
+div {
+    line-height: 23px;
+}
+
+.btn-container {
+    padding: 3px 2px 0 0;
+}
+.btn-container:active {
+    padding: 0 0 3px 2px;
+}
+
+#top-bar-container {
+    z-index: 97;
+}
+
+/* Responsive stuffs */
+
+@media screen and (max-width: 790px) {
+    .whitebox {
+        box-shadow: none;
+    }
+
+    .margin-kill {
+        margin-left: 0;
+    }
+
+    .row.stroked,
+    .row.small-fix {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
