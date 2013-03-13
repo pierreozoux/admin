@@ -1,4 +1,4 @@
-<?php 
+<?php
 
  /**
   *  YunoHost - Self-hosting for all
@@ -17,7 +17,7 @@
   *  You should have received a copy of the GNU Affero General Public License
   *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
   */
-  
+
 
 
 
@@ -87,7 +87,7 @@ function before($route)
   T_setlocale(LC_CTYPE,$_SESSION['locale']);
   $locales_dir = dirname(__FILE__).'/../i18n';
   T_bindtextdomain($textdomain,$locales_dir);
-  T_bind_textdomain_codeset($textdomain, 'UTF-8'); 
+  T_bind_textdomain_codeset($textdomain, 'UTF-8');
   T_textdomain($textdomain);
 
   // Set the $locale variable in template
@@ -162,12 +162,12 @@ function after($output, $route)
 
 
 function moulinette($command) {
-    exec('python /root/moulinette/parse_args '+ $command, $result, $result_code);
+    exec('cd /var/moulinette && sudo ./parse_args '. $command .' --admin-password "'.$_SERVER['PHP_AUTH_PW'].'"', $result, $result_code);
 
     if ($result_code == 0) {
         return json_decode($result[0], true);
     } else {
-	return false;
+	    return false;
     }
 }
 
@@ -181,14 +181,14 @@ function sendMail ($mail, $subject, $txtMessage, $htmlMessage = null) {
   } else {
     $lineBreak = "\n";
   }
-   
+
   $boundary = "-----=".md5(rand());
-      
+
   $header = "From: \"YunoHost\"<no-reply@yunohost.org>".$lineBreak;
   $header.= "Reply-to: \"No reply\"<no-reply@yunohost.org>".$lineBreak;
   $header.= "MIME-Version: 1.0".$lineBreak;
   $header.= "Content-Type: multipart/alternative;".$lineBreak." boundary=\"$boundary\"".$lineBreak;
-   
+
   $message = $lineBreak."--".$boundary.$lineBreak;
   $message.= "Content-Type: text/plain; charset=\"ISO-8859-1\"".$lineBreak;
   $message.= "Content-Transfer-Encoding: 8bit".$lineBreak;
@@ -203,6 +203,6 @@ function sendMail ($mail, $subject, $txtMessage, $htmlMessage = null) {
   }
 
   $message.= $lineBreak."--".$boundary."--".$lineBreak;
-   
+
   return mail($mail, $subject, $message, $header);
 }

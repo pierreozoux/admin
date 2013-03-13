@@ -1,4 +1,4 @@
-<?php 
+<?php
 
  /**
   *  YunoHost - Self-hosting for all

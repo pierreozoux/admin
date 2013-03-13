@@ -1,4 +1,4 @@
-<?php 
+<?php
 
  /**
   *  YunoHost - Self-hosting for all
@@ -17,7 +17,7 @@
   *  You should have received a copy of the GNU Affero General Public License
   *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
   */
-  
+
 /**
  * GET /user
  */
@@ -29,21 +29,10 @@ function user() {
  * GET /user/list
  */
 function listUser() {
-  global $ldap;
-
-  // Fetch users
-  $ldap->setSearchPath(array('ou' => 'users'));
-  $ldap->setAttributesToFetch(array("mail", "uid", "cn", "dn"));
-  $users = $ldap->findAll('(objectClass=inetOrgPerson)');
-
-  // Fetch admin list
-  $ldap->populateAdmin(array('cn' => 'admin'));
-  $adminsDn = $ldap->getAdminMember();
-
-  set('users', $users);
-  set('adminsDn', $adminsDn);
-  set('title', T_('List users'));        
-  return render("listUser.html.php");
+    $users = moulinette('domain list');
+    set('users', $users);
+    set('title', T_('List users'));
+    return render("listUser.html.php");
 }
 
 /**
@@ -75,7 +64,7 @@ function addUser () {
   $mail = htmlspecialchars($_POST["mail"]);
   $admin = isset($_POST["isadmin"]);
 
-  if ($_POST["password"] === $_POST["confirm"]) 
+  if ($_POST["password"] === $_POST["confirm"])
   {
     $ldap->setUserUid($username);
     $ldap->setUserGivenname($firstname);
@@ -84,7 +73,7 @@ function addUser () {
     $ldap->setUserUserpassword($password);
     if ($admin) $ldap->setUserDescription('admin');
 
-    if ($ldap->saveUser()) 
+    if ($ldap->saveUser())
     {
       if ($admin) $ldap->grantAdmin($username);
       flash('success', T_('User successfully created.'));
@@ -103,15 +92,15 @@ function addUser () {
                       '<p>'.$welcomeMessage2.'</p>'.
                       '<a href="https://auth.'.$domain.'">https://auth.'.$domain.'</a>';
       sendMail($mail, T_('Your account details'), $mailMessage, $htmlMessage);
-      if ($ajax) return true; 
+      if ($ajax) return true;
       else redirect_to('/user/list');
-    } 
+    }
     else flash('error', T_('An error occured on user creation.'));
   }
   else flash('error', T_('Passwords does not match'));
 
-  if ($ajax) return false; 
-  else redirect_to('/user/add');  
+  if ($ajax) return false;
+  else redirect_to('/user/add');
 }
 
 
@@ -200,7 +189,7 @@ function updateUser ($uid = null) {
   $ldap->setUserGivenname($firstname);
   $ldap->setUserSn($lastname);
   $ldap->setUserMail($mail);
-  $ldap->setUserCn($firstname.' '.$lastname);  
+  $ldap->setUserCn($firstname.' '.$lastname);
 
   if ($wasAdmin && !$becomeAdmin) {
     $ldap->setUserDescription('NO MORE admin');
@@ -225,7 +214,7 @@ function updateUser ($uid = null) {
  */
 function updateMailAliasesUserForm ($uid = null) {
   global $ldap;
-  
+
   if (isset($uid)) {
     $uid = htmlspecialchars($uid);
     $ldap->setSearchPath(array('ou' => 'users'));
@@ -307,5 +296,5 @@ function updatePasswordUser ($uid = null) {
     redirect_to('/user/password/'.$uid);
   }
 
-  
+
 }
