@@ -29,7 +29,9 @@ function user() {
  * GET /user/list
  */
 function listUser() {
-    $users = moulinette('domain list');
+    $users = moulinette('user list');
+//    print_r($users);
+//    die();
     set('users', $users);
     set('title', T_('List users'));
     return render("listUser.html.php");

@@ -19,11 +19,22 @@
   */
 
  ?>
-<div class="row row-tab">
-    <ul class="small-block-grid-2 large-block-grid-4">
+<div id="block-grid">
+    <ul class="small-block-grid-1 large-block-grid-2">
         <?php foreach ($users as $user) { ?>
-           <li style="border: 3px solid #222; padding: 10px;">
-                   <img src="<?php echo PUBLIC_DIR ?>/img/user.png">
+           <li>
+                <div class="gridBlock">
+                    <div class="row">
+                        <div class="small-4 columns">
+                            <img class="right stroked" src="http://dummyimage.com/75x75" />
+                        </div>
+                        <div class="small-8 columns">
+                            <span><?php echo $user['Username']; echo ' ('.$user['Fullname'].') '; ?></span>
+                            <br/>
+                            <span><?php echo $user['Mail']; ?></span>
+                        </div>
+                    </div>
+                </div>
            </li>
         <?php } ?>
     </ul>
@@ -31,28 +42,3 @@
         <a class="btn btn-primary btn-large" href="/user/add"><i class="icon-plus icon-white" style="margin-top: 3px"></i> <?php echo T_('New user'); ?></a>
 	</div>
 </div>
-		<!-- <div class="span6"> 
-			<div class="well">
-				<div class="row">
-					<div class="avatar span2">
-						<img src="<?php echo PUBLIC_DIR ?>/img/user.png" />
-					</div>
-					<div class="entityInfo">
-						<?php foreach ($adminsDn as $adminDn) {
-							if (preg_match('#^cn='.$user['cn'].'#', $adminDn)) { ?>
-								<span class="label label-important">Admin</span>&nbsp;
-						<?php }} ?>
-						<a href="/user/update/<?php echo $user['uid']; ?>" title="<?php echo T_('Edit').' '.$user['uid'] ?>"
-						style="color: inherit;"><strong><?php echo $user['uid']; ?></strong></a> 
-							<span style="color: #999; font-size: 11px;">(<?php echo $user['cn']; ?>)</span>
-						<div class="maillist"><?php echo $user['mail']; ?></div>
-					</div>
-					<div class="span1" style="margin-left: 3px; width: 55px; float: right;">
-						<div style="text-align: right" class="btn-group">
-							<a href="/user/update/<?php echo $user['uid']; ?>" title="<?php echo T_('Edit').' '.$user['uid'] ?>" class="btn btn-mini"><i class="icon-edit"></i></a>
-							<a href="/user/delete/<?php echo $user['uid']; ?>" title="<?php echo T_('Delete').' '.$user['uid'] ?>" class="btn btn-mini"><i class="icon-trash"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>-->
