@@ -281,11 +281,15 @@ div {
 }
 
 .gridBlock {
-    border: 3px solid $black;
     background-color: $lightGrey;
     padding: 20px 10px 20px 10px;
+    @include colorbox($lightGrey);
+}
+
+.marged {
     margin: 20px;
 }
+
 
 /* Responsive stuffs */
 
