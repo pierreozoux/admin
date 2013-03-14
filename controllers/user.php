@@ -30,8 +30,6 @@ function user() {
  */
 function listUser() {
     $users = moulinette('user list');
-//    print_r($users);
-//    die();
     set('users', $users);
     set('title', T_('List users'));
     return render("listUser.html.php");

@@ -20,33 +20,48 @@
 
  ?>
 <div class="row">
-<div class="small-2 columns">
-<div class="btn-container">
-<a class="big green button marged right" href="/user/add"><img src="http://dummyimage.com/60x60" /></a>
-</div>
-</div>
-<div class="small-10 columns">
-<div id="block-grid">
-    <ul class="small-block-grid-1 large-block-grid-2">
-        <?php foreach ($users as $user) { ?>
-           <li>
-                <div class="gridBlock stroked marged">
-                    <div class="row">
-                        <div class="small-4 columns">
-                            <img class="right stroked" src="http://dummyimage.com/75x75" />
-                        </div>
-                        <div class="small-8 columns">
-                            <span class="upperStrong"><?php echo $user['Username'];?></span>
-                            <span><?php echo ' ('.$user['Fullname'].') '; ?></span>
-                            <br/>
-                            <span><?php echo $user['Mail']; ?></span>
+    <div class="large-2 columns">
+        <div class="btn-container">
+            <a class="big green button marged left" href="/user/add"><img src="http://dummyimage.com/60x60" /></a>
+        </div>
+    </div>
+    <div class="large-10 columns">
+        <div id="block-grid"> <!-- foundation blockgrid for the user list -->
+            <ul class="small-block-grid-1 large-block-grid-2">
+            <?php foreach ($users as $user) { ?>
+                <li>
+                    <div class="gridBlock stroked marged">
+                        <div class="row">
+                            <div class="small-4 columns">
+                                <img class="right stroked" src="http://dummyimage.com/75x75" />
+                            </div>
+                            <div class="small-8 columns">
+                                <span class="upperStrong"><?php echo $user['Username'];?></span>
+                                <span><?php echo ' ('.$user['Fullname'].') '; ?></span>
+                                <br/>
+                                <span><?php echo $user['Mail']; ?></span>
+                            </div>
                         </div>
                     </div>
-                </div>
-           </li>
-        <?php } ?>
-    </ul>
-	</div>
+                </li>
+            <?php } ?>
+            </ul>
+        </div> <!-- /blockgrid -->
+    <div class="row"> <!-- gridrow for a centered pagination list -->
+        <div class="small-5 small-centered columns">
+            <ul class="pagination">
+              <li class="arrow unavailable"><a href="">&laquo;</a></li>
+              <li class="current"><a href="">1</a></li>
+              <li><a href="">2</a></li>
+              <li><a href="">3</a></li>
+              <li><a href="">4</a></li>
+              <li class="unavailable"><a href="">&hellip;</a></li>
+              <li><a href="">12</a></li>
+              <li><a href="">13</a></li>
+              <li class="arrow"><a href="">&raquo;</a></li>
+            </ul> 
+        </div>
+    </div>
 </div>
 </div>
 </div>
