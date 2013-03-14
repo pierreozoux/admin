@@ -8,6 +8,10 @@
 
 /* Identity SCSS */
 
+html, body {
+    min-height: 100%;
+}
+
 body {
     background: $whaite;
 }
@@ -84,6 +88,7 @@ nav.top-bar div.top-bar-section ul li a.button {
 
 textarea,
 input[type=text],
+input[type=password],
 input[type=reset] {
     @include colorbox($whaite);
     font-size: 16px;
@@ -150,6 +155,7 @@ nav.top-bar {
                 font-weight: 800;
                 letter-spacing: -1px;
                 color: $black;
+                font-size: 32px;
                 //text-shadow: 3px -3px 0px #fff;
             }
         }
@@ -205,6 +211,12 @@ nav.top-bar {
     background: #555;
     box-shadow: 4px -5px #555;
     color: #fff;
+}
+
+.logo {
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: $black;
 }
 
 .padded {

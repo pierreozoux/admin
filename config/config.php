@@ -55,10 +55,9 @@ function not_found($errno, $errstr, $errfile=null, $errline=null)
 function before($route)
 {
   global $config;
-  global $ldap;
 
   /**
-   * Set host & ldap
+   * Set host
    */
 
   if (!isset($_SESSION['domain']))
@@ -66,8 +65,6 @@ function before($route)
 
   if (!isset($_SESSION['mainDomain']))
     $_SESSION['mainDomain'] = exec('cat /usr/share/yunohost/yunohost-config/others/current_host');
-
-  $ldap = new YunohostLdap('localhost', 'yunohost.org', dirname(__FILE__).'/../models');
 
 
   /**
@@ -92,18 +89,6 @@ function before($route)
 
   // Set the $locale variable in template
   set('locale', $_SESSION['locale']);
-
-  /**
-   * Authenticate
-   */
-  function authenticate() {
-    if(isset($_SESSION['isConnected'])) unset($_SESSION['isConnected']);
-    header('WWW-Authenticate: Basic realm="'.T_('admin / password').'"');
-    header('HTTP/1.0 401 Unauthorized');
-    header('Content-Type: text/html; charset=UTF-8');
-    echo T_('You must identify yourself to access to this page.');
-    exit;
-  }
 
   /**
    * Proceed routing
@@ -132,11 +117,13 @@ function before($route)
   }
 
   /**
-   * Check authentcation
+   * Check installation
    */
-  if (isset($_SERVER['PHP_AUTH_USER'])) {
+  if ($_SESSION['mainDomain'] == 'yunohost.org' && sizeof($_POST) == 0) {
+      die(render("postinstall.html.php", null, array('title' => T_('Configuration'))));
+  } else {
       continueRouting($route);
-  } else authenticate();
+  }
 }
 
 

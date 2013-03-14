@@ -4220,6 +4220,9 @@ table {
     max-width: 800px; }
 
 /* Identity SCSS */
+html, body {
+  min-height: 100%; }
+
 body {
   background: #f2f2f2; }
 
@@ -4308,6 +4311,7 @@ nav.top-bar div.top-bar-section ul li a.button {
 
 textarea,
 input[type=text],
+input[type=password],
 input[type=reset] {
   box-shadow: 2px -3px #f2f2f2;
   background-color: #f2f2f2;
@@ -4318,6 +4322,7 @@ input[type=reset] {
   padding: 0 10px; }
   textarea:focus,
   input[type=text]:focus,
+  input[type=password]:focus,
   input[type=reset]:focus {
     border-color: #222222;
     background-color: #fff; }
@@ -4359,7 +4364,8 @@ nav.top-bar {
   nav.top-bar ul.title-area li.name h1 a {
     font-weight: 800;
     letter-spacing: -1px;
-    color: #222222; }
+    color: #222222;
+    font-size: 32px; }
   nav.top-bar ul.title-area li.menu-icon a {
     font-family: 'Source Code Pro';
     font-weight: 700;
@@ -4397,6 +4403,11 @@ nav.top-bar {
   background: #555;
   box-shadow: 4px -5px #555;
   color: #fff; }
+
+.logo {
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: #222222; }
 
 .padded {
   padding: 15px 30px; }
