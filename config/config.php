@@ -119,7 +119,7 @@ function before($route)
   /**
    * Check installation
    */
-  if ($_SESSION['mainDomain'] != 'yunohost.org' && sizeof($_POST) == 0) {
+  if ($_SESSION['mainDomain'] == 'yunohost.org' && sizeof($_POST) == 0) {
       die(render("postinstall.html.php", null, array('title' => T_('Configuration'))));
   } else {
       continueRouting($route);
