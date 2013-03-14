@@ -40,7 +40,7 @@ function listUser() {
  */
 function addUserForm () {
   global $ldap;
-  $domains = $ldap->findAll('(objectClass=mailDomain)');
+  $domains = moulinette('domain list');
   set('domains', $domains);
   set('title', T_('Add user'));
   return render("addUserForm.html.php");

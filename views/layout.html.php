@@ -36,9 +36,9 @@
 
 	<meta name="viewport" content="width=device-width">
     <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="<?php echo PUBLIC_DIR ?>/js/libs/jquery-1.7.1.min.js"><\/script>')</script>-->
+    <script>window.jQuery || document.write('<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/jquery-1.7.1.min.js"><\/script>')</script>-->
     <link media="all" type="text/css" href="<?php echo PUBLIC_DIR ?>/stylesheets/app.css" rel="stylesheet">
-	<script src="<?php echo PUBLIC_DIR ?>/js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
+	<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/custom.modernizr.js"></script>
 </head>
 <body class="">
     <div id="top-bar-container" class="fixed">
@@ -89,34 +89,34 @@
 
 <script type="text/javascript">
       document.write('<script src=' +
-      ('__proto__' in {} ? '<?php echo PUBLIC_DIR ?>/js/libs/zepto' : '<?php echo PUBLIC_DIR ?>/js/libs/jquery') +
+      ('__proto__' in {} ? '<?php echo PUBLIC_DIR ?>/javascript/libs/zepto' : '<?php echo PUBLIC_DIR ?>/javascript/libs/jquery') +
       '.js><\/script>');
 </script>
 
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.alerts.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.clearing.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.cookie.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.dropdown.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.forms.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.joyride.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.magellan.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.orbit.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.placeholder.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.reveal.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.section.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.tooltips.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.topbar.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.alerts.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.clearing.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.cookie.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.dropdown.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.forms.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.joyride.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.magellan.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.orbit.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.placeholder.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.reveal.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.section.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.tooltips.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.topbar.js"></script>
 <script>
     $(document).foundation();
 </script>
 
 
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/jquery.dataTables.min.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/jquery.dataTables.min.js"></script>
 
 <!-- scripts concatenated and minified via ant build script-->
-<script src="<?php echo PUBLIC_DIR ?>/js/plugins.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/script.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/plugins.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/script.js"></script>
 
 <?php if (isset($_SESSION['chat'])) { ?>
   <script type="text/javascript">
