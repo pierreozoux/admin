@@ -25,8 +25,8 @@
  <form action="/user/add" method="post" class="custom row row-tab entityForm">
 	<div class="row">
 		<div class="large-8 small-centered columns">
-            <label class="span2 labeluser" for="domain"><?php echo T_('Domain') ?> <span style="color: red">*</span></label>
-            <select class="span3" style="" type="text" name="domain" id="domain">
+            <label for="domain"><?php echo T_('Domain') ?> <span>*</span></label>
+            <select type="text" name="domain" id="domain">
                 <?php foreach ($domains['Domains'] as $domain) { ?>
                     <option value="<?php echo $domain ?>"><?php echo $domain ?></option>
                 <?php } ?>
@@ -34,48 +34,50 @@
         </div>
 	<div class="row">
 		<div class="large-4 columns">
-            <label class="span2 labeluser" for="username"><?php echo T_('Username') ?> <span style="color: red">*</span></label>
-            <input class="span3" type="text" name="username" id="username" required />
+            <label for="username"><?php echo T_('Username') ?> <span>*</span></label>
+            <input type="text" name="username" id="username" required />
         </div>
 		<div class="large-2 columns">
             <div class="span3">
-                <label class="span2 labeladmin" style="text-align: right" for="isadmin"><strong><?php echo T_('Administrator') ?></strong></label>
-                <input class="span1" style="margin: 2px 0 0 10px;" type="checkbox" name="isadmin" id="isadmin" />
+                <label style="text-align: right" for="isadmin"><strong><?php echo T_('Administrator') ?></strong></label>
+                <input type="checkbox" name="isadmin" id="isadmin" />
             </div>
         </div>
 		<div class="large-6 columns">
-            <label class="span2 labeluser" for="mail"><?php echo T_('Mail') ?> <span style="color: red">*</span></label>
-            <input class="span3" type="text" name="mail" id="mail" required />
+            <label for="mail"><?php echo T_('Mail') ?> <span>*</span></label>
+            <input type="text" name="mail" id="mail" required />
         </div>
     </div>
 	<div class="row">
 		<div class="large-6 columns">
-            <label class="span2 labeluser" for="firstname"><?php echo T_('Firstname') ?> <span style="color: red">*</span></label>
-            <input class="span3" type="text" name="firstname" id="firstname" required />
+            <label for="firstname"><?php echo T_('Firstname') ?> <span>*</span></label>
+            <input type="text" name="firstname" id="firstname" required />
         </div>
 		<div class="large-6 columns">
-            <label class="span2 labeluser" for="lastname"><?php echo T_('Lastname') ?> <span style="color: red">*</span></label>
-            <input class="span3" type="text" name="lastname" id="lastname" required />
+            <label for="lastname"><?php echo T_('Lastname') ?> <span>*</span></label>
+            <input type="text" name="lastname" id="lastname" required />
         </div>
     </div>
 	<div class="row">
 		<div class="large-6 columns">
-            <label class="span2 labeluser" for="password"><?php echo T_('Password') ?> <span style="color: red">*</span></label>
-            <input class="span3" type="password" name="password" id="password" required />
+            <label for="password"><?php echo T_('Password') ?> <span>*</span></label>
+            <input type="password" name="password" id="password" required />
         </div>
 		<div class="large-6 columns">
-            <label class="span2 labeluser" for="confirm"><?php echo T_('Confirm password') ?> <span style="color: red">*</span></label>
-            <input class="span3" type="password" name="confirm" id="confirm" required />
+            <label for="confirm"><?php echo T_('Confirm password') ?> <span>*</span></label>
+            <input type="password" name="confirm" id="confirm" required />
         </div>
     </div>
 	<div class="row">
             <div style="clear: both;"></div>
             <hr>
         <p class="row" style="text-align: center;">
-            <span style="color: red">*</span> <small><?php echo T_('required fields') ?></small>
+            <span>*</span> <small><?php echo T_('required fields') ?></small>
         </p>
         <p class="row" style="text-align: center;">
-            <input class="btn btn-primary btn-large" type="submit" value="<?php echo T_('Create') ?>" />
+        <div class="btn-container">
+            <input class="medium green button" type="submit" value="<?php echo T_('Create') ?>" />
+        </div>
         </p>
 		</div>
 	</div>
