@@ -29,7 +29,7 @@ function user() {
  * GET /user/list
  */
 function listUser() {
-    $users = moulinette('user list');
+    $users = moulinette('user list --limit 6 --offset 6');
     set('users', $users);
     set('title', T_('List users'));
     return render("listUser.html.php");

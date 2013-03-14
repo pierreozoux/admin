@@ -19,6 +19,8 @@
   */
 
  ?>
+<div class="row">
+<div class="small-8 small-centered columns">
  <form action="/user/add" method="post" class="row row-tab entityForm">
 	<div class="span6">
 		<div class="well">
@@ -74,3 +76,5 @@
 	</div>
 	<div style="clear: both;"></div>
 </form>
+</div>
+</div>
