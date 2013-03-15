@@ -4327,19 +4327,24 @@ input[type=reset] {
   input[type=text]:focus,
   input[type=password]:focus,
   input[type=reset]:focus {
-    border-color: #222222;
-    background-color: #fff; }
+    box-shadow: 2px -3px #ffff66;
+    background-color: #ffff66;
+    border-color: #222222; }
 
-textarea:focus,
-input[type=text]:focus,
-input[type=password]:focus,
-input[type=reset]:focus {
-  box-shadow: 2px -3px #ffff66;
-  background-color: #ffff66; }
-
-form.custom .custom.dropdown {
-  box-shadow: 2px -3px #aaaaaa;
-  background-color: #aaaaaa; }
+form.custom .custom {
+  border: 3px solid #222222; }
+  form.custom .custom.dropdown {
+    box-shadow: 2px -3px #aaaaaa;
+    background-color: #aaaaaa;
+    background: #fff;
+    height: 2.6em;
+    font-size: 1em; }
+    form.custom .custom.dropdown ul li {
+      font-size: 1em; }
+    form.custom .custom.dropdown.open {
+      box-shadow: 2px -3px #ffff66;
+      background-color: #ffff66;
+      background: #fff; }
 
 textarea {
   padding: 10px;
@@ -4408,6 +4413,23 @@ nav.top-bar {
   nav.top-bar div.top-bar-section ul li a:hover:not(.button) {
     background: #f2f2f2;
     text-shadow: 1px -2px 0 #ffff66; }
+
+/* Alert messages */
+#container div.alert-box {
+  box-shadow: 2px -3px #2ba6cb;
+  background-color: #2ba6cb;
+  color: #222222;
+  border: 3px solid #222222;
+  font-size: 16px; }
+  #container div.alert-box.success {
+    box-shadow: 2px -3px #66ff00;
+    background-color: #66ff00; }
+  #container div.alert-box.alert {
+    box-shadow: 2px -3px #fb2f3e;
+    background-color: #fb2f3e; }
+  #container div.alert-box .close {
+    padding: 14px;
+    opacity: 1; }
 
 .whitebox {
   background: #fff;

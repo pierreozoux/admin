@@ -67,11 +67,11 @@
             <div class="row">
                 <div class="small-6 columns">
                     <div class="btn-container">
-                        <input class="medium green button" type="submit" value="<?php echo T_('Create') ?>" />
+                        <input class="big green button" type="submit" value="<?php echo T_('Create') ?>" />
                     </div>
                 </div>
                 <div class="small-6 columns">
-                    <span>*</span> <?php echo T_('required fields') ?>
+                    <span class="uppercase">*<?php echo T_('required fields') ?></span> 
                 </div>
 		</div>
 	</div>

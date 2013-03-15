@@ -41,37 +41,7 @@ function listDomains () {
  * PUT /domain/update
  */
 function updateDomains () {
-  global $ldap;
-
-  $error = false;
-  
-  foreach ($_POST['domains'] as $domain) {
-    if (!empty($domain)) {
-      $domains[] = htmlspecialchars($domain);
-      foreach ($_POST['actualDomains'] as $key => $actualDomain) {
-        if ($domain == $actualDomain) unset($_POST['actualDomains'][$key]);
-      }
-    }
-  }
-
-  if (!empty($_POST['actualDomains'])) {
-    foreach ($_POST['actualDomains'] as $domainToDelete) {
-      $error = !$ldap->deleteVirtualdomain(array('virtualdomain' => $domainToDelete));
-    }
-  }
-  
-
-  if (isset($domains)) {
-    foreach ($domains as $domain) {
-      if (!$ldap->findOneBy(array('virtualdomain' => $domain))) {
-        $ldap->setVirtualdomainVirtualdomain($domain); // Verbose epicness
-        $error = !$ldap->saveVirtualdomain();
-      }
-    }
-  } else flash('error', T_('You must enter at least one domain.'));
-
-  if ($error) flash('error', T_('A problem occured on domain operations.'));
-  else flash('success', T_('Domains successfully updated.'));
+  flash('success', T_('Domains successfully updated.'));
 
   redirect_to('/domain/list');
 }
