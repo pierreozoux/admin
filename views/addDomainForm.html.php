@@ -19,10 +19,8 @@
   */
 
  ?>
-<div class="row">
-<div class="small-8 small-centered columns">
 
- <form action="/user/add" method="post" class="custom row row-tab entityForm">
+<form action="/domain/update" method="post" class="custom row row-tab entityForm">
 	<div class="row">
 		<div class="large-8 small-centered columns">
       <label for="domain"><?php echo T_('Domain') ?> <span>*</span></label>
@@ -76,6 +74,45 @@
         </div>
       </div>
     </div>
-  </form>
-</div>
-</div>
+</form>
+<form action="/domain/update" method="post" class="row row-tab entityForm">
+	<input type="hidden" name="_method" value="PUT" id="_method">
+	<?php foreach ($domains['Domains'] as $domain) { ?>
+  		<input type="hidden" name="actualDomains[]" value="<?php echo $domain ?>">
+  	<?php } ?>
+	<div class="span6">
+		<div class="well">
+			<h3 class="center"><?php echo T_('Domains') ?></h3>
+		    <br /><br />
+		    <p class="row mailrow parentaliasrow" style="display: none;">
+			    <label class="span2 labeluser" for="domains"><?php echo T_('Domain') ?></label>
+			    <input class="span3" type="text" name="domains[]" placeholder="<?php echo T_('New domain name') ?>" />
+			    <a href="#" class="removeAlias"><i class="icon-remove-sign"></i></a>
+		    </p>
+		   	<input type="hidden" name="domains[]" value="<?php echo $mainDomain ?>">
+		    <?php foreach ($domains['Domains'] as $domain) { ?>
+                <p class="row mailrow aliasrow">
+                    <label class="span2 labeluser" for="domains"><?php echo ($domain == $mainDomain) ? T_('Main domain') : T_('Domain') ?></label>
+                    <input class="span3" type="text" name="domains[]" value="<?php echo $domain ?>" <?php echo ($domain == $mainDomain) ? 'disabled' : '' ?>/>
+                    <?php if ($domain != $mainDomain) { ?>
+                    <a href="#" class="removeAlias"><i class="icon-remove-sign"></i></a>
+                    <?php } ?>
+                </p>
+		    <?php } ?>
+		    <p class="row" style="text-align: center;">
+		    	<a class="btn" id="addAlias">
+		    		<i class="icon-plus" style="margin: 2px 6px 0 0;"></i><?php echo T_('Add a domain') ?>
+		    	</a>
+		    	<a class="btn" href="/domain/changeMain">
+		    		<i class="icon-edit" style="margin: 2px 6px 0 0;"></i><?php echo T_('Change main domain') ?>
+		    	</a>
+		    </p>
+		   	<div style="clear: both;"></div>
+			<hr>
+		    <p class="row" style="text-align: center;">
+		    	<input class="btn btn-primary btn-large" type="submit" value="<?php echo T_('Save') ?>" />
+		    </p>
+		</div>
+	</div>
+	<div style="clear: both;"></div>
+</form>

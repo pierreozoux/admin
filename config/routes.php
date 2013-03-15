@@ -34,6 +34,7 @@ dispatch('/ping/:apps', 'ping');
  */
 dispatch('/domain', 'domains');
 dispatch('/domain/list', 'listDomains');
+dispatch('/domain/add', 'addDomainForm');
 dispatch_put('/domain/update', 'updateDomains');
 dispatch('/domain/changeMain', 'changeMainForm');
 dispatch_put('/domain/changeMain', 'changeMain');

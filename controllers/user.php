@@ -29,7 +29,7 @@ function user() {
  * GET /user/list
  */
 function listUser() {
-  $users = moulinette('user list --limit 6 --offset 6');
+  $users = moulinette('user list');
   set('users', $users);
   set('title', T_('List users'));
   return render("listUser.html.php");
@@ -63,12 +63,9 @@ function addUser () {
 
   if ($_POST["password"] === $_POST["confirm"])
   {
-
-    flash('success', 'user create --username '.$username.
-      ' --mail '.$mail);
-    redirect_to('/user/list');
-
-    if ($ldap->saveUser())
+    if (moulinette('user create --username '.$username.
+      ' --mail '.$mail.' --firstname '.$firstname.' --lastname '
+      .$lastname.' --password '.$password))
     {
       flash('success', T_('User successfully created.'));
 
