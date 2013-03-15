@@ -71,6 +71,22 @@
     </div>
 
     <div id="container" class="row small-fix">
+        <?php if (isset($flash['error'])) { ?>
+            <div data-alert class="alert-box alert">
+              <strong><?php echo T_('Error') ?>:</strong> <?php echo $flash['error'] ?>
+              <a href="#" class="close">&times;</a>
+            </div>
+        <?php } elseif (isset($flash['notice'])) { ?>
+            <div data-alert class="alert-box">
+              <strong><?php echo T_('Notice') ?>:</strong> <?php echo $flash['notice'] ?>
+              <a href="#" class="close">&times;</a>
+            </div>
+        <?php } elseif (isset($flash['success'])) { ?>
+            <div data-alert class="alert-box success">
+              <?php echo $flash['success'] ?>
+              <a href="#" class="close">&times;</a>
+            </div>
+        <?php } ?>
 
       <?php echo $content?>
 

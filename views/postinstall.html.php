@@ -18,7 +18,7 @@
                     <div class="clear"></div>
                     <label for="password" class="small-4 columns" style="text-align: right; padding-top: 7px;"><span class="uppercase" style="font-size: 20px;"><?php echo T_('Admin password') ?></span> </label><input class="small-7 columns" style="float: left" type="password" name="password" id="password" />
                     <div class="clear spacer"></div>
-                    <div class="center">
+                    <div class="center btn-container">
                         <input type="submit" value="<?php echo T_('Let\'s go !') ?>" class="big red button" />
                     </div>
                 </form>
