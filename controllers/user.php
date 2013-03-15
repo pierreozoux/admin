@@ -29,10 +29,10 @@ function user() {
  * GET /user/list
  */
 function listUser() {
-    $users = moulinette('user list --limit 6 --offset 6');
-    set('users', $users);
-    set('title', T_('List users'));
-    return render("listUser.html.php");
+  $users = moulinette('user list --limit 6 --offset 6');
+  set('users', $users);
+  set('title', T_('List users'));
+  return render("listUser.html.php");
 }
 
 /**
@@ -50,13 +50,10 @@ function addUserForm () {
  * POST /user/add
  */
 function addUser () {
-  global $ldap;
 
   $_SESSION['first-install'] = false;
 
-  $ajax = isset($_POST['ajax']);
-
-  $domain = $ajax ? $_SESSION['domain'] : htmlspecialchars($_POST["domain"]);
+  $domain = htmlspecialchars($_POST["domain"]);
   $username = htmlspecialchars($_POST["username"]);
   $password = '{MD5}'.base64_encode(pack('H*',md5($_POST["password"])));
   $firstname = htmlspecialchars($_POST["firstname"]);
@@ -66,16 +63,13 @@ function addUser () {
 
   if ($_POST["password"] === $_POST["confirm"])
   {
-    $ldap->setUserUid($username);
-    $ldap->setUserGivenname($firstname);
-    $ldap->setUserSn($lastname);
-    $ldap->setUserMail($mail);
-    $ldap->setUserUserpassword($password);
-    if ($admin) $ldap->setUserDescription('admin');
+
+    flash('success', 'user create --username '.$username.
+      ' --mail '.$mail);
+    redirect_to('/user/list');
 
     if ($ldap->saveUser())
     {
-      if ($admin) $ldap->grantAdmin($username);
       flash('success', T_('User successfully created.'));
 
       $welcomeMessage = T_('Welcome aboard! Here is your login and password to connect to your apps.');
@@ -92,15 +86,13 @@ function addUser () {
                       '<p>'.$welcomeMessage2.'</p>'.
                       '<a href="https://auth.'.$domain.'">https://auth.'.$domain.'</a>';
       sendMail($mail, T_('Your account details'), $mailMessage, $htmlMessage);
-      if ($ajax) return true;
-      else redirect_to('/user/list');
+      redirect_to('/user/list');
     }
     else flash('error', T_('An error occured on user creation.'));
   }
   else flash('error', T_('Passwords does not match'));
 
-  if ($ajax) return false;
-  else redirect_to('/user/add');
+  redirect_to('/user/add');
 }
 
 

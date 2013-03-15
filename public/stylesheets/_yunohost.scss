@@ -86,14 +86,15 @@ nav.top-bar div.top-bar-section ul li a.button {
     }
 }
 
+
 textarea,
 input[type=text],
 input[type=password],
 input[type=reset] {
-    @include colorbox($whaite);
+    @include colorbox($lightGrey);
     font-size: 16px;
     line-height: 26px;
-    border: 3px solid $black;
+    //border: 3px solid $black;
     color: $black;
     padding: 0 10px;
     &:focus {
@@ -101,6 +102,17 @@ input[type=reset] {
         background-color: #fff;
         //border-style: dashed;
     }
+} 
+
+textarea:focus,
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=reset]:focus {
+  @include colorbox($yellow);
+}
+
+form.custom .custom.dropdown{
+  @include colorbox($grey);
 }
 
 textarea {

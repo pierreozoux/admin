@@ -442,8 +442,11 @@ $button-radius: 4px;
 
 // We use these to control the basic form styles input styles
 // $custom-form-border-color: #ccc;
+ $custom-form-border-color: $black;
 // $custom-form-bg: #fff;
+ $custom-form-bg: $whaite;
 // $custom-form-bg-disabled: #ddd;
+ $custom-form-bg-disabled: $lightGrey;
 // $custom-form-check-color: #222;
 
 // We use these to style the custom select form element.
@@ -461,7 +464,9 @@ $button-radius: 4px;
 // $custom-dropdown-height: 200px;
 // $custom-dropdown-bg: #fff;
 // $custom-dropdown-border-color: darken(#fff, 20%);
+ $custom-dropdown-border-color: $black;
 // $custom-dropdown-border-width: 1px;
+ $custom-dropdown-border-width: 3px;
 // $custom-dropdown-border-style: solid;
 // $custom-dropdown-font-color: #555;
 // $custom-dropdown-font-size: emCalc(14px);
