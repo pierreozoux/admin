@@ -29,9 +29,7 @@ function user() {
  * GET /user/list
  */
 function listUser() {
-    $users = moulinette('user list');
-//    print_r($users);
-//    die();
+    $users = moulinette('user list --limit 6 --offset 6');
     set('users', $users);
     set('title', T_('List users'));
     return render("listUser.html.php");
@@ -42,7 +40,7 @@ function listUser() {
  */
 function addUserForm () {
   global $ldap;
-  $domains = $ldap->findAll('(objectClass=mailDomain)');
+  $domains = moulinette('domain list');
   set('domains', $domains);
   set('title', T_('Add user'));
   return render("addUserForm.html.php");
