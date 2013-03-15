@@ -73,7 +73,7 @@
     <div id="container" class="row small-fix">
         <?php if (isset($flash['error'])) { ?>
             <div data-alert class="alert-box alert">
-              <strong><?php echo T_('Error') ?>:</strong> <?php echo $flash['error'] ?>
+              <?php echo $flash['error'] ?>
               <a href="#" class="close">&times;</a>
             </div>
         <?php } elseif (isset($flash['notice'])) { ?>

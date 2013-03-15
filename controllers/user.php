@@ -67,8 +67,6 @@ function addUser () {
       ' --mail '.$mail.' --firstname '.$firstname.' --lastname '
       .$lastname.' --password '.$password))
     {
-      flash('success', T_('User successfully created.'));
-
       $welcomeMessage = T_('Welcome aboard! Here is your login and password to connect to your apps.');
       $welcomeMessage2 = T_('If you want to change your password, click on the link below:');
 
@@ -85,9 +83,7 @@ function addUser () {
       sendMail($mail, T_('Your account details'), $mailMessage, $htmlMessage);
       redirect_to('/user/list');
     }
-    else flash('error', T_('An error occured on user creation.'));
-  }
-  else flash('error', T_('Passwords does not match'));
+  } else flash('error', T_('Passwords does not match'));
 
   redirect_to('/user/add');
 }

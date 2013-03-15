@@ -152,9 +152,20 @@ function moulinette($command) {
     exec('cd /var/moulinette && sudo ./parse_args '. $command .' --admin-password "'.$_SERVER['PHP_AUTH_PW'].'"', $result, $result_code);
 
     if ($result_code == 0) {
-        return json_decode($result[0], true);
+        $result = json_decode(end($result), true);
+        if (array_key_exists('success', $result)) {
+            foreach ($result['success'] as $msg) {
+                flash('success', $msg);
+            }
+            unset($result['success']);
+        }
+        return $result;
     } else {
-	    return false;
+        $error = json_decode(end($result), true);
+        foreach ($error as $code => $msg) {
+            flash('error', '<strong>'.T_('Error').' '.$code.':</strong> '.$msg);
+        }
+        return false;
     }
 }
 
