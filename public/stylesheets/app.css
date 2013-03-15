@@ -4327,19 +4327,24 @@ input[type=reset] {
   input[type=text]:focus,
   input[type=password]:focus,
   input[type=reset]:focus {
-    border-color: #222222;
-    background-color: #fff; }
+    box-shadow: 2px -3px #ffff66;
+    background-color: #ffff66;
+    border-color: #222222; }
 
-textarea:focus,
-input[type=text]:focus,
-input[type=password]:focus,
-input[type=reset]:focus {
-  box-shadow: 2px -3px #ffff66;
-  background-color: #ffff66; }
-
-form.custom .custom.dropdown {
-  box-shadow: 2px -3px #aaaaaa;
-  background-color: #aaaaaa; }
+form.custom .custom {
+  border: 3px solid #222222; }
+  form.custom .custom.dropdown {
+    box-shadow: 2px -3px #aaaaaa;
+    background-color: #aaaaaa;
+    background: #fff;
+    height: 2.6em;
+    font-size: 1em; }
+    form.custom .custom.dropdown ul li {
+      font-size: 1em; }
+    form.custom .custom.dropdown.open {
+      box-shadow: 2px -3px #ffff66;
+      background-color: #ffff66;
+      background: #fff; }
 
 textarea {
   padding: 10px;

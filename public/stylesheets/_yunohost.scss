@@ -98,21 +98,29 @@ input[type=reset] {
     color: $black;
     padding: 0 10px;
     &:focus {
+        @include colorbox($yellow);
         border-color: $black;
-        background-color: #fff;
         //border-style: dashed;
     }
 } 
 
-textarea:focus,
-input[type=text]:focus,
-input[type=password]:focus,
-input[type=reset]:focus {
-  @include colorbox($yellow);
-}
-
-form.custom .custom.dropdown{
-  @include colorbox($grey);
+form.custom {
+  .custom {
+    border: 3px solid $black;
+    &.dropdown{
+      @include colorbox($grey);
+      background: #fff;
+      height: 2.6em;
+      font-size: 1em;
+      ul li {
+        font-size: 1em;
+      }
+      &.open {
+        @include colorbox($yellow);
+        background: #fff;
+      }
+    }
+  }
 }
 
 textarea {
