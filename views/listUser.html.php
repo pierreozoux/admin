@@ -27,7 +27,7 @@
     </div>
     <div class="large-10 columns">
 <div class="row">
-<div class="column small-12 small-centered gridBlock stroked masked">
+<div class="column small-11 small-centered gridBlock stroked masked">
 <div class="small-11 small-centered columns">
 
  <form action="/user/add" method="post" class="custom row row-tab entityForm">
@@ -90,7 +90,7 @@
 </div>
         <div id="block-grid"> <!-- foundation blockgrid for the user list -->
             <ul class="small-block-grid-1 large-block-grid-2">
-            <?php foreach ($users as $user) { ?>
+            <?php foreach ($users['Users'] as $user) { ?>
                 <li>
                     <div class="gridBlock hoverable stroked marged">
                         <div class="row">
@@ -112,15 +112,17 @@
     <div class="row"> <!-- gridrow for a centered pagination list -->
         <div class="small-5 small-centered columns">
             <ul class="pagination">
-              <li class="arrow unavailable"><a href="">&laquo;</a></li>
-              <li class="current"><a href="">1</a></li>
-              <li><a href="">2</a></li>
-              <li><a href="">3</a></li>
-              <li><a href="">4</a></li>
-              <li class="unavailable"><a href="">&hellip;</a></li>
-              <li><a href="">12</a></li>
-              <li><a href="">13</a></li>
-              <li class="arrow"><a href="">&raquo;</a></li>
+
+              <? for($i = 1; $i <= ($nbUsers/$limit)+1 ; $i++ ){
+              if($i === $_GET['page']){?>
+
+                  <li class="current"><a href="#"><?=$i?></a></li>
+
+              <? } else { ?>
+
+              <li><a href="/user/list?page=<?=$i?>"><?=$i?></a></li>
+
+              <? } } ?>
             </ul> 
         </div>
     </div>

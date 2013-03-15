@@ -29,9 +29,14 @@ function user() {
  * GET /user/list
  */
 function listUser() {
-  $users = moulinette('user list');
+  $limit = 6;
+  $_GET['page']= isset($_GET['page']) ? $_GET['page'] : 1;
+  $users = moulinette('user list --limit '.$limit.' --offset '.(($_GET['page']-1)*$limit));
+  $nbUsers = sizeof(moulinette('user list')['Users']);
   $domains = moulinette('domain list');
   set('users', $users);
+  set('nbUsers', $nbUsers);
+  set('limit', $limit);
   set('domains', $domains);
   set('title', T_('List users'));
   return render("listUser.html.php");
