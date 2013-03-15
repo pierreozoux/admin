@@ -4334,17 +4334,16 @@ input[type=reset] {
 form.custom .custom {
   border: 3px solid #222222; }
   form.custom .custom.dropdown {
-    box-shadow: 2px -3px #aaaaaa;
-    background-color: #aaaaaa;
-    background: #fff;
+    background: none;
+    box-shadow: 2px -3px #cccccc;
+    background-color: #cccccc;
     height: 2.6em;
     font-size: 1em; }
     form.custom .custom.dropdown ul li {
       font-size: 1em; }
     form.custom .custom.dropdown.open {
       box-shadow: 2px -3px #ffff66;
-      background-color: #ffff66;
-      background: #fff; }
+      background-color: #ffff66; }
 
 textarea {
   padding: 10px;

@@ -38,6 +38,17 @@ function listDomains () {
 }
 
 /**
+ * GET /domain/add
+ */
+function addDomainForm () {
+  $domains = moulinette('domain list');
+  set('domains', $domains);
+  set('mainDomain', $_SESSION['mainDomain']);
+  set('title', T_('List of domains'));
+  return render("listDomains.html.php");
+}
+
+/**
  * PUT /domain/update
  */
 function updateDomains () {

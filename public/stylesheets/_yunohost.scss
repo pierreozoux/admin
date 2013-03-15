@@ -108,8 +108,8 @@ form.custom {
   .custom {
     border: 3px solid $black;
     &.dropdown{
-      @include colorbox($grey);
-      background: #fff;
+      background: none;
+      @include colorbox($lightGrey);
       height: 2.6em;
       font-size: 1em;
       ul li {
@@ -117,7 +117,6 @@ form.custom {
       }
       &.open {
         @include colorbox($yellow);
-        background: #fff;
       }
     }
   }
