@@ -33,15 +33,9 @@
             </select> 
         </div>
 	<div class="row">
-		<div class="large-4 columns">
+		<div class="large-6 columns">
             <label for="username"><?php echo T_('Username') ?> <span>*</span></label>
             <input type="text" name="username" id="username" required />
-        </div>
-		<div class="large-2 columns">
-            <div class="span3">
-                <label style="text-align: right" for="isadmin"><strong><?php echo T_('Administrator') ?></strong></label>
-                <input type="checkbox" name="isadmin" id="isadmin" />
-            </div>
         </div>
 		<div class="large-6 columns">
             <label for="mail"><?php echo T_('Mail') ?> <span>*</span></label>
@@ -49,11 +43,11 @@
         </div>
     </div>
 	<div class="row">
-		<div class="large-6 columns">
+		<div class="large-5 columns">
             <label for="firstname"><?php echo T_('Firstname') ?> <span>*</span></label>
             <input type="text" name="firstname" id="firstname" required />
         </div>
-		<div class="large-6 columns">
+		<div class="large-7 columns">
             <label for="lastname"><?php echo T_('Lastname') ?> <span>*</span></label>
             <input type="text" name="lastname" id="lastname" required />
         </div>
@@ -69,19 +63,18 @@
         </div>
     </div>
 	<div class="row">
-            <div style="clear: both;"></div>
-            <hr>
-        <p class="row" style="text-align: center;">
-            <span>*</span> <small><?php echo T_('required fields') ?></small>
-        </p>
-        <p class="row" style="text-align: center;">
-        <div class="btn-container">
-            <input class="medium green button" type="submit" value="<?php echo T_('Create') ?>" />
-        </div>
-        </p>
+        <div class="small-6 small-centered columns">
+            <div class="row">
+                <div class="small-6 columns">
+                    <div class="btn-container">
+                        <input class="medium green button" type="submit" value="<?php echo T_('Create') ?>" />
+                    </div>
+                </div>
+                <div class="small-6 columns">
+                    <span>*</span> <?php echo T_('required fields') ?>
+                </div>
 		</div>
 	</div>
-	<div style="clear: both;"></div>
 </form>
 </div>
 </div>

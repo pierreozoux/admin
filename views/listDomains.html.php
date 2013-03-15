@@ -22,8 +22,8 @@
 
 <form action="/domain/update" method="post" class="row row-tab entityForm">
 	<input type="hidden" name="_method" value="PUT" id="_method">
-	<?php foreach ($domains as $domain) { ?>
-  		<input type="hidden" name="actualDomains[]" value="<?php echo $domain['virtualdomain'] ?>">
+	<?php foreach ($domains['Domains'] as $domain) { ?>
+  		<input type="hidden" name="actualDomains[]" value="<?php echo $domain ?>">
   	<?php } ?>
 	<div class="span6">
 		<div class="well">
@@ -35,14 +35,14 @@
 			    <a href="#" class="removeAlias"><i class="icon-remove-sign"></i></a>
 		    </p>
 		   	<input type="hidden" name="domains[]" value="<?php echo $mainDomain ?>">
-		    <?php foreach ($domains as $domain) { ?>
-				    	<p class="row mailrow aliasrow">
-						    <label class="span2 labeluser" for="domains"><?php echo ($domain['virtualdomain'] == $mainDomain) ? T_('Main domain') : T_('Domain') ?></label>
-						    <input class="span3" type="text" name="domains[]" value="<?php echo $domain['virtualdomain'] ?>" <?php echo ($domain['virtualdomain'] == $mainDomain) ? 'disabled' : '' ?>/>
-						    <?php if ($domain['virtualdomain'] != $mainDomain) { ?>
-						    <a href="#" class="removeAlias"><i class="icon-remove-sign"></i></a>
-						    <?php } ?>
-				    	</p>
+		    <?php foreach ($domains['Domains'] as $domain) { ?>
+                <p class="row mailrow aliasrow">
+                    <label class="span2 labeluser" for="domains"><?php echo ($domain == $mainDomain) ? T_('Main domain') : T_('Domain') ?></label>
+                    <input class="span3" type="text" name="domains[]" value="<?php echo $domain ?>" <?php echo ($domain == $mainDomain) ? 'disabled' : '' ?>/>
+                    <?php if ($domain != $mainDomain) { ?>
+                    <a href="#" class="removeAlias"><i class="icon-remove-sign"></i></a>
+                    <?php } ?>
+                </p>
 		    <?php } ?>
 		    <p class="row" style="text-align: center;">
 		    	<a class="btn" id="addAlias">

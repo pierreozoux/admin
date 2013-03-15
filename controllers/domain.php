@@ -30,9 +30,7 @@ function domains () {
  * GET /domain/list
  */
 function listDomains () {
-  global $ldap;
-  
-  $domains = $ldap->findAll('(objectClass=mailDomain)');
+  $domains = moulinette('domain list');
   set('domains', $domains);
   set('mainDomain', $_SESSION['mainDomain']);
   set('title', T_('List of domains'));

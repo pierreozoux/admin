@@ -2145,8 +2145,8 @@ form.custom .custom {
   height: 16px;
   position: relative;
   top: 2px;
-  border: solid 1px #cccccc;
-  background: white; }
+  border: solid 1px #222222;
+  background: #f2f2f2; }
   form.custom .custom.radio {
     -webkit-border-radius: 1000px;
     border-radius: 1000px; }
@@ -2287,7 +2287,7 @@ form.custom {
     margin: 0;
     padding: 0;
     background: white;
-    border: solid 1px #cccccc;
+    border: solid 3px #222222;
     font-size: 16px; }
     form.custom .custom.dropdown ul li {
       color: #555555;
@@ -2315,7 +2315,7 @@ form.custom {
     form.custom .custom.dropdown ul.show {
       display: block; }
   form.custom .custom.disabled {
-    background-color: #dddddd; }
+    background-color: #cccccc; }
 
 /* Button Groups */
 .button-group {
@@ -4317,11 +4317,10 @@ textarea,
 input[type=text],
 input[type=password],
 input[type=reset] {
-  box-shadow: 2px -3px #f2f2f2;
-  background-color: #f2f2f2;
+  box-shadow: 2px -3px #cccccc;
+  background-color: #cccccc;
   font-size: 16px;
   line-height: 26px;
-  border: 3px solid #222222;
   color: #222222;
   padding: 0 10px; }
   textarea:focus,
@@ -4330,6 +4329,17 @@ input[type=reset] {
   input[type=reset]:focus {
     border-color: #222222;
     background-color: #fff; }
+
+textarea:focus,
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=reset]:focus {
+  box-shadow: 2px -3px #ffff66;
+  background-color: #ffff66; }
+
+form.custom .custom.dropdown {
+  box-shadow: 2px -3px #aaaaaa;
+  background-color: #aaaaaa; }
 
 textarea {
   padding: 10px;
@@ -4517,4 +4527,4 @@ div#container {
   margin: 20px; }
 
 #container {
-  padding-top: 108px; }
+  padding-top: 20px; }
