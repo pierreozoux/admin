@@ -202,6 +202,24 @@ nav.top-bar {
     }
 }
 
+/* Alert messages */
+#container div.alert-box {
+    @include colorbox($blue);
+    color: $black;
+    border: 3px solid $black;
+    font-size: 16px;
+    &.success {
+        @include colorbox($green);
+    }
+    &.alert {
+        @include colorbox($red);
+    }
+    .close {
+        padding: 14px;
+        opacity: 1;
+    }
+}
+
 .whitebox {
     background: #fff;
     box-shadow: 4px -5px #fff;

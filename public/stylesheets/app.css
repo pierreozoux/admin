@@ -4399,6 +4399,23 @@ nav.top-bar {
     background: #f2f2f2;
     text-shadow: 1px -2px 0 #ffff66; }
 
+/* Alert messages */
+body div.alert-box {
+  box-shadow: 2px -3px #2ba6cb;
+  background-color: #2ba6cb;
+  color: #222222;
+  border: 3px solid #222222;
+  font-size: 16px; }
+  body div.alert-box.success {
+    box-shadow: 2px -3px #66ff00;
+    background-color: #66ff00; }
+  body div.alert-box.alert {
+    box-shadow: 2px -3px #fb2f3e;
+    background-color: #fb2f3e; }
+  body div.alert-box .close {
+    padding: 14px;
+    opacity: 1; }
+
 .whitebox {
   background: #fff;
   box-shadow: 4px -5px #fff; }
