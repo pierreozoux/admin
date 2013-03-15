@@ -48,25 +48,25 @@ nav.top-bar div.top-bar-section ul li a.button {
     &.red {
         @include colorbox($red);
         &:hover, &:active {
-            @include colorbox(lighten($red, 20%));
+            background-color: lighten($red, 20%);
         }
     }
     &.blue {
         @include colorbox($blue);
         &:hover, &:active {
-            @include colorbox(lighten($blue, 20%));
+            background-color: lighten($blue, 20%);
         }
     }
     &.yellow {
         @include colorbox($yellow);
         &:hover, &:active {
-            @include colorbox(lighten($yellow, 20%));
+            background-color: lighten($yellow, 20%);
         }
     }
     &.green {
         @include colorbox($green);
         &:hover, &:active {
-            @include colorbox(lighten($green, 20%));
+            background-color: lighten($green, 20%);
         }
     }
     &:focus {
@@ -74,7 +74,6 @@ nav.top-bar div.top-bar-section ul li a.button {
         color: $black;
     }
     &:active {
-        background-color: inherit;
         color: $black;
         box-shadow: none;
         //margin-top: 2px;
@@ -91,7 +90,7 @@ textarea,
 input[type=text],
 input[type=password],
 input[type=reset] {
-    @include colorbox($lightGrey);
+    @include colorbox($whaite);
     font-size: 16px;
     line-height: 26px;
     //border: 3px solid $black;
@@ -109,7 +108,7 @@ form.custom {
     border: 3px solid $black;
     &.dropdown{
       background: none;
-      @include colorbox($lightGrey);
+      @include colorbox($whaite);
       height: 2.6em;
       font-size: 1em;
       ul li {
@@ -320,9 +319,9 @@ div {
 
 .btn-container {
     padding: 3px 2px 0 0;
-}
-.btn-container:active {
-    padding: 0 0 3px 2px;
+    &:active {
+      padding: 0 0 3px 2px;
+    }
 }
 
 #top-bar-container {
@@ -333,6 +332,9 @@ div {
     background-color: $lightGrey;
     padding: 20px 10px 20px 10px;
     @include colorbox($lightGrey);
+    &.hoverable:hover {
+        @include colorbox(lighten($lightGrey, 8%));
+    }
 }
 
 .marged {

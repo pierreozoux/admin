@@ -30,7 +30,9 @@ function user() {
  */
 function listUser() {
   $users = moulinette('user list');
+  $domains = moulinette('domain list');
   set('users', $users);
+  set('domains', $domains);
   set('title', T_('List users'));
   return render("listUser.html.php");
 }

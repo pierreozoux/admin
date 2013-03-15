@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    $(".masked").hide();
+    $(".revealForm").click(function() {
+      $(".masked").show(400);
+    });
     $(window).scroll(function() {
         if ($(window).width() > 1024) {
             if ($(window).scrollTop() > 20) {

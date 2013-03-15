@@ -4258,7 +4258,6 @@ nav.top-bar div.top-bar-section ul li a.button {
     input[type=submit].button.red:active,
     nav.top-bar div.top-bar-section ul li a.button.red:hover,
     nav.top-bar div.top-bar-section ul li a.button.red:active {
-      box-shadow: 2px -3px #fd939b;
       background-color: #fd939b; }
   .button.blue,
   input[type=submit].button.blue,
@@ -4270,7 +4269,6 @@ nav.top-bar div.top-bar-section ul li a.button {
     input[type=submit].button.blue:active,
     nav.top-bar div.top-bar-section ul li a.button.blue:hover,
     nav.top-bar div.top-bar-section ul li a.button.blue:active {
-      box-shadow: 2px -3px #79cae3;
       background-color: #79cae3; }
   .button.yellow,
   input[type=submit].button.yellow,
@@ -4282,7 +4280,6 @@ nav.top-bar div.top-bar-section ul li a.button {
     input[type=submit].button.yellow:active,
     nav.top-bar div.top-bar-section ul li a.button.yellow:hover,
     nav.top-bar div.top-bar-section ul li a.button.yellow:active {
-      box-shadow: 2px -3px #ffffcc;
       background-color: #ffffcc; }
   .button.green,
   input[type=submit].button.green,
@@ -4294,7 +4291,6 @@ nav.top-bar div.top-bar-section ul li a.button {
     input[type=submit].button.green:active,
     nav.top-bar div.top-bar-section ul li a.button.green:hover,
     nav.top-bar div.top-bar-section ul li a.button.green:active {
-      box-shadow: 2px -3px #a3ff66;
       background-color: #a3ff66; }
   .button:focus,
   input[type=submit].button:focus,
@@ -4304,7 +4300,6 @@ nav.top-bar div.top-bar-section ul li a.button {
   .button:active,
   input[type=submit].button:active,
   nav.top-bar div.top-bar-section ul li a.button:active {
-    background-color: inherit;
     color: #222222;
     box-shadow: none; }
   .button:hover,
@@ -4317,8 +4312,8 @@ textarea,
 input[type=text],
 input[type=password],
 input[type=reset] {
-  box-shadow: 2px -3px #cccccc;
-  background-color: #cccccc;
+  box-shadow: 2px -3px #f2f2f2;
+  background-color: #f2f2f2;
   font-size: 16px;
   line-height: 26px;
   color: #222222;
@@ -4335,8 +4330,8 @@ form.custom .custom {
   border: 3px solid #222222; }
   form.custom .custom.dropdown {
     background: none;
-    box-shadow: 2px -3px #cccccc;
-    background-color: #cccccc;
+    box-shadow: 2px -3px #f2f2f2;
+    background-color: #f2f2f2;
     height: 2.6em;
     font-size: 1em; }
     form.custom .custom.dropdown ul li {
@@ -4493,9 +4488,8 @@ div {
 
 .btn-container {
   padding: 3px 2px 0 0; }
-
-.btn-container:active {
-  padding: 0 0 3px 2px; }
+  .btn-container:active {
+    padding: 0 0 3px 2px; }
 
 #top-bar-container {
   z-index: 97; }
@@ -4505,6 +4499,9 @@ div {
   padding: 20px 10px 20px 10px;
   box-shadow: 2px -3px #cccccc;
   background-color: #cccccc; }
+  .gridBlock.hoverable:hover {
+    box-shadow: 2px -3px #e0e0e0;
+    background-color: #e0e0e0; }
 
 .marged {
   margin: 20px; }

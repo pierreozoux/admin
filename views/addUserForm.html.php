@@ -20,7 +20,8 @@
 
  ?>
 <div class="row">
-<div class="small-8 small-centered columns">
+<div class="column small-9 small-centered gridBlock stroked">
+<div class="small-11 small-centered columns">
 
  <form action="/user/add" method="post" class="custom row row-tab entityForm">
 	<div class="row">
@@ -65,17 +66,18 @@
     <div class="row">
       <div class="small-6 small-centered columns">
         <div class="row">
-          <div class="small-6 columns">
+          <div class="large-6 columns">
             <div class="btn-container">
               <input class="big green button" type="submit" value="<?php echo T_('Create') ?>" />
             </div>
           </div>
-          <div class="small-6 columns">
+          <div class="large-6 columns">
             <span class="uppercase">*<?php echo T_('required fields') ?></span> 
           </div>
         </div>
       </div>
     </div>
   </form>
+</div>
 </div>
 </div>
