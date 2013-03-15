@@ -1,5 +1,4 @@
 sftp-config.json
-.htaccess
 .*.swp
 .*.swo
 public/stylesheets/.sass-cache/*

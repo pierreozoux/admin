@@ -29,7 +29,7 @@ body {
 }
 
 .button,
-input.button,
+input[type=submit].button,
 nav.top-bar div.top-bar-section ul li a.button {
     @include colorbox($grey);
     font-family: 'Source Code Pro';
@@ -48,25 +48,25 @@ nav.top-bar div.top-bar-section ul li a.button {
     &.red {
         @include colorbox($red);
         &:hover, &:active {
-            background-color: lighten($red, 20%);
+            @include colorbox(lighten($red, 20%));
         }
     }
     &.blue {
         @include colorbox($blue);
         &:hover, &:active {
-            background-color: lighten($blue, 20%);
+            @include colorbox(lighten($blue, 20%));
         }
     }
     &.yellow {
         @include colorbox($yellow);
         &:hover, &:active {
-            background-color: lighten($blue, 20%);
+            @include colorbox(lighten($yellow, 20%));
         }
     }
     &.green {
         @include colorbox($green);
         &:hover, &:active {
-            background-color: lighten($green, 20%);
+            @include colorbox(lighten($green, 20%));
         }
     }
     &:focus {

@@ -4230,7 +4230,7 @@ body {
   html {
     border: 3px solid #222222; } }
 .button,
-input.button,
+input[type=submit].button,
 nav.top-bar div.top-bar-section ul li a.button {
   box-shadow: 2px -3px #aaaaaa;
   background-color: #aaaaaa;
@@ -4243,68 +4243,72 @@ nav.top-bar div.top-bar-section ul li a.button {
   color: #222222;
   padding: 0 10px; }
   .button.big,
-  input.button.big,
+  input[type=submit].button.big,
   nav.top-bar div.top-bar-section ul li a.button.big {
     font-size: 26px;
     padding: 5px 15px;
     letter-spacing: -1px; }
   .button.red,
-  input.button.red,
+  input[type=submit].button.red,
   nav.top-bar div.top-bar-section ul li a.button.red {
     box-shadow: 2px -3px #fb2f3e;
     background-color: #fb2f3e; }
     .button.red:hover, .button.red:active,
-    input.button.red:hover,
-    input.button.red:active,
+    input[type=submit].button.red:hover,
+    input[type=submit].button.red:active,
     nav.top-bar div.top-bar-section ul li a.button.red:hover,
     nav.top-bar div.top-bar-section ul li a.button.red:active {
+      box-shadow: 2px -3px #fd939b;
       background-color: #fd939b; }
   .button.blue,
-  input.button.blue,
+  input[type=submit].button.blue,
   nav.top-bar div.top-bar-section ul li a.button.blue {
     box-shadow: 2px -3px #2ba6cb;
     background-color: #2ba6cb; }
     .button.blue:hover, .button.blue:active,
-    input.button.blue:hover,
-    input.button.blue:active,
+    input[type=submit].button.blue:hover,
+    input[type=submit].button.blue:active,
     nav.top-bar div.top-bar-section ul li a.button.blue:hover,
     nav.top-bar div.top-bar-section ul li a.button.blue:active {
+      box-shadow: 2px -3px #79cae3;
       background-color: #79cae3; }
   .button.yellow,
-  input.button.yellow,
+  input[type=submit].button.yellow,
   nav.top-bar div.top-bar-section ul li a.button.yellow {
     box-shadow: 2px -3px #ffff66;
     background-color: #ffff66; }
     .button.yellow:hover, .button.yellow:active,
-    input.button.yellow:hover,
-    input.button.yellow:active,
+    input[type=submit].button.yellow:hover,
+    input[type=submit].button.yellow:active,
     nav.top-bar div.top-bar-section ul li a.button.yellow:hover,
     nav.top-bar div.top-bar-section ul li a.button.yellow:active {
-      background-color: #79cae3; }
+      box-shadow: 2px -3px #ffffcc;
+      background-color: #ffffcc; }
   .button.green,
-  input.button.green,
+  input[type=submit].button.green,
   nav.top-bar div.top-bar-section ul li a.button.green {
     box-shadow: 2px -3px #66ff00;
     background-color: #66ff00; }
     .button.green:hover, .button.green:active,
-    input.button.green:hover,
-    input.button.green:active,
+    input[type=submit].button.green:hover,
+    input[type=submit].button.green:active,
     nav.top-bar div.top-bar-section ul li a.button.green:hover,
     nav.top-bar div.top-bar-section ul li a.button.green:active {
+      box-shadow: 2px -3px #a3ff66;
       background-color: #a3ff66; }
   .button:focus,
-  input.button:focus,
+  input[type=submit].button:focus,
   nav.top-bar div.top-bar-section ul li a.button:focus {
     background-color: inherit;
     color: #222222; }
   .button:active,
-  input.button:active,
+  input[type=submit].button:active,
   nav.top-bar div.top-bar-section ul li a.button:active {
     background-color: inherit;
     color: #222222;
     box-shadow: none; }
   .button:hover,
-  input.button:hover,
+  input[type=submit].button:hover,
   nav.top-bar div.top-bar-section ul li a.button:hover {
     background-color: inherit;
     color: #222222; }
