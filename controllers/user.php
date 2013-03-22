@@ -43,15 +43,12 @@ function listUser() {
 }
 
 /**
- * GET /user/add
+ * GET /user/details
  */
-function addUserForm () {
-  global $ldap;
-  $domains = moulinette('domain list');
-  set('domains', $domains);
-  set('title', T_('Add user'));
-  return render("addUserForm.html.php");
+function showUserAjax() {
+  return '{"myMsg": "'.$_GET['user'].'!"}';
 }
+
 
 /**
  * POST /user/add
@@ -126,6 +123,8 @@ function deleteUserForm ($uid = null) {
  * DELETE /user/delete
  */
 function deleteUser () {
+  return '{ myMsg: "'.$_POST['donnee'].'" }';
+  /*
   global $ldap;
   $uid = htmlspecialchars($_POST["user"]);
   $ldap->populateUser(array('uid' => $uid));
@@ -137,6 +136,7 @@ function deleteUser () {
     flash('error', T_('An error occured on user deletion.'));
 
   redirect_to('/user/list');
+   */
 }
 
 

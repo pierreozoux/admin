@@ -4232,6 +4232,7 @@ body {
 .button,
 input[type=submit].button,
 nav.top-bar div.top-bar-section ul li a.button {
+  background: none;
   box-shadow: 2px -3px #aaaaaa;
   background-color: #aaaaaa;
   font-family: 'Source Code Pro';
@@ -4312,8 +4313,6 @@ textarea,
 input[type=text],
 input[type=password],
 input[type=reset] {
-  box-shadow: 2px -3px #f2f2f2;
-  background-color: #f2f2f2;
   font-size: 16px;
   line-height: 26px;
   color: #222222;
@@ -4327,7 +4326,8 @@ input[type=reset] {
     border-color: #222222; }
 
 form.custom .custom {
-  border: 3px solid #222222; }
+  border: 3px solid #222222;
+  background: none; }
   form.custom .custom.dropdown {
     background: none;
     box-shadow: 2px -3px #f2f2f2;

@@ -34,7 +34,7 @@
             <ul class="small-block-grid-1 large-block-grid-2">
             <?php foreach ($domains['Domains'] as $domain) { ?>
                 <li>
-                    <div class="gridBlock stroked marged">
+                    <div class="gridBlock hoverable stroked marged">
                         <div class="row">
                             <div class="small-8 columns">
                                 <span class="upperStrong"><?=$domain?></span>

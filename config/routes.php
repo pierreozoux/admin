@@ -52,6 +52,7 @@ dispatch('/app/:operation/:app/ajax', 'operateAppAjax');
  */
 dispatch('/user', 'user');
 dispatch('/user/list', 'listUser');
+dispatch('/user/details', 'showUserAjax');
 dispatch('/user/add', 'addUserForm');
 dispatch_post('/user/add', 'addUser');
 dispatch('/user/delete/:user', 'deleteUserForm');
