@@ -22,33 +22,8 @@ function showModal() {
   $('#userDetails').foundation('reveal', 'open');          
 } 
 
-$(document).ready(function () {
-    $(window).scroll(function() {
-        if ($(window).width() > 1024) {
-            if ($(window).scrollTop() > 20) {
-                if ($("#top-bar-container").css('border-bottom') != '3px solid #222') {
-                    $("#top-bar-container").css('border-bottom', '3px solid #222');
-                }
-            } else {
-                if ($("#top-bar-container").css('border-bottom') != 'none') {
-                    $("#top-bar-container").css('border-bottom', 'none');
-                }
-            }
-        }
-    });
-    
-    $(window).resize(function() {
-        if ($(window).width() < 1024) {
-            if ($("#top-bar-container").css('border-bottom') != '3px solid #222') {
-                $("#top-bar-container").css('border-bottom', '3px solid #222');
-            }
-        } else {
-            if ($("#top-bar-container").css('border-bottom') != 'none') {
-                $("#top-bar-container").css('border-bottom', 'none');
-            }
-        }
-    });
 
+$(document).ready(function () {
     $("#deleteWarningDisplay").click(function() {
       notTwice=true;
       $("#userToDelete").replaceWith('<span class="upperStrong" id="userToDelete">'+user+'</span>');
@@ -66,6 +41,5 @@ $(document).ready(function () {
         }
       });
     });
-
 
 });

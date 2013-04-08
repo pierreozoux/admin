@@ -17,7 +17,7 @@
   *  You should have received a copy of the GNU Affero General Public License
   *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
   */
-  
+
 
 /**
  * GET /domain
@@ -54,28 +54,5 @@ function addDomainForm () {
 function updateDomains () {
   flash('success', T_('Domains successfully updated.'));
 
-  redirect_to('/domain/list');
-}
-
-/**
- * GET /domain/changeMain
- */
-function changeMainForm () {
-  global $ldap;
-  $domains = $ldap->findAll('(objectClass=mailDomain)');
-  set('domains', $domains);
-  set('mainDomain', $_SESSION['mainDomain']);
-  set('title', T_('Change main domain'));
-  return render("changeMainDomain.html.php");
-}
-
-/**
- * PUT /domain/changeMain
- */
-function changeMain () {
-  $domain = htmlspecialchars($_POST['domain']);
-  exec('sudo yunohost change-domain '. $_SESSION['mainDomain'] .' '.$domain);
-  $_SESSION['mainDomain'] = $domain;
-  flash('success', T_('Main domain successfully changed.'));
   redirect_to('/domain/list');
 }

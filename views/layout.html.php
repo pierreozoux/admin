@@ -46,7 +46,7 @@
         <div class="top-bar-wrapper">
           <ul class="title-area">
             <li class="name">
-                <h1><a class="brand" href="/"><span class="logoBoxed">YUNOHOST</span></a></h1>
+                <h1><a class="brand" href="/"><span class="logo">YUNOHOST</span></a></h1>
             </li>
             <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
           </ul>

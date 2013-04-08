@@ -13,7 +13,7 @@ html, body {
 }
 
 body {
-    background: $whaite;
+    background: white;
 }
 
 @media screen and (min-width: 1024px) {
@@ -32,6 +32,7 @@ body {
 input[type=submit].button,
 nav.top-bar div.top-bar-section ul li a.button {
     background: none;
+    background-color: $grey;
     @include colorbox($grey);
     font-family: 'Source Code Pro';
     text-transform: uppercase;
@@ -169,6 +170,7 @@ nav.top-bar {
     font-family: 'Source Code Pro';
     text-transform: uppercase;
     letter-spacing: -1px;
+    background-color: $whaite;
     ul.title-area {
         li.name {
             h1 a {
@@ -252,9 +254,13 @@ nav.top-bar {
 }
 
 .logo {
-    font-weight: 800;
-    letter-spacing: -1px;
+    padding: 0 0.3em 0 0.3em;
+    font-weight: 900;
+    font-size: 0.8em;
+    letter-spacing: 0.01em;
+    //letter-spacing: -1px;
     color: $black;
+    border: 5px solid $black;
 }
 
 .padded {
@@ -328,6 +334,7 @@ div {
 
 #top-bar-container {
     z-index: 97;
+    border-bottom: 3px solid $black;
 }
 
 .gridBlock {

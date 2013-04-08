@@ -4224,7 +4224,7 @@ html, body {
   min-height: 100%; }
 
 body {
-  background: #f2f2f2; }
+  background: white; }
 
 @media screen and (min-width: 1024px) {
   html {
@@ -4233,6 +4233,7 @@ body {
 input[type=submit].button,
 nav.top-bar div.top-bar-section ul li a.button {
   background: none;
+  background-color: #aaaaaa;
   box-shadow: 2px -3px #aaaaaa;
   background-color: #aaaaaa;
   font-family: 'Source Code Pro';
@@ -4370,7 +4371,8 @@ div.fixed {
 nav.top-bar {
   font-family: 'Source Code Pro';
   text-transform: uppercase;
-  letter-spacing: -1px; }
+  letter-spacing: -1px;
+  background-color: #f2f2f2; }
   nav.top-bar .top-bar-wrapper {
     max-width: 1120px;
     margin: 0 auto; }
@@ -4435,9 +4437,12 @@ nav.top-bar {
   color: #fff; }
 
 .logo {
-  font-weight: 800;
-  letter-spacing: -1px;
-  color: #222222; }
+  padding: 0 0.3em 0 0.3em;
+  font-weight: 900;
+  font-size: 0.8em;
+  letter-spacing: 0.01em;
+  color: #222222;
+  border: 5px solid #222222; }
 
 .padded {
   padding: 15px 30px; }
@@ -4492,7 +4497,8 @@ div {
     padding: 0 0 3px 2px; }
 
 #top-bar-container {
-  z-index: 97; }
+  z-index: 97;
+  border-bottom: 3px solid #222222; }
 
 .gridBlock {
   background-color: #cccccc;
