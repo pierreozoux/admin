@@ -53,6 +53,7 @@
           <div class="top-bar-section">
             <ul class="right">
               <li class="<?php echo ($tab == 'user') ? 'active' : '' ?>">
+                <div style="position: absolute;  width: 100%; top: 48px; text-align: center;"><img src="http://dummyimage.com/30x30" style=""/></div>
                 <a href="/user/list"><?php echo T_('Users') ?></a>
               </li>
               <li class="<?php echo ($tab == 'domain') ? 'active' : '' ?>">

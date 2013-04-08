@@ -2722,8 +2722,8 @@ form.custom {
 
 .top-bar {
   overflow: hidden;
-  height: 85px;
-  line-height: 85px;
+  height: 75px;
+  line-height: 75px;
   position: relative;
   background: #f2f2f2; }
   .top-bar ul {
@@ -2743,11 +2743,11 @@ form.custom {
   .top-bar .title-area {
     position: relative; }
   .top-bar .name {
-    height: 85px;
+    height: 75px;
     margin: 0;
     font-size: 16px; }
     .top-bar .name h1 {
-      line-height: 85px;
+      line-height: 75px;
       font-size: 2em;
       margin: 0; }
       .top-bar .name h1 a {
@@ -2755,7 +2755,7 @@ form.custom {
         color: #222222;
         width: 50%;
         display: block;
-        padding: 0 28.33333px; }
+        padding: 0 25px; }
   .top-bar .toggle-topbar {
     position: absolute;
     right: 0;
@@ -2767,11 +2767,11 @@ form.custom {
       font-weight: bold;
       position: relative;
       display: block;
-      padding: 0 28.33333px;
-      height: 85px;
-      line-height: 85px; }
+      padding: 0 25px;
+      height: 75px;
+      line-height: 75px; }
     .top-bar .toggle-topbar.menu-icon {
-      right: 28.33333px;
+      right: 25px;
       top: 50%;
       margin-top: -16px;
       padding-left: 40px; }
@@ -2826,7 +2826,7 @@ form.custom {
     width: 100%;
     color: white;
     padding: 12px 0 12px 0;
-    padding-left: 28.33333px;
+    padding-left: 25px;
     font-size: 18px;
     font-weight: normal;
     background: #333333; }
@@ -2852,7 +2852,7 @@ form.custom {
   .top-bar-section ul li.active a {
     background: #2b2b2b; }
   .top-bar-section .has-form {
-    padding: 28.33333px; }
+    padding: 25px; }
   .top-bar-section .has-dropdown {
     position: relative; }
     .top-bar-section .has-dropdown > a:after {
@@ -2862,7 +2862,7 @@ form.custom {
       height: 0;
       border: solid 5px;
       border-color: transparent transparent transparent rgba(255, 255, 255, 0.5);
-      margin-right: 28.33333px;
+      margin-right: 25px;
       margin-top: -4.5px;
       position: absolute;
       top: 50%;
@@ -2881,15 +2881,15 @@ form.custom {
       width: 100%; }
       .top-bar-section .dropdown li a {
         font-weight: normal;
-        padding: 8px 28.33333px; }
+        padding: 8px 25px; }
       .top-bar-section .dropdown li.title h5 {
         margin-bottom: 0; }
         .top-bar-section .dropdown li.title h5 a {
           color: #222222;
-          line-height: 42.5px;
+          line-height: 37.5px;
           display: block; }
     .top-bar-section .dropdown label {
-      padding: 8px 28.33333px 2px;
+      padding: 8px 25px 2px;
       margin-bottom: 0;
       text-transform: uppercase;
       color: #555555;
@@ -2948,8 +2948,8 @@ form.custom {
         .top-bar-section ul li .js-generated {
           display: none; }
     .top-bar-section li a:not(.button) {
-      padding: 0 28.33333px;
-      line-height: 85px;
+      padding: 0 25px;
+      line-height: 75px;
       background: #f2f2f2; }
       .top-bar-section li a:not(.button):hover {
         background: black; }
@@ -2981,7 +2981,7 @@ form.custom {
       .top-bar-section .dropdown li a {
         line-height: 1;
         white-space: nowrap;
-        padding: 7px 28.33333px;
+        padding: 7px 25px;
         background: white; }
       .top-bar-section .dropdown li label {
         white-space: nowrap;
@@ -2995,12 +2995,12 @@ form.custom {
       border-right: solid 1px white;
       border-left: solid 1px #d8d8d8;
       clear: none;
-      height: 85px;
+      height: 75px;
       width: 0px; }
     .top-bar-section .has-form {
       background: #f2f2f2;
-      padding: 0 28.33333px;
-      height: 85px; }
+      padding: 0 25px;
+      height: 75px; }
     .top-bar-section ul.right li .dropdown {
       left: auto;
       right: 0; }
@@ -4498,6 +4498,7 @@ div {
 
 #top-bar-container {
   z-index: 97;
+  border: none;
   border-bottom: 3px solid #222222; }
 
 .gridBlock {
@@ -4525,19 +4526,17 @@ div {
     margin-left: 0px;
     margin-right: 0px; } }
 /* YunoSite specific */
-div#container {
-  background: #f2f2f2; }
-  div#container div.whitebox.stroked {
+div#container div.whitebox.stroked {
+  margin-top: 20px; }
+  div#container div.whitebox.stroked p {
     margin-top: 20px; }
-    div#container div.whitebox.stroked p {
-      margin-top: 20px; }
-  @media screen and (min-width: 790px) {
-    div#container p.epic {
-      padding-left: 20px; }
-    div#container div.triplette div.large-4:first-child {
-      padding-left: 0; }
-    div#container div.triplette div.large-4:last-child {
-      padding-right: 0; } }
+@media screen and (min-width: 790px) {
+  div#container p.epic {
+    padding-left: 20px; }
+  div#container div.triplette div.large-4:first-child {
+    padding-left: 0; }
+  div#container div.triplette div.large-4:last-child {
+    padding-right: 0; } }
 
 .upperStrong {
   text-transform: uppercase;
