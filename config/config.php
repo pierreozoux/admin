@@ -65,7 +65,7 @@ function before($route)
     $_SESSION['domain'] = 'yunohost.org';
 
   if (!isset($_SESSION['mainDomain']))
-    $_SESSION['mainDomain'] = exec('cat /usr/share/yunohost/yunohost-config/others/current_host');
+    $_SESSION['mainDomain'] = exec('cat /etc/yunohost/current_host');
 
   $ldap = new YunohostLdap('localhost', 'yunohost.org', dirname(__FILE__).'/../models');
 
