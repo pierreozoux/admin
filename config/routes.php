@@ -25,56 +25,58 @@
 dispatch('/', 'home');
 dispatch('/logout', 'logout');
 dispatch('/lang/:locale', 'changeLocale');
-dispatch('/images/:name/:size', 'image_show'); 
+dispatch('/images/:name/:size', 'image_show');
 dispatch('/images/*.jpg/:size', 'image_show_jpeg_only');
-dispatch('/ping/:apps', 'ping');
+//dispatch('/ping/:apps', 'ping');
 
 /**
  * => controllers/domain.php
  */
 dispatch('/domain', 'domains');
 dispatch('/domain/list', 'listDomains');
+dispatch('/domain/add', 'addDomainForm');
 dispatch_put('/domain/update', 'updateDomains');
-dispatch('/domain/changeMain', 'changeMainForm');
-dispatch_put('/domain/changeMain', 'changeMain');
+//dispatch('/domain/changeMain', 'changeMainForm');
+//dispatch_put('/domain/changeMain', 'changeMain');
 
 /**
  * => controllers/app.php
  */
-dispatch('/app', 'apps');
-dispatch('/app/list', 'listApps');
-dispatch('/app/:operation/:app', 'operateApp');
-dispatch('/app/:operation/:app/ajax', 'operateAppAjax');
+//dispatch('/app', 'apps');
+//dispatch('/app/list', 'listApps');
+//dispatch('/app/:operation/:app', 'operateApp');
+//dispatch('/app/:operation/:app/ajax', 'operateAppAjax');
 
 /**
  * => controllers/user.php
  */
 dispatch('/user', 'user');
 dispatch('/user/list', 'listUser');
+dispatch('/user/details', 'showUserAjax');
 dispatch('/user/add', 'addUserForm');
 dispatch_post('/user/add', 'addUser');
 dispatch('/user/delete/:user', 'deleteUserForm');
 dispatch_delete('/user/delete', 'deleteUser');
-dispatch('/user/update/:user', 'updateUserForm');
-dispatch_put('/user/update/:user', 'updateUser');
-dispatch('/user/mailaliases/:user', 'updateMailAliasesUserForm');
-dispatch_put('/user/mailaliases/:user', 'updateMailAliasesUser');
-dispatch('/user/password/:user', 'updatePasswordUserForm');
-dispatch_put('/user/password/:user', 'updatePasswordUser');
+//dispatch('/user/update/:user', 'updateUserForm');
+//dispatch_put('/user/update/:user', 'updateUser');
+//dispatch('/user/mailaliases/:user', 'updateMailAliasesUserForm');
+//dispatch_put('/user/mailaliases/:user', 'updateMailAliasesUser');
+//dispatch('/user/password/:user', 'updatePasswordUserForm');
+//dispatch_put('/user/password/:user', 'updatePasswordUser');
 
 /**
  * => controllers/tools.php
  */
-dispatch('/tools', 'tools');
-dispatch('/tools/log/:service/:logFile', 'watchLog');
-dispatch('/tools/chat', 'getChat');
-dispatch('/tools/chat/enable', 'enableChat');
-dispatch('/tools/chat/disable', 'disableChat');
-dispatch('/tools/monitor', 'systemMonitor');
-dispatch('/tools/tasks', 'tasksManager');
-dispatch('/tools/upgrade/number', 'getUpgradeNumber');
-dispatch('/tools/upgrade', 'upgradeConfirm');
-dispatch('/tools/upgrade/packages', 'upgradeAjax');
-dispatch_post('/tools/upgrade/packages', 'upgradeAjax');
-dispatch('/tools/activate/:service', 'activateService');
-dispatch('/tools/deactivate/:service', 'deactivateService');
+//dispatch('/tools', 'tools');
+//dispatch('/tools/log/:service/:logFile', 'watchLog');
+//dispatch('/tools/chat', 'getChat');
+//dispatch('/tools/chat/enable', 'enableChat');
+//dispatch('/tools/chat/disable', 'disableChat');
+//dispatch('/tools/monitor', 'systemMonitor');
+//dispatch('/tools/tasks', 'tasksManager');
+//dispatch('/tools/upgrade/number', 'getUpgradeNumber');
+//dispatch('/tools/upgrade', 'upgradeConfirm');
+//dispatch('/tools/upgrade/packages', 'upgradeAjax');
+//dispatch_post('/tools/upgrade/packages', 'upgradeAjax');
+//dispatch('/tools/activate/:service', 'activateService');
+//dispatch('/tools/deactivate/:service', 'deactivateService');

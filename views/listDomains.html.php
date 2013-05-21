@@ -20,44 +20,46 @@
 
  ?>
 
-<form action="/domain/update" method="post" class="row row-tab entityForm">
-	<input type="hidden" name="_method" value="PUT" id="_method">
-	<?php foreach ($domains as $domain) { ?>
-  		<input type="hidden" name="actualDomains[]" value="<?php echo $domain['virtualdomain'] ?>">
-  	<?php } ?>
-	<div class="span6">
-		<div class="well">
-			<h3 class="center"><?php echo T_('Domains') ?></h3>
-		    <br /><br />
-		    <p class="row mailrow parentaliasrow" style="display: none;">
-			    <label class="span2 labeluser" for="domains"><?php echo T_('Domain') ?></label>
-			    <input class="span3" type="text" name="domains[]" placeholder="<?php echo T_('New domain name') ?>" />
-			    <a href="#" class="removeAlias"><i class="icon-remove-sign"></i></a>
-		    </p>
-		   	<input type="hidden" name="domains[]" value="<?php echo $mainDomain ?>">
-		    <?php foreach ($domains as $domain) { ?>
-				    	<p class="row mailrow aliasrow">
-						    <label class="span2 labeluser" for="domains"><?php echo ($domain['virtualdomain'] == $mainDomain) ? T_('Main domain') : T_('Domain') ?></label>
-						    <input class="span3" type="text" name="domains[]" value="<?php echo $domain['virtualdomain'] ?>" <?php echo ($domain['virtualdomain'] == $mainDomain) ? 'disabled' : '' ?>/>
-						    <?php if ($domain['virtualdomain'] != $mainDomain) { ?>
-						    <a href="#" class="removeAlias"><i class="icon-remove-sign"></i></a>
-						    <?php } ?>
-				    	</p>
-		    <?php } ?>
-		    <p class="row" style="text-align: center;">
-		    	<a class="btn" id="addAlias">
-		    		<i class="icon-plus" style="margin: 2px 6px 0 0;"></i><?php echo T_('Add a domain') ?>
-		    	</a>
-		    	<a class="btn" href="/domain/changeMain">
-		    		<i class="icon-edit" style="margin: 2px 6px 0 0;"></i><?php echo T_('Change main domain') ?>
-		    	</a>
-		    </p>
-		   	<div style="clear: both;"></div>
-			<hr>
-		    <p class="row" style="text-align: center;">
-		    	<input class="btn btn-primary btn-large" type="submit" value="<?php echo T_('Save') ?>" />
-		    </p>
-		</div>
-	</div>
-	<div style="clear: both;"></div>
-</form>
+<div class="row">
+    <div class="large-2 columns">
+        <div class="btn-container">
+            <a class="big green button marged left" href="/domain/add"><img src="http://dummyimage.com/60x60" /></a>
+        </div>
+        <div class="btn-container">
+            <a class="big green button marged left" href="/domain/update"><img src="http://dummyimage.com/60x60" /></a>
+        </div>
+    </div>
+    <div class="large-10 columns">
+        <div id="block-grid"> <!-- foundation blockgrid for the user list -->
+            <ul class="small-block-grid-1 large-block-grid-2">
+            <?php foreach ($domains['Domains'] as $domain) { ?>
+                <li>
+                    <div class="gridBlock hoverable stroked marged">
+                        <div class="row">
+                            <div class="small-8 columns">
+                                <span class="upperStrong"><?=$domain?></span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            <?php } ?>
+            </ul>
+        </div> <!-- /blockgrid -->
+    <div class="row"> <!-- gridrow for a centered pagination list -->
+        <div class="small-5 small-centered columns">
+            <ul class="pagination">
+              <li class="arrow unavailable"><a href="">&laquo;</a></li>
+              <li class="current"><a href="">1</a></li>
+              <li><a href="">2</a></li>
+              <li><a href="">3</a></li>
+              <li><a href="">4</a></li>
+              <li class="unavailable"><a href="">&hellip;</a></li>
+              <li><a href="">12</a></li>
+              <li><a href="">13</a></li>
+              <li class="arrow"><a href="">&raquo;</a></li>
+            </ul> 
+        </div>
+    </div>
+</div>
+</div>
+</div>

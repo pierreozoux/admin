@@ -36,9 +36,9 @@
 
 	<meta name="viewport" content="width=device-width">
     <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="<?php echo PUBLIC_DIR ?>/js/libs/jquery-1.7.1.min.js"><\/script>')</script>-->
-    <link media="all" type="text/css" href="<?php echo PUBLIC_DIR ?>/css/app.css" rel="stylesheet">
-	<script src="<?php echo PUBLIC_DIR ?>/js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
+    <script>window.jQuery || document.write('<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/jquery-1.7.1.min.js"><\/script>')</script>-->
+    <link media="all" type="text/css" href="<?php echo PUBLIC_DIR ?>/stylesheets/app.css" rel="stylesheet">
+	<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/custom.modernizr.js"></script>
 </head>
 <body class="">
     <div id="top-bar-container" class="fixed">
@@ -46,13 +46,14 @@
         <div class="top-bar-wrapper">
           <ul class="title-area">
             <li class="name">
-                <h1><a class="brand" href="/">YUNOHOST</a></h1>
+                <h1><a class="brand" href="/"><span class="logo">YUNOHOST</span></a></h1>
             </li>
             <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
           </ul>
           <div class="top-bar-section">
             <ul class="right">
               <li class="<?php echo ($tab == 'user') ? 'active' : '' ?>">
+                <div style="position: absolute;  width: 100%; top: 48px; text-align: center;"><img src="http://dummyimage.com/30x30" style=""/></div>
                 <a href="/user/list"><?php echo T_('Users') ?></a>
               </li>
               <li class="<?php echo ($tab == 'domain') ? 'active' : '' ?>">
@@ -70,48 +71,28 @@
       </nav>
     </div>
 
-    <div class="container">
-
-      <?php if (isset($_SESSION['first-install']) && $_SESSION['first-install']) {
-        include 'welcomePopUp.html.php';
-      } ?>
-
-      <?php if (isset($flash['error'])) { ?>
-        <div class="alert alert-error fade in">
-          <a class="close" data-dismiss="alert">×</a>
-          <strong><?php echo T_('Error') ?>:</strong> <?php echo $flash['error'] ?>
-        </div>
-      <?php } elseif (isset($flash['notice'])) { ?>
-        <div class="alert fade in">
-          <a class="close" data-dismiss="alert">×</a>
-          <strong><?php echo T_('Notice') ?>:</strong> <?php echo $flash['notice'] ?>
-        </div>
-      <?php } elseif (isset($flash['success'])) { ?>
-        <div class="alert alert-success fade in">
-          <a class="close" data-dismiss="alert">×</a>
-          <?php echo $flash['success'] ?>
-        </div>
-      <?php } ?>
+    <div id="container" class="row small-fix">
+        <?php if (isset($flash['error'])) { ?>
+            <div data-alert class="alert-box alert">
+              <?php echo $flash['error'] ?>
+              <a href="#" class="close">&times;</a>
+            </div>
+        <?php } elseif (isset($flash['notice'])) { ?>
+            <div data-alert class="alert-box">
+              <strong><?php echo T_('Notice') ?>:</strong> <?php echo $flash['notice'] ?>
+              <a href="#" class="close">&times;</a>
+            </div>
+        <?php } elseif (isset($flash['success'])) { ?>
+            <div data-alert class="alert-box success">
+              <?php echo $flash['success'] ?>
+              <a href="#" class="close">&times;</a>
+            </div>
+        <?php } ?>
 
       <?php echo $content?>
-      <hr>
-
-      <footer>
-        <span><?php echo T_('Powered by') ?> <a href="http://yunohost.org/">YunoHost</a> (1.0)
-          <div class="btn-group dropup pull-right">
-            <button data-toggle="dropdown" class="btn btn-mini" style="height: 20px;"><i class="icon-flag"></i> <?php echo T_('Lang') ?></button>
-            <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">
-            <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu pull-right" style="text-align: left">
-              <li<?php if($locale == 'en') echo ' class="active"'; ?>><a href="<?php echo url_for('lang', 'en', array('redirect_to' => request_uri())); ?>"><?php echo T_('English') ?></a></li>
-              <li<?php if($locale == 'fr') echo ' class="active"'; ?>><a href="<?php echo url_for('lang', 'fr', array('redirect_to' => request_uri())); ?>"><?php echo T_('French') ?></a></li>
-            </ul>
-          </div>
-        </span>
-      </footer>
 
     </div> <!-- /container -->
+
 
 <script type="text/javascript">
   // i18n
@@ -121,36 +102,38 @@
     "sInfoFiltered": "<?php echo T_('(filtered from _MAX_ total entries)'); ?>",
   };
 </script>
+
+
 <script type="text/javascript">
       document.write('<script src=' +
-      ('__proto__' in {} ? '<?php echo PUBLIC_DIR ?>/js/libs/zepto' : '<?php echo PUBLIC_DIR ?>/js/libs/jquery') +
+      ('__proto__' in {} ? '<?php echo PUBLIC_DIR ?>/javascript/libs/zepto' : '<?php echo PUBLIC_DIR ?>/javascript/libs/jquery') +
       '.js><\/script>');
 </script>
 
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.alerts.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.clearing.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.cookie.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.dropdown.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.forms.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.joyride.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.magellan.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.orbit.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.placeholder.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.reveal.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.section.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.tooltips.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/foundation/foundation.topbar.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.alerts.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.clearing.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.cookie.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.dropdown.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.forms.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.joyride.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.magellan.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.orbit.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.placeholder.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.reveal.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.section.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.tooltips.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.topbar.js"></script>
 <script>
     $(document).foundation();
 </script>
 
 
-<script src="<?php echo PUBLIC_DIR ?>/js/libs/jquery.dataTables.min.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/jquery.dataTables.min.js"></script>
 
 <!-- scripts concatenated and minified via ant build script-->
-<script src="<?php echo PUBLIC_DIR ?>/js/plugins.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/js/script.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/plugins.js"></script>
+<script src="<?php echo PUBLIC_DIR ?>/javascript/script.js"></script>
 
 <?php if (isset($_SESSION['chat'])) { ?>
   <script type="text/javascript">

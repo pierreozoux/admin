@@ -17,7 +17,7 @@
   *  You should have received a copy of the GNU Affero General Public License
   *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
   */
-  
+
 
 /**
  * GET /domain
@@ -30,9 +30,18 @@ function domains () {
  * GET /domain/list
  */
 function listDomains () {
-  global $ldap;
-  
-  $domains = $ldap->findAll('(objectClass=mailDomain)');
+  $domains = moulinette('domain list');
+  set('domains', $domains);
+  set('mainDomain', $_SESSION['mainDomain']);
+  set('title', T_('List of domains'));
+  return render("listDomains.html.php");
+}
+
+/**
+ * GET /domain/add
+ */
+function addDomainForm () {
+  $domains = moulinette('domain list');
   set('domains', $domains);
   set('mainDomain', $_SESSION['mainDomain']);
   set('title', T_('List of domains'));
@@ -43,60 +52,7 @@ function listDomains () {
  * PUT /domain/update
  */
 function updateDomains () {
-  global $ldap;
+  flash('success', T_('Domains successfully updated.'));
 
-  $error = false;
-  
-  foreach ($_POST['domains'] as $domain) {
-    if (!empty($domain)) {
-      $domains[] = htmlspecialchars($domain);
-      foreach ($_POST['actualDomains'] as $key => $actualDomain) {
-        if ($domain == $actualDomain) unset($_POST['actualDomains'][$key]);
-      }
-    }
-  }
-
-  if (!empty($_POST['actualDomains'])) {
-    foreach ($_POST['actualDomains'] as $domainToDelete) {
-      $error = !$ldap->deleteVirtualdomain(array('virtualdomain' => $domainToDelete));
-    }
-  }
-  
-
-  if (isset($domains)) {
-    foreach ($domains as $domain) {
-      if (!$ldap->findOneBy(array('virtualdomain' => $domain))) {
-        $ldap->setVirtualdomainVirtualdomain($domain); // Verbose epicness
-        $error = !$ldap->saveVirtualdomain();
-      }
-    }
-  } else flash('error', T_('You must enter at least one domain.'));
-
-  if ($error) flash('error', T_('A problem occured on domain operations.'));
-  else flash('success', T_('Domains successfully updated.'));
-
-  redirect_to('/domain/list');
-}
-
-/**
- * GET /domain/changeMain
- */
-function changeMainForm () {
-  global $ldap;
-  $domains = $ldap->findAll('(objectClass=mailDomain)');
-  set('domains', $domains);
-  set('mainDomain', $_SESSION['mainDomain']);
-  set('title', T_('Change main domain'));
-  return render("changeMainDomain.html.php");
-}
-
-/**
- * PUT /domain/changeMain
- */
-function changeMain () {
-  $domain = htmlspecialchars($_POST['domain']);
-  exec('sudo yunohost change-domain '. $_SESSION['mainDomain'] .' '.$domain);
-  $_SESSION['mainDomain'] = $domain;
-  flash('success', T_('Main domain successfully changed.'));
   redirect_to('/domain/list');
 }

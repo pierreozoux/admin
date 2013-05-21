@@ -1,4 +1,4 @@
-<?php 
+<?php
 
  /**
   *  YunoHost - Self-hosting for all
@@ -19,35 +19,145 @@
   */
 
  ?>
-<div class="row row-tab">
-	<?php foreach ($users as $user) { ?>
-		<div class="span6"> 
-			<div class="well">
-				<div class="row">
-					<div class="avatar span2">
-						<img src="<?php echo PUBLIC_DIR ?>/img/user.png" />
-					</div>
-					<div class="entityInfo">
-						<?php foreach ($adminsDn as $adminDn) {
-							if (preg_match('#^cn='.$user['cn'].'#', $adminDn)) { ?>
-								<span class="label label-important">Admin</span>&nbsp;
-						<?php }} ?>
-						<a href="/user/update/<?php echo $user['uid']; ?>" title="<?php echo T_('Edit').' '.$user['uid'] ?>"
-						style="color: inherit;"><strong><?php echo $user['uid']; ?></strong></a> 
-							<span style="color: #999; font-size: 11px;">(<?php echo $user['cn']; ?>)</span>
-						<div class="maillist"><?php echo $user['mail']; ?></div>
-					</div>
-					<div class="span1" style="margin-left: 3px; width: 55px; float: right;">
-						<div style="text-align: right" class="btn-group">
-							<a href="/user/update/<?php echo $user['uid']; ?>" title="<?php echo T_('Edit').' '.$user['uid'] ?>" class="btn btn-mini"><i class="icon-edit"></i></a>
-							<a href="/user/delete/<?php echo $user['uid']; ?>" title="<?php echo T_('Delete').' '.$user['uid'] ?>" class="btn btn-mini"><i class="icon-trash"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	<?php } ?>
-	<div class="span6" style="text-align: center; padding-top: 10px;"> 
-		<a class="btn btn-primary btn-large" href="/user/add"><i class="icon-plus icon-white" style="margin-top: 3px"></i> <?php echo T_('New user'); ?></a>
-	</div>
+<div class="row">
+  <div class="large-2 columns">
+    <div class="btn-container">
+      <a class="big green button marged left" href="#" data-reveal-id="addForm"><img src="http://dummyimage.com/60x60" /></a>
+    </div>
+  </div>
+  <div class="large-10 columns">
+
+
+    <!-- foundation blockgrid for the user list -->
+    <div id="block-grid"> 
+      <ul class="small-block-grid-1 large-block-grid-2">
+      <?php foreach ($users['Users'] as $user) { ?>
+        <li>
+        <a href="#" onclick="user='<?=$user['Username']?>'; javascript:showModal();">
+            <div class="gridBlock hoverable stroked marged">
+              <div class="row">
+                <div class="small-4 columns">
+                  <img class="right stroked" src="http://dummyimage.com/75x75" />
+                </div>
+                <div class="small-8 columns">
+                  <span class="upperStrong"><?php echo $user['Username'];?></span>
+                  <span><?php echo ' ('.$user['Fullname'].') '; ?></span>
+                  <br/>
+                  <span><?php echo $user['Mail']; ?></span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </li>
+      <?php } ?>
+      </ul>
+    </div>
+
+    <!-- pagination -->
+    <div class="row"> <!-- gridrow for a centered pagination list -->
+      <div class="small-5 small-centered columns">
+        <ul class="pagination">
+          <? if($_GET['page'] == 1){?>
+            <li class="arrow unavailable"><a>&laquo;</a></li>
+          <?} else { ?> 
+            <li class="arrow"><a href="/user/list?page=<?=$_GET['page']-1?>">&laquo;</a></li>
+          <? }
+          for($i = 1; $i <= ($nbUsers/$limit)+1 ; $i++ ){
+          if($i == $_GET['page']){?>
+              <li class="current"><a href="#"><?=$i?></a></li>
+          <? } else { ?>
+          <li><a href="/user/list?page=<?=$i?>"><?=$i?></a></li>
+          <? } }
+          if($_GET['page'] == ($nbUsers/$limit)+1){?>
+            <li class="arrow unavailable"><a>&raquo;</a></li>
+          <?} else { ?> 
+            <li class="arrow"><a href="/user/list?page=<?=$_GET['page']+1?>">&raquo;</a></li>
+          <? } ?>
+        </ul> 
+      </div>
+    </div>
+
+    <!-- user details modal -->
+    <div class="reveal-modal gridBlock stroked" id="userDetails">
+      <span></span>
+      <br/>
+      <a href="#">edit</a>
+      <br/>
+      <a href="#" id="deleteWarningDisplay">delete</a>
+    </div>
+
+
+    <!-- user deletion warning modal -->
+    <div class="reveal-modal gridBlock stroked" id="userDeleteWarning">
+      <span><?=T_('Delete user ')?><span class="upperStrong" id="userToDelete"></span><?=T_(' ? Are you sure ?')?></span>
+      <br/>
+      <a href="#" id="deleteUser">delete</a>
+    </div>
+
+    <!-- add User Form (hidden at start reveal modal foundation) -->
+    <div class="row">
+      <div class="reveal-modal gridBlock stroked" id="addForm">
+        <div class="small-11 small-centered columns">
+          <form action="/user/add" method="post" class="custom row row-tab entityForm">
+            <div class="row">
+              <div class="large-8 small-centered columns">
+                <label for="domain"><?php echo T_('Domain') ?> <span>*</span></label>
+                <select type="text" name="domain" id="domain">
+                  <?php foreach ($domains['Domains'] as $domain) { ?>
+                    <option value="<?php echo $domain ?>"><?php echo $domain ?></option>
+                  <?php } ?>
+                </select> 
+              </div>
+            </div>
+            <div class="row">
+              <div class="large-6 columns">
+                <label for="username"><?php echo T_('Username') ?> <span>*</span></label>
+                <input type="text" name="username" id="username" required />
+              </div>
+              <div class="large-6 columns">
+                <label for="mail"><?php echo T_('Mail') ?> <span>*</span></label>
+                <input type="text" name="mail" id="mail" required />
+              </div>
+            </div>
+            <div class="row">
+              <div class="large-5 columns">
+                <label for="firstname"><?php echo T_('Firstname') ?> <span>*</span></label>
+                <input type="text" name="firstname" id="firstname" required />
+              </div>
+              <div class="large-7 columns">
+                <label for="lastname"><?php echo T_('Lastname') ?> <span>*</span></label>
+                <input type="text" name="lastname" id="lastname" required />
+              </div>
+            </div>
+            <div class="row">
+              <div class="large-6 columns">
+                <label for="password"><?php echo T_('Password') ?> <span>*</span></label>
+                <input type="password" name="password" id="password" required />
+              </div>
+              <div class="large-6 columns">
+                <label for="confirm"><?php echo T_('Confirm password') ?> <span>*</span></label>
+                <input type="password" name="confirm" id="confirm" required />
+              </div>
+            </div>
+            <div class="row">
+              <div class="small-6 small-centered columns">
+                <div class="row">
+                  <div class="large-6 columns">
+                    <div class="btn-container">
+                      <input class="big green button" type="submit" value="<?php echo T_('Create') ?>" />
+                    </div>
+                  </div>
+                  <div class="large-6 columns">
+                    <span class="uppercase">*<?php echo T_('required fields') ?></span> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
 </div>
