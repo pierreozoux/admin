@@ -48,18 +48,16 @@
               <h1><a class="brand" href="/"><span class="logo-white">YUNOHOST</span></a></h1>
           </li>
         </ul>
-        <div class="top-bar-section">
-          <ul class="right">
-            <!--<li class="<?php echo ($tab == 'user') ? 'active' : '' ?>">
-              <div style="position: absolute;  width: 100%; top: 48px; text-align: center;"><img src="http://dummyimage.com/30x30" style=""/></div>
-              <a href="/user/list"><?php echo T_('Users') ?></a>
-            </li>-->
-            <li class="">
-              <!--<a href="/logout" title="<?php echo T_('Log out') ?>"><strong><?php echo $userUid ?></strong></a>-->
-              <a href="/logout" title="<?php echo T_('Log out') ?>"><strong>Logout</strong></a>
-            </li>
-          </ul>
-        </div>
+        <ul class="right">
+          <!--<li class="<?php echo ($tab == 'user') ? 'active' : '' ?>">
+            <div style="position: absolute;  width: 100%; top: 48px; text-align: center;"><img src="http://dummyimage.com/30x30" style=""/></div>
+            <a href="/user/list"><?php echo T_('Users') ?></a>
+          </li>-->
+          <li class="">
+            <!--<a href="/logout" title="<?php echo T_('Log out') ?>"><strong><?php echo $userUid ?></strong></a>-->
+            <a href="/logout" title="<?php echo T_('Log out') ?>"><strong>logout</strong></a>
+          </li>
+        </ul>
       </div>
     </nav>
     <div class="clear"></div>

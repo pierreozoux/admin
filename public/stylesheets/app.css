@@ -4373,7 +4373,7 @@ nav.tool-bar {
   background-color: #222222;
   height: 45px; }
   nav.tool-bar .tool-bar-wrapper {
-    max-width: 1120px;
+    max-width: 970px;
     margin: 0 auto; }
   nav.tool-bar ul {
     margin: 0;
@@ -4382,11 +4382,10 @@ nav.tool-bar {
     nav.tool-bar ul li.name h1 {
       margin: 6px 0 0;
       padding: 0;
-      line-height: 24px;
+      line-height: 23px;
       padding: 0 0.3em 0 0.3em;
       font-weight: 800;
-      font-size: 23px;
-      letter-spacing: -0.01em;
+      font-size: 22px;
       color: white;
       border: 3px solid white;
       font-family: 'Source Code Pro'; }
