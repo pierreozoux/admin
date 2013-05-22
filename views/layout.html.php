@@ -41,35 +41,28 @@
 	<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/custom.modernizr.js"></script>
 </head>
 <body class="">
-    <div id="top-bar-container" class="fixed">
-      <nav class="top-bar">
-        <div class="top-bar-wrapper">
-          <ul class="title-area">
-            <li class="name">
-                <h1><a class="brand" href="/"><span class="logo">YUNOHOST</span></a></h1>
+    <nav class="tool-bar">
+      <div class="tool-bar-wrapper">
+        <ul class="left">
+          <li class="name">
+              <h1><a class="brand" href="/"><span class="logo-white">YUNOHOST</span></a></h1>
+          </li>
+        </ul>
+        <div class="top-bar-section">
+          <ul class="right">
+            <!--<li class="<?php echo ($tab == 'user') ? 'active' : '' ?>">
+              <div style="position: absolute;  width: 100%; top: 48px; text-align: center;"><img src="http://dummyimage.com/30x30" style=""/></div>
+              <a href="/user/list"><?php echo T_('Users') ?></a>
+            </li>-->
+            <li class="">
+              <!--<a href="/logout" title="<?php echo T_('Log out') ?>"><strong><?php echo $userUid ?></strong></a>-->
+              <a href="/logout" title="<?php echo T_('Log out') ?>"><strong>Logout</strong></a>
             </li>
-            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
           </ul>
-          <div class="top-bar-section">
-            <ul class="right">
-              <li class="<?php echo ($tab == 'user') ? 'active' : '' ?>">
-                <div style="position: absolute;  width: 100%; top: 48px; text-align: center;"><img src="http://dummyimage.com/30x30" style=""/></div>
-                <a href="/user/list"><?php echo T_('Users') ?></a>
-              </li>
-              <li class="<?php echo ($tab == 'domain') ? 'active' : '' ?>">
-                <a href="/domain/list"><?php echo T_('Domains') ?></a>
-              </li>
-              <li class="<?php echo ($tab == 'app') ? 'active' : '' ?>">
-                <a href="/app/list"><?php echo T_('Applications') ?></a>
-              </li>
-              <li class="">
-                <a href="/logout" title="<?php echo T_('Log out') ?>"><strong><?php echo $userUid ?></strong></a>
-              </li>
-            </ul>
-          </div>
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
+    <div class="clear"></div>
 
     <div id="container" class="row small-fix">
         <?php if (isset($flash['error'])) { ?>

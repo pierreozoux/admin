@@ -1435,7 +1435,7 @@ p {
 
 /* Default header styles */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Source Code Pro", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-weight: bold;
   font-style: normal;
   color: #222222;
@@ -4229,14 +4229,15 @@ body {
 @media screen and (min-width: 1024px) {
   html {
     border: 3px solid #222222; } }
+/* Clickable elements */
 .button,
 input[type=submit].button,
 nav.top-bar div.top-bar-section ul li a.button {
   background: none;
   background-color: #aaaaaa;
-  box-shadow: 2px -3px #aaaaaa;
+  box-shadow: 6px -6px #aaaaaa, 4px -4px white inset;
   background-color: #aaaaaa;
-  font-family: 'Source Code Pro';
+  font-family: 'Source Sans Pro';
   text-transform: uppercase;
   font-weight: 700;
   font-size: 16px;
@@ -4253,7 +4254,7 @@ nav.top-bar div.top-bar-section ul li a.button {
   .button.red,
   input[type=submit].button.red,
   nav.top-bar div.top-bar-section ul li a.button.red {
-    box-shadow: 2px -3px #fb2f3e;
+    box-shadow: 6px -6px #fb2f3e, 4px -4px white inset;
     background-color: #fb2f3e; }
     .button.red:hover, .button.red:active,
     input[type=submit].button.red:hover,
@@ -4264,7 +4265,7 @@ nav.top-bar div.top-bar-section ul li a.button {
   .button.blue,
   input[type=submit].button.blue,
   nav.top-bar div.top-bar-section ul li a.button.blue {
-    box-shadow: 2px -3px #2ba6cb;
+    box-shadow: 6px -6px #2ba6cb, 4px -4px white inset;
     background-color: #2ba6cb; }
     .button.blue:hover, .button.blue:active,
     input[type=submit].button.blue:hover,
@@ -4275,7 +4276,7 @@ nav.top-bar div.top-bar-section ul li a.button {
   .button.yellow,
   input[type=submit].button.yellow,
   nav.top-bar div.top-bar-section ul li a.button.yellow {
-    box-shadow: 2px -3px #ffff66;
+    box-shadow: 6px -6px #ffff66, 4px -4px white inset;
     background-color: #ffff66; }
     .button.yellow:hover, .button.yellow:active,
     input[type=submit].button.yellow:hover,
@@ -4286,7 +4287,7 @@ nav.top-bar div.top-bar-section ul li a.button {
   .button.green,
   input[type=submit].button.green,
   nav.top-bar div.top-bar-section ul li a.button.green {
-    box-shadow: 2px -3px #66ff00;
+    box-shadow: 6px -6px #66ff00, 4px -4px white inset;
     background-color: #66ff00; }
     .button.green:hover, .button.green:active,
     input[type=submit].button.green:hover,
@@ -4322,7 +4323,7 @@ input[type=reset] {
   input[type=text]:focus,
   input[type=password]:focus,
   input[type=reset]:focus {
-    box-shadow: 2px -3px #ffff66;
+    box-shadow: 6px -6px #ffff66, 4px -4px white inset;
     background-color: #ffff66;
     border-color: #222222; }
 
@@ -4331,14 +4332,14 @@ form.custom .custom {
   background: none; }
   form.custom .custom.dropdown {
     background: none;
-    box-shadow: 2px -3px #f2f2f2;
+    box-shadow: 6px -6px #f2f2f2, 4px -4px white inset;
     background-color: #f2f2f2;
     height: 2.6em;
     font-size: 1em; }
     form.custom .custom.dropdown ul li {
       font-size: 1em; }
     form.custom .custom.dropdown.open {
-      box-shadow: 2px -3px #ffff66;
+      box-shadow: 6px -6px #ffff66, 4px -4px white inset;
       background-color: #ffff66; }
 
 textarea {
@@ -4368,10 +4369,33 @@ div.fixed {
 @media screen and (max-width: 1024px) {
   div.fixed {
     border-width: 3px; } }
+nav.tool-bar {
+  background-color: #222222;
+  height: 45px; }
+  nav.tool-bar .tool-bar-wrapper {
+    max-width: 1120px;
+    margin: 0 auto; }
+  nav.tool-bar ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none; }
+    nav.tool-bar ul li.name h1 {
+      margin: 6px 0 0;
+      padding: 0;
+      line-height: 24px;
+      padding: 0 0.3em 0 0.3em;
+      font-weight: 800;
+      font-size: 23px;
+      letter-spacing: -0.01em;
+      color: white;
+      border: 3px solid white;
+      font-family: 'Source Code Pro'; }
+      nav.tool-bar ul li.name h1 a {
+        color: white; }
+
 nav.top-bar {
-  font-family: 'Source Code Pro';
+  font-family: 'Source Sans Pro';
   text-transform: uppercase;
-  letter-spacing: -1px;
   background-color: #f2f2f2; }
   nav.top-bar .top-bar-wrapper {
     max-width: 1120px;
@@ -4380,9 +4404,10 @@ nav.top-bar {
     font-weight: 800;
     letter-spacing: -1px;
     color: #222222;
-    font-size: 32px; }
+    font-size: 32px;
+    font-family: 'Source Code Pro'; }
   nav.top-bar ul.title-area li.menu-icon a {
-    font-family: 'Source Code Pro';
+    font-family: 'Source Sans Pro';
     font-weight: 700;
     font-size: 24px;
     line-height: 31px;
@@ -4412,16 +4437,16 @@ nav.top-bar {
 
 /* Alert messages */
 #container div.alert-box {
-  box-shadow: 2px -3px #2ba6cb;
+  box-shadow: 6px -6px #2ba6cb, 4px -4px white inset;
   background-color: #2ba6cb;
   color: #222222;
   border: 3px solid #222222;
   font-size: 16px; }
   #container div.alert-box.success {
-    box-shadow: 2px -3px #66ff00;
+    box-shadow: 6px -6px #66ff00, 4px -4px white inset;
     background-color: #66ff00; }
   #container div.alert-box.alert {
-    box-shadow: 2px -3px #fb2f3e;
+    box-shadow: 6px -6px #fb2f3e, 4px -4px white inset;
     background-color: #fb2f3e; }
   #container div.alert-box .close {
     padding: 14px;
@@ -4455,8 +4480,8 @@ span.bold {
 
 span.uppercase {
   font-weight: 700;
-  font-family: "Source Code Pro";
-  letter-spacing: -1.5px; }
+  font-family: "Source Sans Pro";
+  letter-spacing: -1px; }
 
 .justify {
   text-align: justify; }
@@ -4504,10 +4529,10 @@ div {
 .gridBlock {
   background-color: #cccccc;
   padding: 20px 10px 20px 10px;
-  box-shadow: 2px -3px #cccccc;
+  box-shadow: 6px -6px #cccccc, 4px -4px white inset;
   background-color: #cccccc; }
   .gridBlock.hoverable:hover {
-    box-shadow: 2px -3px #e0e0e0;
+    box-shadow: 6px -6px #e0e0e0, 4px -4px white inset;
     background-color: #e0e0e0; }
 
 .marged {
@@ -4543,7 +4568,7 @@ div#container div.whitebox.stroked {
   font-weight: 700; }
 
 #addButton {
-  box-shadow: 2px -3px #aaaaaa;
+  box-shadow: 6px -6px #aaaaaa, 4px -4px white inset;
   background-color: #aaaaaa;
   width: 50px;
   height: 50px;

@@ -1,8 +1,8 @@
 @import "fonts";
 @import "normalize";
 
-@import "settings"; // contains generic identity overwritings
-@import "apps_settings";
+@import "settings"; // contains foundation identity overwritting
+@import "apps_settings"; // contains app-specific scss vars overwritting
 @import "foundation";
 
 
@@ -22,11 +22,13 @@ body {
     }
 }
 
-@mixin colorbox($color) {
-    box-shadow: 2px -3px $color;
+@mixin colorbox($color, $bg: white) {
+    box-shadow: 6px -6px $color, 4px -4px $bg inset;
     background-color: $color;
     //border: 3px solid $black;
 }
+
+/* Clickable elements */
 
 .button,
 input[type=submit].button,
@@ -34,7 +36,7 @@ nav.top-bar div.top-bar-section ul li a.button {
     background: none;
     background-color: $grey;
     @include colorbox($grey);
-    font-family: 'Source Code Pro';
+    font-family: 'Source Sans Pro';
     text-transform: uppercase;
     font-weight: 700;
     font-size: 16px;
@@ -70,6 +72,9 @@ nav.top-bar div.top-bar-section ul li a.button {
         &:hover, &:active {
             background-color: lighten($green, 20%);
         }
+    }
+    &.on-white {
+        
     }
     &:focus {
         background-color: inherit;
@@ -162,14 +167,49 @@ div.fixed {
     }
 }
 
+nav.tool-bar {
+    background-color: $black;
+    height: 45px;
+    .tool-bar-wrapper {
+        max-width: 1120px;
+        margin: 0 auto;
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        li.name {
+            h1 {
+                margin: 6px 0 0;
+                padding: 0;
+                line-height: 24px;
+                padding: 0 0.3em 0 0.3em;
+                font-weight: 800;
+                font-size: 23px;
+                letter-spacing: -0.01em;
+                color: white;
+                border: 3px solid white;
+                font-family: 'Source Code Pro';
+                a {
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+nav.section-bar {
+
+}
+
 nav.top-bar {
     .top-bar-wrapper {
         max-width: 1120px;
         margin: 0 auto;
     }
-    font-family: 'Source Code Pro';
+    font-family: 'Source Sans Pro';
     text-transform: uppercase;
-    letter-spacing: -1px;
+    //letter-spacing: -1px;
     background-color: $whaite;
     ul.title-area {
         li.name {
@@ -178,11 +218,12 @@ nav.top-bar {
                 letter-spacing: -1px;
                 color: $black;
                 font-size: 32px;
+                font-family: 'Source Code Pro';
                 //text-shadow: 3px -3px 0px #fff;
             }
         }
         li.menu-icon a {
-            font-family: 'Source Code Pro';
+            font-family: 'Source Sans Pro';
             font-weight: 700;
             font-size: 24px;
             line-height: 31px;
@@ -263,6 +304,9 @@ nav.top-bar {
     border: 5px solid $black;
 }
 
+.logo-white {
+}
+
 .padded {
     padding: 15px 30px;
 }
@@ -277,8 +321,8 @@ span.bold {
 
 span.uppercase {
     font-weight: 700;
-    font-family: "Source Code Pro";
-    letter-spacing: -1.5px;
+    font-family: "Source Sans Pro";
+    letter-spacing: -1px;
 }
 
 

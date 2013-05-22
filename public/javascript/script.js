@@ -19,8 +19,8 @@ $(document).foundation();
 
 function showModal() {
   notTwice=true;
-  $('#userDetails').foundation('reveal', 'open');          
-} 
+  $('#userDetails').foundation('reveal', 'open');
+}
 
 
 $(document).ready(function () {
