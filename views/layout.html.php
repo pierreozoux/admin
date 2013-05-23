@@ -50,12 +50,14 @@
         </ul>
         <ul class="right">
           <!--<li class="<?php echo ($tab == 'user') ? 'active' : '' ?>">
-            <div style="position: absolute;  width: 100%; top: 48px; text-align: center;"><img src="http://dummyimage.com/30x30" style=""/></div>
             <a href="/user/list"><?php echo T_('Users') ?></a>
           </li>-->
           <li class="">
+            <a href="/support" title="<?php echo T_('Support chat') ?>"><img src="http://dummyimage.com/30x30" style=""/></a>
+          </li>
+          <li class="text">
             <!--<a href="/logout" title="<?php echo T_('Log out') ?>"><strong><?php echo $userUid ?></strong></a>-->
-            <a href="/logout" title="<?php echo T_('Log out') ?>"><strong>logout</strong></a>
+            <a href="/logout" title="<?php echo T_('Logout') ?>"><strong>logout</strong></a>
           </li>
         </ul>
       </div>
@@ -80,8 +82,30 @@
             </div>
         <?php } ?>
 
-      <?php echo $content?>
-
+        <nav class="section-bar">
+            <ul>
+                <li class="">
+                    <a href="/user/list" title="<?php echo T_('Users') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Users') ?></a>
+                </li>
+                <li class="">
+                    <a href="/domain/list" title="<?php echo T_('Domains') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Domains') ?></a>
+                </li>
+                <li class="">
+                    <a href="/app/list" title="<?php echo T_('Apps') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Apps') ?></a>
+                </li>
+                <li class="">
+                    <a href="/monitor" title="<?php echo T_('Monitor') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Monitor') ?></a>
+                </li>
+                <li class="">
+                    <a href="/settings" title="<?php echo T_('Settings') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Settings') ?></a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="content-wrapper" class="stroked">
+                <?php echo $content?>
+            </div>
+        </div>
     </div> <!-- /container -->
 
 

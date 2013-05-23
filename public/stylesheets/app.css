@@ -4265,36 +4265,36 @@ nav.top-bar div.top-bar-section ul li a.button {
   .button.blue,
   input[type=submit].button.blue,
   nav.top-bar div.top-bar-section ul li a.button.blue {
-    box-shadow: 6px -6px #2ba6cb, 4px -4px white inset;
-    background-color: #2ba6cb; }
+    box-shadow: 6px -6px #81e6ff, 4px -4px white inset;
+    background-color: #81e6ff; }
     .button.blue:hover, .button.blue:active,
     input[type=submit].button.blue:hover,
     input[type=submit].button.blue:active,
     nav.top-bar div.top-bar-section ul li a.button.blue:hover,
     nav.top-bar div.top-bar-section ul li a.button.blue:active {
-      background-color: #79cae3; }
+      background-color: #e7faff; }
   .button.yellow,
   input[type=submit].button.yellow,
   nav.top-bar div.top-bar-section ul li a.button.yellow {
-    box-shadow: 6px -6px #ffff66, 4px -4px white inset;
-    background-color: #ffff66; }
+    box-shadow: 6px -6px #ffe680, 4px -4px white inset;
+    background-color: #ffe680; }
     .button.yellow:hover, .button.yellow:active,
     input[type=submit].button.yellow:hover,
     input[type=submit].button.yellow:active,
     nav.top-bar div.top-bar-section ul li a.button.yellow:hover,
     nav.top-bar div.top-bar-section ul li a.button.yellow:active {
-      background-color: #ffffcc; }
+      background-color: #fffae6; }
   .button.green,
   input[type=submit].button.green,
   nav.top-bar div.top-bar-section ul li a.button.green {
-    box-shadow: 6px -6px #66ff00, 4px -4px white inset;
-    background-color: #66ff00; }
+    box-shadow: 6px -6px #99ff55, 4px -4px white inset;
+    background-color: #99ff55; }
     .button.green:hover, .button.green:active,
     input[type=submit].button.green:hover,
     input[type=submit].button.green:active,
     nav.top-bar div.top-bar-section ul li a.button.green:hover,
     nav.top-bar div.top-bar-section ul li a.button.green:active {
-      background-color: #a3ff66; }
+      background-color: #d6ffbb; }
   .button:focus,
   input[type=submit].button:focus,
   nav.top-bar div.top-bar-section ul li a.button:focus {
@@ -4323,8 +4323,8 @@ input[type=reset] {
   input[type=text]:focus,
   input[type=password]:focus,
   input[type=reset]:focus {
-    box-shadow: 6px -6px #ffff66, 4px -4px white inset;
-    background-color: #ffff66;
+    box-shadow: 6px -6px #ffe680, 4px -4px white inset;
+    background-color: #ffe680;
     border-color: #222222; }
 
 form.custom .custom {
@@ -4339,8 +4339,8 @@ form.custom .custom {
     form.custom .custom.dropdown ul li {
       font-size: 1em; }
     form.custom .custom.dropdown.open {
-      box-shadow: 6px -6px #ffff66, 4px -4px white inset;
-      background-color: #ffff66; }
+      box-shadow: 6px -6px #ffe680, 4px -4px white inset;
+      background-color: #ffe680; }
 
 textarea {
   padding: 10px;
@@ -4353,7 +4353,7 @@ h3 {
   letter-spacing: -1px;
   text-transform: uppercase;
   font-weight: 700;
-  text-shadow: 2px -2px 0px #66ff00;
+  text-shadow: 2px -2px 0px #99ff55;
   margin: 18px 10px; }
 
 h4 {
@@ -4369,17 +4369,18 @@ div.fixed {
 @media screen and (max-width: 1024px) {
   div.fixed {
     border-width: 3px; } }
+/* Admin black bar */
 nav.tool-bar {
   background-color: #222222;
   height: 45px; }
   nav.tool-bar .tool-bar-wrapper {
     max-width: 970px;
     margin: 0 auto; }
-  nav.tool-bar ul {
+  nav.tool-bar ul.left {
     margin: 0;
     padding: 0;
     list-style-type: none; }
-    nav.tool-bar ul li.name h1 {
+    nav.tool-bar ul.left li.name h1 {
       margin: 6px 0 0;
       padding: 0;
       line-height: 23px;
@@ -4389,9 +4390,46 @@ nav.tool-bar {
       color: white;
       border: 3px solid white;
       font-family: 'Source Code Pro'; }
-      nav.tool-bar ul li.name h1 a {
+      nav.tool-bar ul.left li.name h1 a {
+        color: white; }
+  nav.tool-bar ul.right {
+    margin: 0;
+    padding: 0;
+    list-style-type: none; }
+    nav.tool-bar ul.right li {
+      margin: 0 12px;
+      padding: 5px 0;
+      display: inline-block;
+      vertical-align: middle; }
+      nav.tool-bar ul.right li.text {
+        padding-top: 2px; }
+      nav.tool-bar ul.right li a {
         color: white; }
 
+nav.section-bar {
+  height: 60px; }
+  nav.section-bar ul {
+    list-style-type: none; }
+    nav.section-bar ul li {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 27px; }
+      nav.section-bar ul li a {
+        color: #222222;
+        text-transform: uppercase;
+        font-size: 25px;
+        font-weight: 700;
+        padding-left: 7px; }
+        nav.section-bar ul li a img {
+          float: left; }
+
+div#content #content-wrapper {
+  margin: 0 auto;
+  padding: 35px 0;
+  background-color: white;
+  max-width: 1120px; }
+
+/* White top bar (for site) */
 nav.top-bar {
   font-family: 'Source Sans Pro';
   text-transform: uppercase;
@@ -4420,7 +4458,7 @@ nav.top-bar {
     font-weight: 700;
     background: #f2f2f2; }
   nav.top-bar div.top-bar-section ul li.active a:not(.button) {
-    text-shadow: 1px -2px 0 #66ff00;
+    text-shadow: 1px -2px 0 #99ff55;
     background: #f2f2f2; }
   nav.top-bar div.top-bar-section ul li a.button {
     margin-top: 16px;
@@ -4432,18 +4470,18 @@ nav.top-bar {
     margin-left: 0; }
   nav.top-bar div.top-bar-section ul li a:hover:not(.button) {
     background: #f2f2f2;
-    text-shadow: 1px -2px 0 #ffff66; }
+    text-shadow: 1px -2px 0 #ffe680; }
 
 /* Alert messages */
 #container div.alert-box {
-  box-shadow: 6px -6px #2ba6cb, 4px -4px white inset;
-  background-color: #2ba6cb;
+  box-shadow: 6px -6px #81e6ff, 4px -4px white inset;
+  background-color: #81e6ff;
   color: #222222;
   border: 3px solid #222222;
   font-size: 16px; }
   #container div.alert-box.success {
-    box-shadow: 6px -6px #66ff00, 4px -4px white inset;
-    background-color: #66ff00; }
+    box-shadow: 6px -6px #99ff55, 4px -4px white inset;
+    background-color: #99ff55; }
   #container div.alert-box.alert {
     box-shadow: 6px -6px #fb2f3e, 4px -4px white inset;
     background-color: #fb2f3e; }
@@ -4550,17 +4588,8 @@ div {
     margin-left: 0px;
     margin-right: 0px; } }
 /* YunoSite specific */
-div#container div.whitebox.stroked {
-  margin-top: 20px; }
-  div#container div.whitebox.stroked p {
-    margin-top: 20px; }
-@media screen and (min-width: 790px) {
-  div#container p.epic {
-    padding-left: 20px; }
-  div#container div.triplette div.large-4:first-child {
-    padding-left: 0; }
-  div#container div.triplette div.large-4:last-child {
-    padding-right: 0; } }
+body {
+  background-color: #cccccc; }
 
 .upperStrong {
   text-transform: uppercase;
