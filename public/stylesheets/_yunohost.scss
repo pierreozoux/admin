@@ -57,25 +57,25 @@ nav.top-bar div.top-bar-section ul li a.button {
     &.red {
         @include colorbox($red);
         &:hover, &:active {
-            background-color: lighten($red, 20%);
+            background-color: darken($red, 20%);
         }
     }
     &.blue {
         @include colorbox($blue);
         &:hover, &:active {
-            background-color: lighten($blue, 20%);
+            background-color: darken($blue, 20%);
         }
     }
     &.yellow {
         @include colorbox($yellow);
         &:hover, &:active {
-            background-color: lighten($yellow, 20%);
+            background-color: darken($yellow, 20%);
         }
     }
     &.green {
-        @include colorbox($green);
+        @include colorbox($green2);
         &:hover, &:active {
-            background-color: lighten($green, 20%);
+            background-color: darken($green2, 20%);
         }
     }
     &.on-white {
@@ -175,7 +175,7 @@ nav.tool-bar {
     background-color: $black;
     height: 45px;
     .tool-bar-wrapper {
-        max-width: 970px;
+        max-width: 940px;
         margin: 0 auto;
     }
     ul.left {
@@ -219,24 +219,26 @@ nav.tool-bar {
 }
 
 nav.section-bar {
+    max-width: 920px;
+    margin: 0 auto;
     ul {
         list-style-type: none;
         padding-left: 5px;
-        @media screen and (max-width: 820px) {
+        @media screen and (max-width: 980px) {
             padding-bottom: 20px;
         }
         li {
             display: inline-block;
             vertical-align: middle;
             margin-right: 27px;
-            @media screen and (max-width: 820px) {
+            @media screen and (max-width: 980px) {
                 display: block;
                 margin-left: 27px;
             }
             a {
                 color: $black;
                 text-transform: uppercase;
-                font-size: 25px;
+                font-size: 24px;
                 font-weight: 700;
                 padding-left: 7px;
                 img {
@@ -252,7 +254,7 @@ div#content {
         margin: 0 auto;
         padding: 35px 0;
         background-color: white;
-        max-width: 1120px;
+        max-width: 980px;
     }
 }
 
@@ -368,7 +370,7 @@ nav.top-bar {
 }
 
 .vpadded {
-    padding: 25px 25px;
+    padding: 20px;
 }
 
 span.big {
@@ -451,7 +453,10 @@ div {
 
 [class*="block-grid-"] {
     margin: 0 -40px;
-    @media screen and (max-width: 1120px) {
+    @media screen and (max-width: 980px) {
+        margin: 0 -8% 0 5%;
+    }
+    @media screen and (max-width: 820px) {
         margin: 0;
     }
 }

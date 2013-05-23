@@ -4267,7 +4267,7 @@ nav.top-bar div.top-bar-section ul li a.button {
     input[type=submit].button.red:active,
     nav.top-bar div.top-bar-section ul li a.button.red:hover,
     nav.top-bar div.top-bar-section ul li a.button.red:active {
-      background-color: #fd939b; }
+      background-color: #c00412; }
   .button.blue,
   input[type=submit].button.blue,
   nav.top-bar div.top-bar-section ul li a.button.blue {
@@ -4278,7 +4278,7 @@ nav.top-bar div.top-bar-section ul li a.button {
     input[type=submit].button.blue:active,
     nav.top-bar div.top-bar-section ul li a.button.blue:hover,
     nav.top-bar div.top-bar-section ul li a.button.blue:active {
-      background-color: #e7faff; }
+      background-color: #1bd2ff; }
   .button.yellow,
   input[type=submit].button.yellow,
   nav.top-bar div.top-bar-section ul li a.button.yellow {
@@ -4289,18 +4289,18 @@ nav.top-bar div.top-bar-section ul li a.button {
     input[type=submit].button.yellow:active,
     nav.top-bar div.top-bar-section ul li a.button.yellow:hover,
     nav.top-bar div.top-bar-section ul li a.button.yellow:active {
-      background-color: #fffae6; }
+      background-color: #ffd21a; }
   .button.green,
   input[type=submit].button.green,
   nav.top-bar div.top-bar-section ul li a.button.green {
-    box-shadow: 5px -5px #99ff55, 3px -3px white inset;
-    background-color: #99ff55; }
+    box-shadow: 5px -5px #81ff90, 3px -3px white inset;
+    background-color: #81ff90; }
     .button.green:hover, .button.green:active,
     input[type=submit].button.green:hover,
     input[type=submit].button.green:active,
     nav.top-bar div.top-bar-section ul li a.button.green:hover,
     nav.top-bar div.top-bar-section ul li a.button.green:active {
-      background-color: #d6ffbb; }
+      background-color: #1bff36; }
   .button:focus,
   input[type=submit].button:focus,
   nav.top-bar div.top-bar-section ul li a.button:focus {
@@ -4380,7 +4380,7 @@ nav.tool-bar {
   background-color: #222222;
   height: 45px; }
   nav.tool-bar .tool-bar-wrapper {
-    max-width: 970px;
+    max-width: 940px;
     margin: 0 auto; }
   nav.tool-bar ul.left {
     margin: 0;
@@ -4412,34 +4412,37 @@ nav.tool-bar {
       nav.tool-bar ul.right li a {
         color: white; }
 
-nav.section-bar ul {
-  list-style-type: none;
-  padding-left: 5px; }
-  @media screen and (max-width: 820px) {
-    nav.section-bar ul {
-      padding-bottom: 20px; } }
-  nav.section-bar ul li {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 27px; }
-    @media screen and (max-width: 820px) {
-      nav.section-bar ul li {
-        display: block;
-        margin-left: 27px; } }
-    nav.section-bar ul li a {
-      color: #222222;
-      text-transform: uppercase;
-      font-size: 25px;
-      font-weight: 700;
-      padding-left: 7px; }
-      nav.section-bar ul li a img {
-        float: left; }
+nav.section-bar {
+  max-width: 920px;
+  margin: 0 auto; }
+  nav.section-bar ul {
+    list-style-type: none;
+    padding-left: 5px; }
+    @media screen and (max-width: 980px) {
+      nav.section-bar ul {
+        padding-bottom: 20px; } }
+    nav.section-bar ul li {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 27px; }
+      @media screen and (max-width: 980px) {
+        nav.section-bar ul li {
+          display: block;
+          margin-left: 27px; } }
+      nav.section-bar ul li a {
+        color: #222222;
+        text-transform: uppercase;
+        font-size: 24px;
+        font-weight: 700;
+        padding-left: 7px; }
+        nav.section-bar ul li a img {
+          float: left; }
 
 div#content #content-wrapper {
   margin: 0 auto;
   padding: 35px 0;
   background-color: white;
-  max-width: 1120px; }
+  max-width: 980px; }
 
 /* White top bar (for site) */
 nav.top-bar {
@@ -4522,7 +4525,7 @@ nav.top-bar {
   padding: 15px 30px; }
 
 .vpadded {
-  padding: 25px 25px; }
+  padding: 20px; }
 
 span.big {
   font-size: 28px; }
@@ -4586,7 +4589,10 @@ div {
 
 [class*="block-grid-"] {
   margin: 0 -40px; }
-  @media screen and (max-width: 1120px) {
+  @media screen and (max-width: 980px) {
+    [class*="block-grid-"] {
+      margin: 0 -8% 0 5%; } }
+  @media screen and (max-width: 820px) {
     [class*="block-grid-"] {
       margin: 0; } }
 
@@ -4603,24 +4609,42 @@ div {
     margin-left: 0px;
     margin-right: 0px; } }
 /* YunoSite specific */
+@media screen and (min-width: 980px) {
+  html {
+    border: 3px solid #222222; } }
 body {
   background-color: #cccccc; }
 
-#addButton {
-  margin: 24px 67px 0 0; }
-  @media screen and (max-width: 1120px) {
-    #addButton {
-      margin: 24px 0 24px 20px; } }
-  @media screen and (max-width: 820px) {
-    #addButton {
-      display: block;
-      margin-top: 0; } }
+.reveal-modal {
+  position: absolute; }
 
-@media screen and (max-width: 820px) {
-  .large-10.list {
+.add-btn-container {
+  margin: 0 60px 0 35px; }
+
+#addButton {
+  padding: 20px 15px;
+  font-size: 17px; }
+
+@media screen and (max-width: 980px) {
+  .large-9.list {
     width: 100%; }
 
   #poc {
-    display: none; } }
+    display: none;
+    width: 0;
+    height: 0; } }
 #container {
   padding-top: 20px; }
+
+.grid-list {
+  padding-top: 20px; }
+  .grid-list li {
+    padding: 0 10px;
+    width: 45%; }
+    .grid-list li div.user-container {
+      height: 100%; }
+    @media screen and (max-width: 820px) {
+      .grid-list li {
+        display: block;
+        width: 98%;
+        margin: 0 20px; } }

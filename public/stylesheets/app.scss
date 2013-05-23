@@ -2,31 +2,68 @@
 
 /* YunoSite specific */
 
+@media screen and (min-width: 980px) {
+    html {
+        border: 3px solid $black;
+    }
+}
 body {
     background-color: $lightGrey;
 }
 
-#addButton {
-    margin: 24px 67px 0 0;
-    @media screen and (max-width: 1120px) {
-        margin: 24px 0 24px 20px;
-    }
+.reveal-modal {
+    position: absolute;
+}
+
+
+.add-btn-container {
+    margin: 0 60px 0 35px;
     @media screen and (max-width: 820px) {
-        display: block;
-        margin-top: 0;
+        //margin: 0;
     }
 }
 
-@media screen and (max-width: 820px) {
-    .large-10.list {
+#addButton {
+    padding: 20px 15px;
+    font-size: 17px;
+    //@media screen and (max-width: 1120px) {
+        //margin: 24px 0 24px 20px;
+    //}
+    @media screen and (max-width: 1120px) {
+        //display: block;
+        //margin: 0 32%;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .large-9.list {
         width: 100%;
     }
     #poc {
         display: none;
+        width: 0;
+        height: 0;
     }
 }
 
 #container {
     padding-top: 20px ;
+}
+
+
+.grid-list {
+    padding-top: 20px;
+    li {
+        padding: 0 10px;
+        width: 45%;
+        div.user-container {
+            height: 100%
+        }
+        @media screen and (max-width: 820px) {
+            display: block;
+            width: 98%;
+            margin: 0 20px;
+        }
+    }
 }
 

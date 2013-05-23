@@ -20,18 +20,18 @@
 
  ?>
 <div class="row">
-  <div class="btn-container large-2 clear">
-    <a class="big green button marged left" href="#" id="addButton" data-reveal-id="addForm"><img src="http://dummyimage.com/60x60" /></a>
+  <div class="btn-container left add-btn-container">
+  <a class="green button marged" href="#" id="addButton" data-reveal-id="addForm"><div style="font-size: 100px; line-height: 80px; height: 80px; width: 80px;">+</div><?= T_('Add User') ?></a>
   </div>
-  <div class="large-10 row columns list">
+  <div class="large-9 row columns list">
 
 
     <!-- foundation blockgrid for the user list -->
-    <ul class="small-block-grid-1 large-block-grid-2">
+    <ul class="grid-list small-block-grid-1 large-block-grid-2">
       <?php foreach ($users['Users'] as $user) { ?>
         <li>
-            <div class="btn-container">
-                <a class="blue button normal-font marged vpadded" href="#" onclick="user='<?=$user['Username']?>'; javascript:showModal();" style="width: 100%">
+            <div class="btn-container user-container">
+                <a class="blue button normal-font vpadded" href="#" onclick="user='<?=$user['Username']?>'; javascript:showModal();" style="width: 100%">
                    <div class="left">
                      <img class="stroked" src="http://dummyimage.com/80x80" />
                    </div>

@@ -41,7 +41,7 @@
 	<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/custom.modernizr.js"></script>
 </head>
 <body class="">
-    <img src="/public/poc.png" id="poc" style="position: absolute; top: 111px; left: 130px; display: none;" />
+    <img src="/public/poc.png" id="poc" style="position: absolute; top: 109px; left: 130px; display: none;" />
     <nav class="tool-bar">
       <div class="tool-bar-wrapper">
         <ul class="left">
@@ -89,16 +89,16 @@
                     <a href="/user/list" title="<?php echo T_('Users') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Users') ?></a>
                 </li>
                 <li class="tab">
-                    <a href="/domain/list" title="<?php echo T_('Domains') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Domains') ?></a>
-                </li>
-                <li class="tab">
                     <a href="/app/list" title="<?php echo T_('Apps') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Apps') ?></a>
                 </li>
                 <li class="tab">
-                    <a href="/monitor" title="<?php echo T_('Monitor') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Monitor') ?></a>
+                    <a href="/settings" title="<?php echo T_('Settings') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Settings') ?></a>
                 </li>
                 <li class="tab">
-                    <a href="/settings" title="<?php echo T_('Settings') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Settings') ?></a>
+                    <a href="/domain/list" title="<?php echo T_('Domains') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Domains') ?></a>
+                </li>
+                <li class="tab">
+                    <a href="/monitor" title="<?php echo T_('Monitor') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Monitor') ?></a>
                 </li>
             </ul>
         </div>
