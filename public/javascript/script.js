@@ -42,4 +42,8 @@ $(document).ready(function () {
       });
     });
 
+    if ($(".tab.active").length == 1) {
+        var position = $(".tab.active a").position().left + $(".tab.active a").width()/2 - 17;
+        $("#poc").css('left', position).show();
+    }
 });
