@@ -4226,7 +4226,7 @@ html, body {
 body {
   background: white; }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1120px) {
   html {
     border: 3px solid #222222; } }
 /* Clickable elements */
@@ -4235,16 +4235,22 @@ input[type=submit].button,
 nav.top-bar div.top-bar-section ul li a.button {
   background: none;
   background-color: #aaaaaa;
-  box-shadow: 6px -6px #aaaaaa, 4px -4px white inset;
+  box-shadow: 5px -5px #aaaaaa, 3px -3px white inset;
   background-color: #aaaaaa;
-  font-family: 'Source Sans Pro';
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 26px;
+  font-weight: normal;
+  text-align: left;
   border: 3px solid #222222;
   color: #222222;
   padding: 0 10px; }
+  .button:not(.normal-font),
+  input[type=submit].button:not(.normal-font),
+  nav.top-bar div.top-bar-section ul li a.button:not(.normal-font) {
+    text-align: center;
+    font-family: 'Source Sans Pro';
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 26px; }
   .button.big,
   input[type=submit].button.big,
   nav.top-bar div.top-bar-section ul li a.button.big {
@@ -4254,7 +4260,7 @@ nav.top-bar div.top-bar-section ul li a.button {
   .button.red,
   input[type=submit].button.red,
   nav.top-bar div.top-bar-section ul li a.button.red {
-    box-shadow: 6px -6px #fb2f3e, 4px -4px white inset;
+    box-shadow: 5px -5px #fb2f3e, 3px -3px white inset;
     background-color: #fb2f3e; }
     .button.red:hover, .button.red:active,
     input[type=submit].button.red:hover,
@@ -4265,7 +4271,7 @@ nav.top-bar div.top-bar-section ul li a.button {
   .button.blue,
   input[type=submit].button.blue,
   nav.top-bar div.top-bar-section ul li a.button.blue {
-    box-shadow: 6px -6px #81e6ff, 4px -4px white inset;
+    box-shadow: 5px -5px #81e6ff, 3px -3px white inset;
     background-color: #81e6ff; }
     .button.blue:hover, .button.blue:active,
     input[type=submit].button.blue:hover,
@@ -4276,7 +4282,7 @@ nav.top-bar div.top-bar-section ul li a.button {
   .button.yellow,
   input[type=submit].button.yellow,
   nav.top-bar div.top-bar-section ul li a.button.yellow {
-    box-shadow: 6px -6px #ffe680, 4px -4px white inset;
+    box-shadow: 5px -5px #ffe680, 3px -3px white inset;
     background-color: #ffe680; }
     .button.yellow:hover, .button.yellow:active,
     input[type=submit].button.yellow:hover,
@@ -4287,7 +4293,7 @@ nav.top-bar div.top-bar-section ul li a.button {
   .button.green,
   input[type=submit].button.green,
   nav.top-bar div.top-bar-section ul li a.button.green {
-    box-shadow: 6px -6px #99ff55, 4px -4px white inset;
+    box-shadow: 5px -5px #99ff55, 3px -3px white inset;
     background-color: #99ff55; }
     .button.green:hover, .button.green:active,
     input[type=submit].button.green:hover,
@@ -4323,7 +4329,7 @@ input[type=reset] {
   input[type=text]:focus,
   input[type=password]:focus,
   input[type=reset]:focus {
-    box-shadow: 6px -6px #ffe680, 4px -4px white inset;
+    box-shadow: 5px -5px #ffe680, 3px -3px white inset;
     background-color: #ffe680;
     border-color: #222222; }
 
@@ -4332,14 +4338,14 @@ form.custom .custom {
   background: none; }
   form.custom .custom.dropdown {
     background: none;
-    box-shadow: 6px -6px #f2f2f2, 4px -4px white inset;
+    box-shadow: 5px -5px #f2f2f2, 3px -3px white inset;
     background-color: #f2f2f2;
     height: 2.6em;
     font-size: 1em; }
     form.custom .custom.dropdown ul li {
       font-size: 1em; }
     form.custom .custom.dropdown.open {
-      box-shadow: 6px -6px #ffe680, 4px -4px white inset;
+      box-shadow: 5px -5px #ffe680, 3px -3px white inset;
       background-color: #ffe680; }
 
 textarea {
@@ -4365,10 +4371,10 @@ h4 {
 div.fixed {
   border: 3px solid #222222;
   border-width: 3px 3px 0 3px; }
+  @media screen and (max-width: 1024px) {
+    div.fixed {
+      border-width: 3px; } }
 
-@media screen and (max-width: 1024px) {
-  div.fixed {
-    border-width: 3px; } }
 /* Admin black bar */
 nav.tool-bar {
   background-color: #222222;
@@ -4381,7 +4387,7 @@ nav.tool-bar {
     padding: 0;
     list-style-type: none; }
     nav.tool-bar ul.left li.name h1 {
-      margin: 6px 0 0;
+      margin: 7px 0 0 5px;
       padding: 0;
       line-height: 23px;
       padding: 0 0.3em 0 0.3em;
@@ -4406,22 +4412,28 @@ nav.tool-bar {
       nav.tool-bar ul.right li a {
         color: white; }
 
-nav.section-bar {
-  height: 60px; }
-  nav.section-bar ul {
-    list-style-type: none; }
-    nav.section-bar ul li {
-      display: inline-block;
-      vertical-align: middle;
-      margin-right: 27px; }
-      nav.section-bar ul li a {
-        color: #222222;
-        text-transform: uppercase;
-        font-size: 25px;
-        font-weight: 700;
-        padding-left: 7px; }
-        nav.section-bar ul li a img {
-          float: left; }
+nav.section-bar ul {
+  list-style-type: none;
+  padding-left: 5px; }
+  @media screen and (max-width: 820px) {
+    nav.section-bar ul {
+      padding-bottom: 20px; } }
+  nav.section-bar ul li {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 27px; }
+    @media screen and (max-width: 820px) {
+      nav.section-bar ul li {
+        display: block;
+        margin-left: 27px; } }
+    nav.section-bar ul li a {
+      color: #222222;
+      text-transform: uppercase;
+      font-size: 25px;
+      font-weight: 700;
+      padding-left: 7px; }
+      nav.section-bar ul li a img {
+        float: left; }
 
 div#content #content-wrapper {
   margin: 0 auto;
@@ -4474,16 +4486,16 @@ nav.top-bar {
 
 /* Alert messages */
 #container div.alert-box {
-  box-shadow: 6px -6px #81e6ff, 4px -4px white inset;
+  box-shadow: 5px -5px #81e6ff, 3px -3px white inset;
   background-color: #81e6ff;
   color: #222222;
   border: 3px solid #222222;
   font-size: 16px; }
   #container div.alert-box.success {
-    box-shadow: 6px -6px #99ff55, 4px -4px white inset;
+    box-shadow: 5px -5px #99ff55, 3px -3px white inset;
     background-color: #99ff55; }
   #container div.alert-box.alert {
-    box-shadow: 6px -6px #fb2f3e, 4px -4px white inset;
+    box-shadow: 5px -5px #fb2f3e, 3px -3px white inset;
     background-color: #fb2f3e; }
   #container div.alert-box .close {
     padding: 14px;
@@ -4508,6 +4520,9 @@ nav.top-bar {
 
 .padded {
   padding: 15px 30px; }
+
+.vpadded {
+  padding: 25px 25px; }
 
 span.big {
   font-size: 28px; }
@@ -4563,17 +4578,17 @@ div {
   border: none;
   border-bottom: 3px solid #222222; }
 
-.gridBlock {
-  background-color: #cccccc;
-  padding: 20px 10px 20px 10px;
-  box-shadow: 6px -6px #cccccc, 4px -4px white inset;
-  background-color: #cccccc; }
-  .gridBlock.hoverable:hover {
-    box-shadow: 6px -6px #e0e0e0, 4px -4px white inset;
-    background-color: #e0e0e0; }
-
 .marged {
   margin: 20px; }
+  @media screen and (max-width: 790px) {
+    .marged {
+      margin: 0; } }
+
+[class*="block-grid-"] {
+  margin: 0 -40px; }
+  @media screen and (max-width: 1120px) {
+    [class*="block-grid-"] {
+      margin: 0; } }
 
 /* Responsive stuffs */
 @media screen and (max-width: 790px) {
@@ -4591,16 +4606,18 @@ div {
 body {
   background-color: #cccccc; }
 
-.upperStrong {
-  text-transform: uppercase;
-  font-weight: 700; }
-
 #addButton {
-  box-shadow: 6px -6px #aaaaaa, 4px -4px white inset;
-  background-color: #aaaaaa;
-  width: 50px;
-  height: 50px;
-  margin: 20px; }
+  margin: 24px 67px 0 0; }
+  @media screen and (max-width: 1120px) {
+    #addButton {
+      margin: 24px 0 24px 20px; } }
+  @media screen and (max-width: 820px) {
+    #addButton {
+      display: block;
+      margin-top: 0; } }
 
+@media screen and (max-width: 820px) {
+  .large-10.list {
+    width: 100%; } }
 #container {
   padding-top: 20px; }

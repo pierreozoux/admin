@@ -16,14 +16,14 @@ body {
     background: white;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1120px) {
     html {
         border: 3px solid $black;
     }
 }
 
 @mixin colorbox($color, $bg: white) {
-    box-shadow: 6px -6px $color, 4px -4px $bg inset;
+    box-shadow: 5px -5px $color, 3px -3px $bg inset;
     background-color: $color;
     //border: 3px solid $black;
 }
@@ -36,11 +36,16 @@ nav.top-bar div.top-bar-section ul li a.button {
     background: none;
     background-color: $grey;
     @include colorbox($grey);
-    font-family: 'Source Sans Pro';
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 26px;
+    font-weight: normal;
+    text-align: left;
+    &:not(.normal-font) {
+        text-align: center;
+        font-family: 'Source Sans Pro';
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 26px;
+    }
     border: 3px solid $black;
     color: $black;
     padding: 0 10px;
@@ -159,10 +164,7 @@ h4 {
 div.fixed {
     border: 3px solid $black;
     border-width: 3px 3px 0 3px;
-}
-
-@media screen and (max-width: 1024px) {
-    div.fixed {
+    @media screen and (max-width: 1024px) {
         border-width: 3px;
     }
 }
@@ -182,7 +184,7 @@ nav.tool-bar {
         list-style-type: none;
         li.name {
             h1 {
-                margin: 6px 0 0;
+                margin: 7px 0 0 5px;
                 padding: 0;
                 line-height: 23px;
                 padding: 0 0.3em 0 0.3em;
@@ -217,13 +219,20 @@ nav.tool-bar {
 }
 
 nav.section-bar {
-    height: 60px;
     ul {
         list-style-type: none;
+        padding-left: 5px;
+        @media screen and (max-width: 820px) {
+            padding-bottom: 20px;
+        }
         li {
             display: inline-block;
             vertical-align: middle;
             margin-right: 27px;
+            @media screen and (max-width: 820px) {
+                display: block;
+                margin-left: 27px;
+            }
             a {
                 color: $black;
                 text-transform: uppercase;
@@ -358,6 +367,10 @@ nav.top-bar {
     padding: 15px 30px;
 }
 
+.vpadded {
+    padding: 25px 25px;
+}
+
 span.big {
     font-size: 28px;
 }
@@ -429,17 +442,18 @@ div {
     border-bottom: 3px solid $black;
 }
 
-.gridBlock {
-    background-color: $lightGrey;
-    padding: 20px 10px 20px 10px;
-    @include colorbox($lightGrey);
-    &.hoverable:hover {
-        @include colorbox(lighten($lightGrey, 8%));
+.marged {
+    margin: 20px;
+    @media screen and (max-width: 790px) {
+        margin: 0;
     }
 }
 
-.marged {
-    margin: 20px;
+[class*="block-grid-"] {
+    margin: 0 -40px;
+    @media screen and (max-width: 1120px) {
+        margin: 0;
+    }
 }
 
 

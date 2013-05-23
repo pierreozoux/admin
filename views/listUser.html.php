@@ -20,38 +20,32 @@
 
  ?>
 <div class="row">
-  <div class="large-2 columns">
-    <div class="btn-container">
-      <a class="big green button marged left" href="#" data-reveal-id="addForm"><img src="http://dummyimage.com/60x60" /></a>
-    </div>
+  <div class="btn-container large-2 clear">
+    <a class="big green button marged left" href="#" id="addButton" data-reveal-id="addForm"><img src="http://dummyimage.com/60x60" /></a>
   </div>
-  <div class="large-10 columns">
+  <div class="large-10 row columns list">
 
 
     <!-- foundation blockgrid for the user list -->
-    <div id="block-grid"> 
-      <ul class="small-block-grid-1 large-block-grid-2">
+    <ul class="small-block-grid-1 large-block-grid-2">
       <?php foreach ($users['Users'] as $user) { ?>
         <li>
-        <a href="#" onclick="user='<?=$user['Username']?>'; javascript:showModal();">
-            <div class="gridBlock hoverable stroked marged">
-              <div class="row">
-                <div class="small-4 columns">
-                  <img class="right stroked" src="http://dummyimage.com/75x75" />
-                </div>
-                <div class="small-8 columns">
-                  <span class="upperStrong"><?php echo $user['Username'];?></span>
-                  <span><?php echo ' ('.$user['Fullname'].') '; ?></span>
-                  <br/>
-                  <span><?php echo $user['Mail']; ?></span>
-                </div>
-              </div>
+            <div class="btn-container">
+                <a class="blue button normal-font marged vpadded" href="#" onclick="user='<?=$user['Username']?>'; javascript:showModal();" style="width: 100%">
+                   <div class="left">
+                     <img class="stroked" src="http://dummyimage.com/80x80" />
+                   </div>
+                   <div class="left" style="margin-left: 25px; line-height: 35px; margin-top: 10px;">
+                     <strong><?php echo $user['Username'];?></strong>
+                     <span><?php echo ' ('.$user['Fullname'].') '; ?></span>
+                     <br/>
+                     <span><?php echo $user['Mail']; ?></span>
+                   </div>
+                </a>
             </div>
-          </a>
         </li>
       <?php } ?>
-      </ul>
-    </div>
+    </ul>
 
     <!-- pagination -->
     <div class="row"> <!-- gridrow for a centered pagination list -->
