@@ -3144,7 +3144,7 @@ form.custom {
   height: 100%;
   width: 100%;
   background: black;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.75);
   z-index: 98;
   display: none;
   top: 0;
@@ -4248,9 +4248,13 @@ nav.top-bar div.top-bar-section ul li a.button {
     text-align: center;
     font-family: 'Source Sans Pro';
     text-transform: uppercase;
-    font-weight: 700;
     font-size: 16px;
+    font-weight: 700;
     line-height: 26px; }
+  .button.strong,
+  input[type=submit].button.strong,
+  nav.top-bar div.top-bar-section ul li a.button.strong {
+    font-weight: 700; }
   .button.big,
   input[type=submit].button.big,
   nav.top-bar div.top-bar-section ul li a.button.big {
@@ -4321,6 +4325,8 @@ textarea,
 input[type=text],
 input[type=password],
 input[type=reset] {
+  box-shadow: 5px -5px #cccccc, 3px -3px white inset;
+  background-color: #cccccc;
   font-size: 16px;
   line-height: 26px;
   color: #222222;
@@ -4570,6 +4576,9 @@ div.spacer {
   text-align: center;
   margin: 0 auto; }
 
+.strong {
+  font-weight: 700; }
+
 div {
   line-height: 23px; }
 
@@ -4602,8 +4611,12 @@ div {
   text-transform: uppercase;
   font-size: 24px;
   text-align: center;
-  padding: 0 0 10px; }
+  padding: 0 0 30px; }
 
+@media screen and (min-width: 820px) {
+  form label {
+    text-align: right;
+    padding: 8px 8px 0; } }
 /* Responsive stuffs */
 @media screen and (max-width: 790px) {
   .whitebox {

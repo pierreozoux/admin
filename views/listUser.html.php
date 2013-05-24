@@ -107,47 +107,45 @@
     <div class="row modal-wrapper">
       <div class="reveal-modal gridBlock stroked" id="addForm">
           <h1><?= T_('Add new user') ?></h1>
-          <form action="/user/add" method="post" class="custom row row-tab entityForm">
-            <div class="">
-              <label for="domain"><?php echo T_('Domain') ?> <span>*</span></label>
-              <select type="text" name="domain" id="domain">
-                <?php foreach ($domains['Domains'] as $domain) { ?>
-                  <option value="<?php echo $domain ?>"><?php echo $domain ?></option>
-                <?php } ?>
-              </select>
-            </div>
-            <div class="">
-              <label for="username"><?php echo T_('Username') ?> <span>*</span></label>
-              <input type="text" name="username" id="username" required />
-            </div>
-            <div class="">
-              <label for="mail"><?php echo T_('Mail') ?> <span>*</span></label>
-              <input type="text" name="mail" id="mail" required />
-            </div>
-            <div class="">
-              <label for="firstname"><?php echo T_('Firstname') ?> <span>*</span></label>
-              <input type="text" name="firstname" id="firstname" required />
-            </div>
-            <div class="">
-              <label for="lastname"><?php echo T_('Lastname') ?> <span>*</span></label>
-              <input type="text" name="lastname" id="lastname" required />
-            </div>
-            <div class="">
-              <label for="password"><?php echo T_('Password') ?> <span>*</span></label>
-              <input type="password" name="password" id="password" required />
-            </div>
-            <div class="">
-              <label for="confirm"><?php echo T_('Confirm password') ?> <span>*</span></label>
-              <input type="password" name="confirm" id="confirm" required />
+          <form action="/user/add" method="post" class="custom small-11 small-centered columns padding-kill entityForm">
+            <div class="row">
+              <label class="large-4 columns" for="username"><?php echo T_('Username') ?></label>
+              <input class="large-8 columns" type="text" name="username" id="username" required />
             </div>
             <div class="row">
+              <label class="large-4 columns" for="password"><?php echo T_('Password') ?></label>
+              <input class="large-8 columns" type="password" name="password" id="password" required />
+            </div>
+            <div class="row">
+              <label class="large-4 columns" for="confirm"><?php echo T_('Confirm password') ?></label>
+              <input class="large-8 columns" type="password" name="confirm" id="confirm" required />
+            </div>
+            <br />
+            <br />
+            <div class="row">
+              <label class="large-4 columns" for="firstname"><?php echo T_('Firstname') ?></label>
+              <input class="large-8 columns" type="text" name="firstname" id="firstname" required />
+            </div>
+            <div class="row">
+              <label class="large-4 columns" for="lastname"><?php echo T_('Lastname') ?></label>
+              <input class="large-8 columns" type="text" name="lastname" id="lastname" required />
+            </div>
+            <div class="row">
+              <label class="large-4 columns" for="mail"><?php echo T_('Mail') ?></label>
+              <input class="large-8 columns" type="text" name="mail" id="mail" required />
+            </div>
+            <br />
+            <br />
+            <div class="row">
               <div class="large-6 columns">
-                <div class="btn-container">
-                  <input class="big green button" type="submit" value="<?php echo T_('Create') ?>" />
+                <div class="btn-container center">
+                  <input class="big normal-font strong button" type="submit" value="<?php echo T_('Cancel') ?>" />
                 </div>
               </div>
               <div class="large-6 columns">
-                <span class="uppercase">*<?php echo T_('required fields') ?></span> 
+                <div class="btn-container center">
+                  <input class="big normal-font strong green button" type="submit" value="<?php echo T_('Create') ?>" />
+                </div>
               </div>
             </div>
           </form>
