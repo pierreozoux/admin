@@ -22,10 +22,17 @@ function showModal() {
   $('#userDetails').foundation('reveal', 'open');
 }
 
-$('a.toggle-modal').trigger('click');
-
-
 $(document).ready(function () {
+    if ($(".tab.active").length == 1) {
+        var position = $(".tab.active a").position().left + $(".tab.active a").width()/2 - 17;
+        $("#poc").css('left', position).show();
+    }
+    $(window).resize(function() {
+        if ($(".tab.active").length == 1) {
+            var position = $(".tab.active a").position().left + $(".tab.active a").width()/2 - 17;
+            $("#poc").css('left', position).show();
+        }
+    });
     $("#deleteWarningDisplay").click(function() {
       notTwice=true;
       $("#userToDelete").replaceWith('<span class="upperStrong" id="userToDelete">'+user+'</span>');
@@ -43,9 +50,4 @@ $(document).ready(function () {
         }
       });
     });
-
-    if ($(".tab.active").length == 1) {
-        var position = $(".tab.active a").position().left + $(".tab.active a").width()/2 - 17;
-        $("#poc").css('left', position).show();
-    }
 });

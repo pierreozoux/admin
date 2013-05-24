@@ -4620,7 +4620,8 @@ div {
 @media screen and (min-width: 820px) {
   form label {
     text-align: right;
-    padding: 8px 8px 0; } }
+    padding: 8px 8px 0;
+    line-height: 18px; } }
 /* Responsive stuffs */
 @media screen and (max-width: 790px) {
   .whitebox {
