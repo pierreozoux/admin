@@ -4498,19 +4498,20 @@ nav.top-bar {
     text-shadow: 1px -2px 0 #ffe680; }
 
 /* Alert messages */
-#container div.alert-box {
+#content div.alert-box {
   box-shadow: 5px -5px #81e6ff, 3px -3px white inset;
   background-color: #81e6ff;
   color: #222222;
   border: 3px solid #222222;
+  margin: 0 30px;
   font-size: 16px; }
-  #container div.alert-box.success {
+  #content div.alert-box.success {
     box-shadow: 5px -5px #99ff55, 3px -3px white inset;
     background-color: #99ff55; }
-  #container div.alert-box.alert {
+  #content div.alert-box.alert {
     box-shadow: 5px -5px #fb2f3e, 3px -3px white inset;
     background-color: #fb2f3e; }
-  #container div.alert-box .close {
+  #content div.alert-box .close {
     padding: 14px;
     opacity: 1; }
 
@@ -4648,6 +4649,25 @@ body {
 #addButton {
   padding: 20px 15px;
   font-size: 17px; }
+
+.pagination {
+  margin: 30px 0 0;
+  font-size: 20px;
+  line-height: 25px; }
+  .pagination li a {
+    color: #222222;
+    font-weight: 700;
+    margin: 0 3px 0 3px; }
+    .pagination li a:hover, .pagination li a:focus {
+      border: 3px solid #222222;
+      background-color: #fb2f3e;
+      margin: -3px 0 -3px 0; }
+  .pagination li.arrow.unavailable a {
+    color: #aaaaaa; }
+  .pagination li.current a {
+    margin: -3px 0 -3px 0;
+    background-color: #fb2f3e;
+    color: #222222; }
 
 @media screen and (max-width: 820px) {
   #addForm {

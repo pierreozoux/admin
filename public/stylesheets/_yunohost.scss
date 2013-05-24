@@ -332,10 +332,11 @@ nav.top-bar {
 }
 
 /* Alert messages */
-#container div.alert-box {
+#content div.alert-box {
     @include colorbox($blue);
     color: $black;
     border: 3px solid $black;
+    margin: 0 30px;
     font-size: 16px;
     &.success {
         @include colorbox($green);

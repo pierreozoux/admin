@@ -49,37 +49,27 @@
       <?php } ?>
     </ul>
 
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-
     <!-- pagination -->
     <div class="row"> <!-- gridrow for a centered pagination list -->
-      <div class="small-5 small-centered columns">
+      <div class="small-5 small-centered columns center">
         <ul class="pagination">
           <? if($_GET['page'] == 1){?>
             <li class="arrow unavailable"><a>&laquo;</a></li>
-          <?} else { ?> 
+          <?} else { ?>
             <li class="arrow"><a href="/user/list?page=<?=$_GET['page']-1?>">&laquo;</a></li>
           <? }
           for($i = 1; $i <= ($nbUsers/$limit)+1 ; $i++ ){
           if($i == $_GET['page']){?>
-              <li class="current"><a href="#"><?=$i?></a></li>
+              <li class="current"><a class="stroked" href="#"><?=$i?></a></li>
           <? } else { ?>
           <li><a href="/user/list?page=<?=$i?>"><?=$i?></a></li>
           <? } }
           if($_GET['page'] == ($nbUsers/$limit)+1){?>
             <li class="arrow unavailable"><a>&raquo;</a></li>
-          <?} else { ?> 
+          <?} else { ?>
             <li class="arrow"><a href="/user/list?page=<?=$_GET['page']+1?>">&raquo;</a></li>
           <? } ?>
-        </ul> 
+        </ul>
       </div>
     </div>
 

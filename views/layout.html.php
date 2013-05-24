@@ -66,23 +66,6 @@
     <div class="clear"></div>
 
     <div id="container" class="row small-fix">
-        <?php if (isset($flash['error'])) { ?>
-            <div data-alert class="alert-box alert">
-              <?= $flash['error'] ?>
-              <a href="#" class="close">&times;</a>
-            </div>
-        <?php } elseif (isset($flash['notice'])) { ?>
-            <div data-alert class="alert-box">
-              <strong><?= T_('Notice') ?>:</strong> <?= $flash['notice'] ?>
-              <a href="#" class="close">&times;</a>
-            </div>
-        <?php } elseif (isset($flash['success'])) { ?>
-            <div data-alert class="alert-box success">
-              <?= $flash['success'] ?>
-              <a href="#" class="close">&times;</a>
-            </div>
-        <?php } ?>
-
         <nav class="section-bar">
             <ul>
                 <li class="tab <?= ($tab == 'user') ? 'active' : '' ?>">
@@ -104,6 +87,22 @@
         </div>
         <div id="content">
             <div id="content-wrapper" class="stroked">
+                <?php if (isset($flash['error'])) { ?>
+                    <div data-alert class="alert-box alert">
+                      <?= $flash['error'] ?>
+                      <a href="#" class="close">&times;</a>
+                    </div>
+                <?php } elseif (isset($flash['notice'])) { ?>
+                    <div data-alert class="alert-box">
+                      <strong><?= T_('Notice') ?>:</strong> <?= $flash['notice'] ?>
+                      <a href="#" class="close">&times;</a>
+                    </div>
+                <?php } elseif (isset($flash['success'])) { ?>
+                    <div data-alert class="alert-box success">
+                      <?= $flash['success'] ?>
+                      <a href="#" class="close">&times;</a>
+                    </div>
+                <?php } ?>
                 <?= $content?>
             </div>
         </div>

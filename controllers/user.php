@@ -29,7 +29,7 @@ function user() {
  * GET /user/list
  */
 function listUser() {
-  $limit = 6;
+  $limit = 3;
   $_GET['page']= isset($_GET['page']) ? $_GET['page'] : 1;
   $users = moulinette('user list --limit '.$limit.' --offset '.(($_GET['page']-1)*$limit));
   $nbUsers = sizeof(moulinette('user list')['Users']);
@@ -54,10 +54,7 @@ function showUserAjax() {
  * POST /user/add
  */
 function addUser () {
-
   $_SESSION['first-install'] = false;
-
-  $domain = htmlspecialchars($_POST["domain"]);
   $username = htmlspecialchars($_POST["username"]);
   $password = '{MD5}'.base64_encode(pack('H*',md5($_POST["password"])));
   $firstname = htmlspecialchars($_POST["firstname"]);
@@ -65,31 +62,15 @@ function addUser () {
   $mail = htmlspecialchars($_POST["mail"]);
   $admin = isset($_POST["isadmin"]);
 
-  if ($_POST["password"] === $_POST["confirm"])
-  {
-    if (moulinette('user create --username '.$username.
-      ' --mail '.$mail.' --firstname '.$firstname.' --lastname '
-      .$lastname.' --password '.$password))
-    {
-      $welcomeMessage = T_('Welcome aboard! Here is your login and password to connect to your apps.');
-      $welcomeMessage2 = T_('If you want to change your password, click on the link below:');
-
-      $mailMessage = T_('Username:').' '.$username."\n".T_('Password:').' '.$_POST["password"];
-      $htmlMessage = '<img src="http://wiki.yunohost.org/skins/common/images/cloud.png" />'.
-                      '<br />'.
-                      '<p>'.$welcomeMessage.'</p>'.
-                      '<br />'.
-                      '<div><strong>'.T_('Username:').'</strong> '.$username."</div>\n
-                      <div><strong>".T_('Password:').'</strong> '.$_POST["password"].'</div>'.
-                      '<br />'.
-                      '<p>'.$welcomeMessage2.'</p>'.
-                      '<a href="https://auth.'.$domain.'">https://auth.'.$domain.'</a>';
-      sendMail($mail, T_('Your account details'), $mailMessage, $htmlMessage);
-      redirect_to('/user/list');
-    }
+  if ($_POST["password"] === $_POST["confirm"]) {
+    moulinette('user create --username '.$username.
+                          ' --mail '.$mail.
+                          ' --firstname '.$firstname.
+                          ' --lastname '.$lastname.
+                          ' --password '.$password );
   } else flash('error', T_('Passwords does not match'));
 
-  redirect_to('/user/add');
+  redirect_to('/user/list');
 }
 
 
