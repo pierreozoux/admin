@@ -20,32 +20,44 @@
 
  ?>
 <div class="row">
+
   <div class="btn-container left add-btn-container">
   <a class="green button marged" href="#" id="addButton" data-reveal-id="addForm"><div style="font-size: 100px; line-height: 80px; height: 80px; width: 80px;">+</div><?= T_('Add User') ?></a>
   </div>
-  <div class="large-9 row columns list">
 
+  <div class="large-9 row columns list">
 
     <!-- foundation blockgrid for the user list -->
     <ul class="grid-list small-block-grid-1 large-block-grid-2">
       <?php foreach ($users['Users'] as $user) { ?>
         <li>
             <div class="btn-container user-container">
-                <a class="blue button normal-font vpadded" href="#" onclick="user='<?=$user['Username']?>'; javascript:showModal();" style="width: 100%">
-                   <div class="left">
+                <a class="blue button normal-font vpadded" href="#" onclick="user='<?=$user['Username']?>'; javascript:showModal();" title="<?= $user['Username'].' ('.$user['Fullname'].')' ?>">
+                   <div class="left user-avatar">
                      <img class="stroked" src="http://dummyimage.com/80x80" />
                    </div>
-                   <div class="left" style="margin-left: 25px; line-height: 35px; margin-top: 10px;">
-                     <strong><?php echo $user['Username'];?></strong>
-                     <span><?php echo ' ('.$user['Fullname'].') '; ?></span>
-                     <br/>
-                     <span><?php echo $user['Mail']; ?></span>
+                   <div class="left user-infos">
+                     <div>
+                         <span class="user-username"><?php echo $user['Username'];?></span>
+                         <span class="user-fullname"><?php echo ' ('.$user['Fullname'].') '; ?></span>
+                     </div>
+                     <span class="user-mail"><?php echo $user['Mail']; ?></span>
                    </div>
                 </a>
             </div>
         </li>
       <?php } ?>
     </ul>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 
     <!-- pagination -->
     <div class="row"> <!-- gridrow for a centered pagination list -->
@@ -71,6 +83,9 @@
       </div>
     </div>
 
+  </div>
+</div>
+
     <!-- user details modal -->
     <div class="reveal-modal gridBlock stroked" id="userDetails">
       <span></span>
@@ -89,69 +104,53 @@
     </div>
 
     <!-- add User Form (hidden at start reveal modal foundation) -->
-    <div class="row">
+    <div class="row modal-wrapper">
       <div class="reveal-modal gridBlock stroked" id="addForm">
-        <div class="small-11 small-centered columns">
+          <h1><?= T_('Add new user') ?></h1>
           <form action="/user/add" method="post" class="custom row row-tab entityForm">
-            <div class="row">
-              <div class="large-8 small-centered columns">
-                <label for="domain"><?php echo T_('Domain') ?> <span>*</span></label>
-                <select type="text" name="domain" id="domain">
-                  <?php foreach ($domains['Domains'] as $domain) { ?>
-                    <option value="<?php echo $domain ?>"><?php echo $domain ?></option>
-                  <?php } ?>
-                </select> 
-              </div>
+            <div class="">
+              <label for="domain"><?php echo T_('Domain') ?> <span>*</span></label>
+              <select type="text" name="domain" id="domain">
+                <?php foreach ($domains['Domains'] as $domain) { ?>
+                  <option value="<?php echo $domain ?>"><?php echo $domain ?></option>
+                <?php } ?>
+              </select>
+            </div>
+            <div class="">
+              <label for="username"><?php echo T_('Username') ?> <span>*</span></label>
+              <input type="text" name="username" id="username" required />
+            </div>
+            <div class="">
+              <label for="mail"><?php echo T_('Mail') ?> <span>*</span></label>
+              <input type="text" name="mail" id="mail" required />
+            </div>
+            <div class="">
+              <label for="firstname"><?php echo T_('Firstname') ?> <span>*</span></label>
+              <input type="text" name="firstname" id="firstname" required />
+            </div>
+            <div class="">
+              <label for="lastname"><?php echo T_('Lastname') ?> <span>*</span></label>
+              <input type="text" name="lastname" id="lastname" required />
+            </div>
+            <div class="">
+              <label for="password"><?php echo T_('Password') ?> <span>*</span></label>
+              <input type="password" name="password" id="password" required />
+            </div>
+            <div class="">
+              <label for="confirm"><?php echo T_('Confirm password') ?> <span>*</span></label>
+              <input type="password" name="confirm" id="confirm" required />
             </div>
             <div class="row">
               <div class="large-6 columns">
-                <label for="username"><?php echo T_('Username') ?> <span>*</span></label>
-                <input type="text" name="username" id="username" required />
-              </div>
-              <div class="large-6 columns">
-                <label for="mail"><?php echo T_('Mail') ?> <span>*</span></label>
-                <input type="text" name="mail" id="mail" required />
-              </div>
-            </div>
-            <div class="row">
-              <div class="large-5 columns">
-                <label for="firstname"><?php echo T_('Firstname') ?> <span>*</span></label>
-                <input type="text" name="firstname" id="firstname" required />
-              </div>
-              <div class="large-7 columns">
-                <label for="lastname"><?php echo T_('Lastname') ?> <span>*</span></label>
-                <input type="text" name="lastname" id="lastname" required />
-              </div>
-            </div>
-            <div class="row">
-              <div class="large-6 columns">
-                <label for="password"><?php echo T_('Password') ?> <span>*</span></label>
-                <input type="password" name="password" id="password" required />
-              </div>
-              <div class="large-6 columns">
-                <label for="confirm"><?php echo T_('Confirm password') ?> <span>*</span></label>
-                <input type="password" name="confirm" id="confirm" required />
-              </div>
-            </div>
-            <div class="row">
-              <div class="small-6 small-centered columns">
-                <div class="row">
-                  <div class="large-6 columns">
-                    <div class="btn-container">
-                      <input class="big green button" type="submit" value="<?php echo T_('Create') ?>" />
-                    </div>
-                  </div>
-                  <div class="large-6 columns">
-                    <span class="uppercase">*<?php echo T_('required fields') ?></span> 
-                  </div>
+                <div class="btn-container">
+                  <input class="big green button" type="submit" value="<?php echo T_('Create') ?>" />
                 </div>
+              </div>
+              <div class="large-6 columns">
+                <span class="uppercase">*<?php echo T_('required fields') ?></span> 
               </div>
             </div>
           </form>
         </div>
       </div>
     </div>
-
-
-  </div>
-</div>

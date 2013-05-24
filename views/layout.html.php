@@ -41,7 +41,7 @@
 	<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/custom.modernizr.js"></script>
 </head>
 <body class="">
-    <img src="/public/poc.png" id="poc" style="position: absolute; top: 109px; left: 130px; display: none;" />
+    <img src="/public/images/poc.png" id="poc" style="position: absolute; top: 113px; left: 130px; display: none;" />
     <nav class="tool-bar">
       <div class="tool-bar-wrapper">
         <ul class="left">
