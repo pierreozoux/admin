@@ -4260,7 +4260,8 @@ nav.top-bar div.top-bar-section ul li a.button {
   nav.top-bar div.top-bar-section ul li a.button.big {
     font-size: 26px;
     padding: 5px 15px;
-    letter-spacing: -1px; }
+    letter-spacing: -1px;
+    line-height: 35px; }
   .button.red,
   input[type=submit].button.red,
   nav.top-bar div.top-bar-section ul li a.button.red {

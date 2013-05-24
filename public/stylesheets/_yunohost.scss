@@ -56,6 +56,7 @@ nav.top-bar div.top-bar-section ul li a.button {
         font-size: 26px;
         padding: 5px 15px;
         letter-spacing: -1px;
+        line-height: 35px;
     }
     &.red {
         @include colorbox($red);

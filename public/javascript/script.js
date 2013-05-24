@@ -22,6 +22,8 @@ function showModal() {
   $('#userDetails').foundation('reveal', 'open');
 }
 
+$('a.toggle-modal').trigger('click');
+
 
 $(document).ready(function () {
     $("#deleteWarningDisplay").click(function() {

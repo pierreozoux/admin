@@ -109,42 +109,42 @@
           <h1><?= T_('Add new user') ?></h1>
           <form action="/user/add" method="post" class="custom small-11 small-centered columns padding-kill entityForm">
             <div class="row">
-              <label class="large-4 columns" for="username"><?php echo T_('Username') ?></label>
-              <input class="large-8 columns" type="text" name="username" id="username" required />
+              <label class="large-4 columns" for="username"><?= T_('Username') ?></label>
+              <input class="large-8 columns" type="text" name="username" id="username" placeholder="<?= T_('j0hn') ?>" required />
             </div>
             <div class="row">
-              <label class="large-4 columns" for="password"><?php echo T_('Password') ?></label>
-              <input class="large-8 columns" type="password" name="password" id="password" required />
+              <label class="large-4 columns" for="password"><?= T_('Password') ?></label>
+              <input class="large-8 columns" type="password" name="password" id="password" placeholder="<?= T_('••••••••') ?>" required />
             </div>
             <div class="row">
-              <label class="large-4 columns" for="confirm"><?php echo T_('Confirm password') ?></label>
-              <input class="large-8 columns" type="password" name="confirm" id="confirm" required />
+              <label class="large-4 columns" for="confirm"><?= T_('Confirm password') ?></label>
+              <input class="large-8 columns" type="password" name="confirm" id="confirm" placeholder="<?= T_('••••••••') ?>" required />
             </div>
             <br />
             <br />
             <div class="row">
-              <label class="large-4 columns" for="firstname"><?php echo T_('Firstname') ?></label>
-              <input class="large-8 columns" type="text" name="firstname" id="firstname" required />
+              <label class="large-4 columns" for="firstname"><?= T_('Firstname') ?></label>
+              <input class="large-8 columns" type="text" name="firstname" id="firstname" placeholder="<?= T_('John') ?>" required />
             </div>
             <div class="row">
-              <label class="large-4 columns" for="lastname"><?php echo T_('Lastname') ?></label>
-              <input class="large-8 columns" type="text" name="lastname" id="lastname" required />
+              <label class="large-4 columns" for="lastname"><?= T_('Lastname') ?></label>
+              <input class="large-8 columns" type="text" name="lastname" id="lastname" placeholder="<?= T_('Doe') ?>" required />
             </div>
             <div class="row">
-              <label class="large-4 columns" for="mail"><?php echo T_('Mail') ?></label>
-              <input class="large-8 columns" type="text" name="mail" id="mail" required />
+              <label class="large-4 columns" for="mail"><?= T_('Mail') ?></label>
+              <input class="large-8 columns" type="text" name="mail" id="mail" placeholder="<?= T_('john@doe.org') ?>" required />
             </div>
             <br />
             <br />
             <div class="row">
               <div class="large-6 columns">
                 <div class="btn-container center">
-                  <input class="big normal-font strong button" type="submit" value="<?php echo T_('Cancel') ?>" />
+                  <a class="big normal-font strong button" onclick="javascript:$('#addForm').foundation('reveal', 'close');"><?= T_('Cancel') ?></a>
                 </div>
               </div>
               <div class="large-6 columns">
                 <div class="btn-container center">
-                  <input class="big normal-font strong green button" type="submit" value="<?php echo T_('Create') ?>" />
+                  <input class="big normal-font strong green button" type="submit" value="<?= T_('Create') ?>" />
                 </div>
               </div>
             </div>
