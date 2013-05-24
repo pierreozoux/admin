@@ -232,6 +232,10 @@ nav.section-bar {
             padding-bottom: 20px;
         }
         li {
+            &.active a:not(.button),
+            a:not(.button):hover {
+                text-shadow: 3px -3px 0 $yellow;
+            }
             display: inline-block;
             vertical-align: middle;
             margin-right: 27px;

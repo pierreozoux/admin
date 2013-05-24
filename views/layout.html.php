@@ -25,20 +25,20 @@
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="<?php echo $locale ?>"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="<?= $locale ?>"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>YNH <?php echo (isset($title)) ? "| ".$title : "" ?></title>
+	<title>YNH <?= (isset($title)) ? "| ".$title : "" ?></title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 
 	<meta name="viewport" content="width=device-width">
     <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/jquery-1.7.1.min.js"><\/script>')</script>-->
-    <link media="all" type="text/css" href="<?php echo PUBLIC_DIR ?>/stylesheets/app.css" rel="stylesheet">
-	<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/custom.modernizr.js"></script>
+    <script>window.jQuery || document.write('<script src="<?= PUBLIC_DIR ?>/javascript/libs/jquery-1.7.1.min.js"><\/script>')</script>-->
+    <link media="all" type="text/css" href="<?= PUBLIC_DIR ?>/stylesheets/app.css" rel="stylesheet">
+	<script src="<?= PUBLIC_DIR ?>/javascript/libs/custom.modernizr.js"></script>
 </head>
 <body class="">
     <img src="/public/images/poc.png" id="poc" style="position: absolute; top: 113px; left: 130px; display: none;" />
@@ -51,14 +51,14 @@
         </ul>
         <ul class="right">
           <!--<li class=">">
-            <a href="/user/list"><?php echo T_('Users') ?></a>
+            <a href="/user/list"><?= T_('Users') ?></a>
           </li>-->
           <li class="">
-            <a href="/support" title="<?php echo T_('Support chat') ?>"><img src="http://dummyimage.com/30x30" style=""/></a>
+            <a href="/support" title="<?= T_('Support chat') ?>"><img src="http://dummyimage.com/30x30" style=""/></a>
           </li>
           <li class="text">
-            <!--<a href="/logout" title="<?php echo T_('Log out') ?>"><strong><?php echo $userUid ?></strong></a>-->
-            <a href="/logout" title="<?php echo T_('Logout') ?>"><strong>logout</strong></a>
+            <!--<a href="/logout" title="<?= T_('Log out') ?>"><strong><?= $userUid ?></strong></a>-->
+            <a href="/logout" title="<?= T_('Logout') ?>"><strong>logout</strong></a>
           </li>
         </ul>
       </div>
@@ -68,43 +68,43 @@
     <div id="container" class="row small-fix">
         <?php if (isset($flash['error'])) { ?>
             <div data-alert class="alert-box alert">
-              <?php echo $flash['error'] ?>
+              <?= $flash['error'] ?>
               <a href="#" class="close">&times;</a>
             </div>
         <?php } elseif (isset($flash['notice'])) { ?>
             <div data-alert class="alert-box">
-              <strong><?php echo T_('Notice') ?>:</strong> <?php echo $flash['notice'] ?>
+              <strong><?= T_('Notice') ?>:</strong> <?= $flash['notice'] ?>
               <a href="#" class="close">&times;</a>
             </div>
         <?php } elseif (isset($flash['success'])) { ?>
             <div data-alert class="alert-box success">
-              <?php echo $flash['success'] ?>
+              <?= $flash['success'] ?>
               <a href="#" class="close">&times;</a>
             </div>
         <?php } ?>
 
         <nav class="section-bar">
             <ul>
-                <li class="tab <?php echo ($tab == 'user') ? 'active' : '' ?>">
-                    <a href="/user/list" title="<?php echo T_('Users') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Users') ?></a>
+                <li class="tab <?= ($tab == 'user') ? 'active' : '' ?>">
+                    <a href="/user/list" title="<?= T_('Users') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Users') ?></a>
                 </li>
-                <li class="tab">
-                    <a href="/app/list" title="<?php echo T_('Apps') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Apps') ?></a>
+                <li class="tab <?= ($tab == 'app') ? 'active' : '' ?>">
+                    <a href="/app/list" title="<?= T_('Apps') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Apps') ?></a>
                 </li>
-                <li class="tab">
-                    <a href="/settings" title="<?php echo T_('Settings') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Settings') ?></a>
+                <li class="tab <?= ($tab == 'setting') ? 'active' : '' ?>">
+                    <a href="/settings" title="<?= T_('Settings') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Settings') ?></a>
                 </li>
-                <li class="tab">
-                    <a href="/domain/list" title="<?php echo T_('Domains') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Domains') ?></a>
+                <li class="tab <?= ($tab == 'domain') ? 'active' : '' ?>">
+                    <a href="/domain/list" title="<?= T_('Domains') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Domains') ?></a>
                 </li>
-                <li class="tab">
-                    <a href="/monitor" title="<?php echo T_('Monitor') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Monitor') ?></a>
+                <li class="tab <?= ($tab == 'monitor') ? 'active' : '' ?>">
+                    <a href="/monitor" title="<?= T_('Monitor') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Monitor') ?></a>
                 </li>
             </ul>
         </div>
         <div id="content">
             <div id="content-wrapper" class="stroked">
-                <?php echo $content?>
+                <?= $content?>
             </div>
         </div>
     </div> <!-- /container -->
@@ -114,47 +114,47 @@
   // i18n
   var dataTable_i18n = {
     "sSearch": "<i class='icon-search' style='z-index: 100'></i>",
-    "sInfo": "<?php echo T_('Showing _START_ to _END_ of _TOTAL_'); ?>",
-    "sInfoFiltered": "<?php echo T_('(filtered from _MAX_ total entries)'); ?>",
+    "sInfo": "<?= T_('Showing _START_ to _END_ of _TOTAL_'); ?>",
+    "sInfoFiltered": "<?= T_('(filtered from _MAX_ total entries)'); ?>",
   };
 </script>
 
 
 <script type="text/javascript">
       document.write('<script src=' +
-      ('__proto__' in {} ? '<?php echo PUBLIC_DIR ?>/javascript/libs/zepto' : '<?php echo PUBLIC_DIR ?>/javascript/libs/jquery') +
+      ('__proto__' in {} ? '<?= PUBLIC_DIR ?>/javascript/libs/zepto' : '<?= PUBLIC_DIR ?>/javascript/libs/jquery') +
       '.js><\/script>');
 </script>
 
-<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.alerts.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.clearing.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.cookie.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.dropdown.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.forms.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.joyride.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.magellan.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.orbit.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.placeholder.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.reveal.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.section.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.tooltips.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/foundation/foundation.topbar.js"></script>
+<script src="<?= PUBLIC_DIR ?>/javascript/libs/foundation/foundation.js"></script>
+<script src="<?= PUBLIC_DIR ?>/javascript/libs/foundation/foundation.alerts.js"></script>
+<script src="<?= PUBLIC_DIR ?>/javascript/libs/foundation/foundation.clearing.js"></script>
+<script src="<?= PUBLIC_DIR ?>/javascript/libs/foundation/foundation.cookie.js"></script>
+<script src="<?= PUBLIC_DIR ?>/javascript/libs/foundation/foundation.dropdown.js"></script>
+<script src="<?= PUBLIC_DIR ?>/javascript/libs/foundation/foundation.forms.js"></script>
+<script src="<?= PUBLIC_DIR ?>/javascript/libs/foundation/foundation.joyride.js"></script>
+<script src="<?= PUBLIC_DIR ?>/javascript/libs/foundation/foundation.magellan.js"></script>
+<script src="<?= PUBLIC_DIR ?>/javascript/libs/foundation/foundation.orbit.js"></script>
+<script src="<?= PUBLIC_DIR ?>/javascript/libs/foundation/foundation.placeholder.js"></script>
+<script src="<?= PUBLIC_DIR ?>/javascript/libs/foundation/foundation.reveal.js"></script>
+<script src="<?= PUBLIC_DIR ?>/javascript/libs/foundation/foundation.section.js"></script>
+<script src="<?= PUBLIC_DIR ?>/javascript/libs/foundation/foundation.tooltips.js"></script>
+<script src="<?= PUBLIC_DIR ?>/javascript/libs/foundation/foundation.topbar.js"></script>
 <script>
     $(document).foundation();
 </script>
 
 
-<script src="<?php echo PUBLIC_DIR ?>/javascript/libs/jquery.dataTables.min.js"></script>
+<script src="<?= PUBLIC_DIR ?>/javascript/libs/jquery.dataTables.min.js"></script>
 
 <!-- scripts concatenated and minified via ant build script-->
-<script src="<?php echo PUBLIC_DIR ?>/javascript/plugins.js"></script>
-<script src="<?php echo PUBLIC_DIR ?>/javascript/script.js"></script>
+<script src="<?= PUBLIC_DIR ?>/javascript/plugins.js"></script>
+<script src="<?= PUBLIC_DIR ?>/javascript/script.js"></script>
 
 <?php if (isset($_SESSION['chat'])) { ?>
   <script type="text/javascript">
     jQuery.ajaxSetup({cache: true});
-    jQuery.getScript("https://static.jappix.com/php/get.php?l=<?php echo $locale ?>&t=js&g=mini.xml", function() {
+    jQuery.getScript("https://static.jappix.com/php/get.php?l=<?= $locale ?>&t=js&g=mini.xml", function() {
       MINI_GROUPCHATS = ["support@conference.yunohost.org"];
       HOST_ANONYMOUS = "yunohost.org";
       HOST_MUC = "conference.yunohost.org";

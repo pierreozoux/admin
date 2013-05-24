@@ -4432,6 +4432,9 @@ nav.section-bar {
       display: inline-block;
       vertical-align: middle;
       margin-right: 27px; }
+      nav.section-bar ul li.active a:not(.button),
+      nav.section-bar ul li a:not(.button):hover {
+        text-shadow: 3px -3px 0 #ffe680; }
       @media screen and (max-width: 980px) {
         nav.section-bar ul li {
           display: block;
