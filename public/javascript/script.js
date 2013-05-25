@@ -1,10 +1,9 @@
 $(document).foundation();
 
 function showModal(template, url) {
-    url = (typeof url === "undefined") ? false : url;
     var html = $('#'+template).html();
     $('#modal').html('<br /><br /><br />'); // Reset the HTML of the modal (in case of lagging)
-    if (url) {
+    if (typeof url === "string") {
         $.getJSON(url, function(data) {
             $('#modal').html(Mustache.to_html(html, data));
         });
