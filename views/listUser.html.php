@@ -22,7 +22,7 @@
 <div class="row">
 
   <div class="btn-container left add-btn-container">
-  <a class="green button marged" href="#" id="addButton" data-reveal-id="addForm"><div style="font-size: 100px; line-height: 80px; height: 80px; width: 80px;">+</div><?= T_('Add User') ?></a>
+    <a class="green button marged" href="#" id="addButton" onclick="showModal('addForm')"><div>+</div><?= T_('Add User') ?></a>
   </div>
 
   <div class="large-9 row columns list">
@@ -32,7 +32,7 @@
       <?php foreach ($users['Users'] as $user) { ?>
         <li>
             <div class="btn-container user-container">
-                <a class="blue button normal-font vpadded" href="#" onclick="user='<?=$user['Username']?>'; javascript:showModal();" title="<?= $user['Username'].' ('.$user['Fullname'].')' ?>">
+                <a class="blue button normal-font vpadded" href="#" onclick="showModal('userDetails', '/user/details/<?= $user['Username']?>')" title="<?= $user['Username'].' ('.$user['Fullname'].')' ?>">
                    <div class="left user-avatar">
                      <img class="stroked" src="http://dummyimage.com/80x80" />
                    </div>
@@ -53,21 +53,21 @@
     <div class="row"> <!-- gridrow for a centered pagination list -->
       <div class="small-5 small-centered columns center">
         <ul class="pagination" <?= ($nbUsers < $limit) ? 'style="display: none"': ''?>>
-          <? if($_GET['page'] == 1){?>
+          <? if($page == 1){?>
             <li class="arrow unavailable"><a>&lsaquo;</a></li>
           <?} else { ?>
-            <li class="arrow"><a href="/user/list?page=<?= $_GET['page'] - 1?>">&lsaquo;</a></li>
+            <li class="arrow"><a href="/user/list?page=<?= $page - 1?>">&lsaquo;</a></li>
           <? }
           for($i = 1; $i <= ($nbUsers%$limit) + 1; $i++ ) {
-            if($i == $_GET['page']) { ?>
+            if($i == $page) { ?>
               <li class="current"><a class="stroked" href="#"><?= $i ?></a></li>
             <? } else { ?>
               <li><a href="/user/list?page=<?= $i ?>"><?= $i ?></a></li>
             <? } 
-          } if($_GET['page'] == ($nbUsers%$limit) + 1) { ?>
+          } if($page == ($nbUsers%$limit) + 1) { ?>
             <li class="arrow unavailable"><a>&rsaquo;</a></li>
           <?} else { ?>
-            <li class="arrow"><a href="/user/list?page=<?= $_GET['page'] + 1?>">&rsaquo;</a></li>
+            <li class="arrow"><a href="/user/list?page=<?= $page + 1?>">&rsaquo;</a></li>
           <? } ?>
         </ul>
       </div>
@@ -77,13 +77,13 @@
 </div>
 
     <!-- user details modal -->
-    <div class="reveal-modal gridBlock stroked" id="userDetails">
-      <span></span>
+    <script id="userDetails" type="text/template">
+      <span>{{Username}}</span>
       <br/>
       <a href="#">edit</a>
       <br/>
       <a href="#" id="deleteWarningDisplay">delete</a>
-    </div>
+    </script>
 
 
     <!-- user deletion warning modal -->
@@ -94,8 +94,7 @@
     </div>
 
     <!-- add User Form (hidden at start reveal modal foundation) -->
-    <div class="row modal-wrapper">
-      <div class="reveal-modal gridBlock stroked" id="addForm">
+    <script id="addForm" type="text/template">
           <h1><?= T_('Add new user') ?></h1>
           <form action="/user/add" method="post" class="custom small-11 small-centered columns padding-kill entityForm">
             <div class="row">
@@ -139,6 +138,5 @@
               </div>
             </div>
           </form>
-        </div>
-      </div>
+      </script>
     </div>

@@ -52,7 +52,7 @@ dispatch_put('/domain/update', 'updateDomains');
  */
 dispatch('/user', 'user');
 dispatch('/user/list', 'listUser');
-dispatch('/user/details', 'showUserAjax');
+dispatch('/user/details/:user', 'userDetails');
 dispatch('/user/add', 'addUserForm');
 dispatch_post('/user/add', 'addUser');
 dispatch('/user/delete/:user', 'deleteUserForm');

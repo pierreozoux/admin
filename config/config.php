@@ -148,10 +148,12 @@ function after($output, $route)
 # ============================================================================ #
 
 
-function moulinette($command) {
+function moulinette($command, $as_json = false) {
     exec('cd /var/moulinette && sudo ./parse_args '. $command .' --admin-password "'.$_SERVER['PHP_AUTH_PW'].'"', $result, $result_code);
 
-    if ($result_code == 0) {
+    if ($as_json) { 
+        return end($result); 
+    } elseif ($result_code == 0) {
         $result = json_decode(end($result), true);
         if (array_key_exists('success', $result)) {
             foreach ($result['success'] as $msg) {

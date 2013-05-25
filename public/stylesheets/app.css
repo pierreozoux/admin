@@ -4649,6 +4649,11 @@ body {
 #addButton {
   padding: 20px 15px;
   font-size: 17px; }
+  #addButton div {
+    font-size: 100px;
+    line-height: 80px;
+    height: 80px;
+    width: 80px; }
 
 .pagination {
   margin: 30px 0 0;

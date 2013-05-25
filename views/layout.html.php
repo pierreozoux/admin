@@ -104,6 +104,10 @@
                     </div>
                 <?php } ?>
                 <?= $content?>
+                <div class="row modal-wrapper">
+                  <div class="reveal-modal gridBlock stroked" id="modal">
+                  </div>
+                </div>
             </div>
         </div>
     </div> <!-- /container -->
@@ -144,7 +148,8 @@
 </script>
 
 
-<script src="<?= PUBLIC_DIR ?>/javascript/libs/jquery.dataTables.min.js"></script>
+<!-- <script src="<?= PUBLIC_DIR ?>/javascript/libs/jquery.dataTables.min.js"></script> -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
 
 <!-- scripts concatenated and minified via ant build script-->
 <script src="<?= PUBLIC_DIR ?>/javascript/plugins.js"></script>

@@ -1,25 +1,17 @@
-var user='nobody';
-var notTwice= true;
-
-$('#userDetails').foundation('reveal', {
-    opened: function () {
-      if(notTwice){
-        $.getJSON('/user/details?user='+ user, function(data){
-            console.log(data.myMsg);
-            $('#userDetails > span').append(data.myMsg);
-        });
-        notTwice=false;
-      }
-    },
-    closed: function () {
-    }
-});
-
 $(document).foundation();
 
-function showModal() {
-  notTwice=true;
-  $('#userDetails').foundation('reveal', 'open');
+function showModal(template, url) {
+    url = (typeof url === "undefined") ? false : url;
+    var html = $('#'+template).html();
+    $('#modal').html('<br /><br /><br />'); // Reset the HTML of the modal (in case of lagging)
+    if (url) {
+        $.getJSON(url, function(data) {
+            $('#modal').html(Mustache.to_html(html, data));
+        });
+    } else {
+        $('#modal').html(html);
+    }
+    $('#modal').foundation('reveal', 'open');
 }
 
 $(document).ready(function () {

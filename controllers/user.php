@@ -34,14 +34,19 @@ function listUser() {
   $page = isset($_GET['page']) ? $_GET['page'] : 1;
   if ($page > (($nbUsers%$limit) + 1)) { $page = 1; }
   $users = moulinette('user list --limit '.$limit.' --offset '.(($page-1)*$limit));
-  $domains = moulinette('domain list');
   set('users', $users);
   set('nbUsers', $nbUsers);
   set('limit', $limit);
   set('page', $page);
-  set('domains', $domains);
   set('title', T_('List users'));
   return render("listUser.html.php");
+}
+
+/**
+ * GET /user/details
+ */
+function userDetails($user) {
+  return moulinette('user info "'.$user.'"', true);
 }
 
 /**
@@ -50,7 +55,6 @@ function listUser() {
 function showUserAjax() {
   return '{"myMsg": "'.$_GET['user'].'!"}';
 }
-
 
 /**
  * POST /user/add
