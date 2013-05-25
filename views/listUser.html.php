@@ -52,22 +52,22 @@
     <!-- pagination -->
     <div class="row"> <!-- gridrow for a centered pagination list -->
       <div class="small-5 small-centered columns center">
-        <ul class="pagination">
+        <ul class="pagination" <?= ($nbUsers < $limit) ? 'style="display: none"': ''?>>
           <? if($_GET['page'] == 1){?>
-            <li class="arrow unavailable"><a>&laquo;</a></li>
+            <li class="arrow unavailable"><a>&lsaquo;</a></li>
           <?} else { ?>
-            <li class="arrow"><a href="/user/list?page=<?=$_GET['page']-1?>">&laquo;</a></li>
+            <li class="arrow"><a href="/user/list?page=<?= $_GET['page'] - 1?>">&lsaquo;</a></li>
           <? }
-          for($i = 1; $i <= ($nbUsers/$limit)+1 ; $i++ ){
-          if($i == $_GET['page']){?>
-              <li class="current"><a class="stroked" href="#"><?=$i?></a></li>
-          <? } else { ?>
-          <li><a href="/user/list?page=<?=$i?>"><?=$i?></a></li>
-          <? } }
-          if($_GET['page'] == ($nbUsers/$limit)+1){?>
-            <li class="arrow unavailable"><a>&raquo;</a></li>
+          for($i = 1; $i <= ($nbUsers%$limit) + 1; $i++ ) {
+            if($i == $_GET['page']) { ?>
+              <li class="current"><a class="stroked" href="#"><?= $i ?></a></li>
+            <? } else { ?>
+              <li><a href="/user/list?page=<?= $i ?>"><?= $i ?></a></li>
+            <? } 
+          } if($_GET['page'] == ($nbUsers%$limit) + 1) { ?>
+            <li class="arrow unavailable"><a>&rsaquo;</a></li>
           <?} else { ?>
-            <li class="arrow"><a href="/user/list?page=<?=$_GET['page']+1?>">&raquo;</a></li>
+            <li class="arrow"><a href="/user/list?page=<?= $_GET['page'] + 1?>">&rsaquo;</a></li>
           <? } ?>
         </ul>
       </div>
@@ -88,7 +88,7 @@
 
     <!-- user deletion warning modal -->
     <div class="reveal-modal gridBlock stroked" id="userDeleteWarning">
-      <span><?=T_('Delete user ')?><span class="upperStrong" id="userToDelete"></span><?=T_(' ? Are you sure ?')?></span>
+      <span><?= T_('Delete user ') ?><span class="upperStrong" id="userToDelete"></span><?= T_(' ? Are you sure ?') ?></span>
       <br/>
       <a href="#" id="deleteUser">delete</a>
     </div>
