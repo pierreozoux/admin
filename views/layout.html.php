@@ -105,7 +105,7 @@
                 <?php } ?>
                 <?= $content?>
                 <div class="row modal-wrapper">
-                  <div class="reveal-modal gridBlock stroked" id="modal">
+                  <div class="reveal-modal gridBlock stroked" id="modal" style="display: none">
                   </div>
                 </div>
             </div>

@@ -119,3 +119,11 @@ body {
     }
 }
 
+.infolist {
+    div {
+        padding-top: 8px;
+    }
+    div.mail-list::nth-last-letter {
+        color: red;
+    }
+}

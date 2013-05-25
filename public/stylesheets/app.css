@@ -4721,3 +4721,8 @@ body {
         display: block;
         width: 98%;
         margin: 0 20px; } }
+
+.infolist div {
+  padding-top: 8px; }
+.infolist div.mail-list::nth-last-letter {
+  color: red; }
