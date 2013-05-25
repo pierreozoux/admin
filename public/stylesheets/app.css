@@ -4643,6 +4643,11 @@ body {
   background-color: #cccccc;
   font-size: 18px; }
 
+.loader {
+  height: 200px;
+  width: 100%;
+  background: transparent url("/public/images/ajax-loader.gif") no-repeat center; }
+
 .add-btn-container {
   margin: 0 60px 0 35px; }
 

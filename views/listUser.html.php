@@ -78,7 +78,18 @@
 
 <!-- user details modal -->
 <script id="userDetails" type="text/template">
-  <span>{{Username}}</span>
+  <h1>{{Username}}</h1>
+  <div class="row">
+    <div class="large-4 columns center">
+      <img class="stroked" src="http://dummyimage.com/200x200" />
+    </div>
+    <div class="large-8 columns">
+      <div><strong><?= T_('Username') ?> :</strong> {{Username}}</div>
+      <div><strong><?= T_('Fullname') ?> :</strong> {{Fullname}}</div>
+      <div><strong><?= T_('Mail') ?> :</strong> <a href="mailto:{{Mail}}">{{Mail}}</a></div>
+      <div{{^Mail Aliases}} style="display: none"{{/Mail Aliases}}><strong><?= T_('Mail aliases') ?> :</strong>{{#Mail Aliases}} <a href="mailto:{{.}}">{{.}}</a>,{{/Mail Aliases}}
+    </div>
+  </div>
   <br/>
   <a href="#">edit</a>
   <br/>
