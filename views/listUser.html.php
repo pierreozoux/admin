@@ -90,6 +90,9 @@
       <div class="mail-list"{{^Mail Aliases}} style="display: none"{{/Mail Aliases}}>
         <strong><?= T_('Mail aliases') ?> :</strong>{{#Mail Aliases}} <a href="mailto:{{.}}">{{.}}</a>{{/Mail Aliases}}
       </div>
+      <div class="mail-list"{{^Mail Forward}} style="display: none"{{/Mail Forward}}>
+        <strong><?= T_('Forward to') ?> :</strong>{{#Mail Forward}} <a href="mailto:{{.}}">{{.}}</a>{{/Mail Forward}}
+      </div>
     </div>
   </div>
   <div class="row" style="margin-top: 35px;">

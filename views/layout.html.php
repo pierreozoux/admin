@@ -53,6 +53,13 @@
           <!--<li class=">">
             <a href="/user/list"><?= T_('Users') ?></a>
           </li>-->
+          <li class="text">
+            <a href="#" data-dropdown="locale-dropdown"><span class="uppercase"><?= $locale ?></span></a>
+            <ul id="locale-dropdown" class="f-dropdown tiny" data-dropdown-content>
+              <li><a href="/lang/en">EN</a></li>
+              <li><a href="/lang/fr">FR</a></li>
+            </ul>
+          </li>
           <li class="">
             <a href="/support" title="<?= T_('Support chat') ?>"><img src="http://dummyimage.com/30x30" style=""/></a>
           </li>

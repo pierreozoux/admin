@@ -486,7 +486,7 @@ $button-radius: 4px;
 //
 
 // We use these to controls height and width styles.
-// $f-dropdown-max-width: 200px;
+$f-dropdown-max-width: 50px;
 // $f-dropdown-height: auto;
 // $f-dropdown-max-height: none;
 // $f-dropdown-margin-top: 2px;
@@ -496,21 +496,21 @@ $button-radius: 4px;
 
 // We use this to set the border styles for dropdowns.
 // $f-dropdown-border-style: solid;
-// $f-dropdown-border-width: 1px;
-// $f-dropdown-border-color: darken(#fff, 20%);
+$f-dropdown-border-width: 3px;
+$f-dropdown-border-color: $black;
 
 // We use these to style the triangle pip.
-// $f-dropdown-triangle-size: 6px;
+$f-dropdown-triangle-size: 8px;
 // $f-dropdown-triangle-color: #fff;
 // $f-dropdown-triangle-side-offset: 10px;
 
 // We use these to control styles for the list elements.
 // $f-dropdown-list-style: none;
-// $f-dropdown-font-color: #555;
-// $f-dropdown-font-size: emCalc(14px);
+$f-dropdown-font-color: $black;
+$f-dropdown-font-size: 18px;
 // $f-dropdown-list-padding: emCalc(5px) emCalc(10px);
 // $f-dropdown-line-height: emCalc(18px);
-// $f-dropdown-list-hover-bg: #eeeeee;
+$f-dropdown-list-hover-bg: white;
 // $dropdown-mobile-left: 0;
 
 // We use this to control the styles for when the dropdown has custom content.

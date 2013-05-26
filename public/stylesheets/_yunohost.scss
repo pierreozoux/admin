@@ -203,12 +203,12 @@ nav.tool-bar {
             }
         }
     }
-    ul.right {
+    ul.right:not(.f-dropdown) {
         margin: 0;
         padding: 0;
         list-style-type: none;
         li {
-            margin: 0 12px;
+            margin: 0 8px;
             padding: 5px 0;
             display: inline-block;
             vertical-align: middle;
@@ -217,6 +217,37 @@ nav.tool-bar {
             }
             a {
                 color: white;
+                padding: 0 6px;
+            }
+            &.text a {
+                -moz-box-sizing:    border-box;
+                -webkit-box-sizing: border-box;
+                box-sizing:        border-box;
+                &:hover {
+                    padding: 0 3px;
+                    border: 3px solid white;
+                }
+            }
+            ul#locale-dropdown {
+                margin-left: -8px;
+                padding: 6px 0;
+                width: 56px;
+                li {
+                    display: block;
+                    a {
+                        color: $black;
+                        font-weight: 700;
+                        padding: 0 6px;
+                        -moz-box-sizing:    border-box;
+                        -webkit-box-sizing: border-box;
+                        box-sizing:        border-box;
+                        &:hover {
+                            padding: 0 3px;
+                            border: 3px solid $black;
+                        }
+                    }
+                }
+
             }
         }
     }
@@ -393,7 +424,7 @@ span.bold {
 span.uppercase {
     font-weight: 700;
     font-family: "Source Sans Pro";
-    letter-spacing: -1px;
+    text-transform: uppercase;
 }
 
 
