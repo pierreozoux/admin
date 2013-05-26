@@ -4612,6 +4612,12 @@ div {
     [class*="block-grid-"] {
       margin: 0; } }
 
+@media screen and (max-width: 980px) {
+  .reveal-modal {
+    width: 90%;
+    margin-left: -45%; } }
+.reveal-modal .close-reveal-modal {
+  color: #222222; }
 .reveal-modal h1 {
   text-transform: uppercase;
   font-size: 24px;
@@ -4722,7 +4728,8 @@ body {
         width: 98%;
         margin: 0 20px; } }
 
-.infolist div {
-  padding-top: 8px; }
-.infolist div.mail-list::nth-last-letter {
-  color: red; }
+.info-list div {
+  padding-top: 5px; }
+.info-list div.mail-list a:not(:last-of-type):after {
+  content: ", ";
+  color: #222222; }

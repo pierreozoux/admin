@@ -87,13 +87,23 @@
       <div><strong><?= T_('Username') ?> :</strong> {{Username}}</div>
       <div><strong><?= T_('Fullname') ?> :</strong> {{Fullname}}</div>
       <div><strong><?= T_('Mail') ?> :</strong> <a href="mailto:{{Mail}}">{{Mail}}</a></div>
-      <div class="mail-list"{{^Mail Aliases}} style="display: none"{{/Mail Aliases}}><strong><?= T_('Mail aliases') ?> :</strong>{{#Mail Aliases}} <a href="mailto:{{.}}">{{.}}</a>,{{/Mail Aliases}}
+      <div class="mail-list"{{^Mail Aliases}} style="display: none"{{/Mail Aliases}}>
+        <strong><?= T_('Mail aliases') ?> :</strong>{{#Mail Aliases}} <a href="mailto:{{.}}">{{.}}</a>{{/Mail Aliases}}
+      </div>
     </div>
   </div>
-  <br/>
-  <a href="#">edit</a>
-  <br/>
-  <a href="#" id="deleteWarningDisplay">delete</a>
+  <div class="row" style="margin-top: 35px;">
+    <div class="large-8 columns large-centered">
+      <div class="row">
+        <div class="btn-container large-6 columns center">
+            <a class="big blue button normal-font strong"><?= T_('Edit') ?></a>
+        </div>
+        <div class="btn-container large-6 columns center">
+            <a class="big red button normal-font strong" href="#" id="deleteWarningDisplay"><?= T_('Delete') ?></a>
+        </div>
+      </div>
+    </div>
+  </div>
 </script>
 
 
@@ -132,7 +142,7 @@
     <div class="row">
       <div class="large-6 columns">
         <div class="btn-container center">
-          <a class="big normal-font strong button" onclick="javascript:$('#addForm').foundation('reveal', 'close');"><?= T_('Cancel') ?></a>
+          <a class="big normal-font strong button close-modal"><?= T_('Cancel') ?></a>
         </div>
       </div>
       <div class="large-6 columns">
