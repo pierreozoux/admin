@@ -41,7 +41,7 @@
 	<script src="<?= PUBLIC_DIR ?>/javascript/libs/custom.modernizr.js"></script>
 </head>
 <body class="">
-    <img src="/public/images/poc.png" id="poc" style="position: absolute; top: 113px; left: 130px; display: none;" />
+    <img src="/public/images/poc.png" id="poc" style="position: absolute; top: 103px; left: 130px; display: none;" />
     <nav class="tool-bar">
       <div class="tool-bar-wrapper">
         <ul class="left">
@@ -61,11 +61,10 @@
             </ul>
           </li>
           <li class="">
-            <a href="/support" title="<?= T_('Support chat') ?>"><img src="http://dummyimage.com/30x30" style=""/></a>
+            <a class="chat-button" href="/support" title="<?= T_('Support chat') ?>"></a>
           </li>
-          <li class="text">
-            <!--<a href="/logout" title="<?= T_('Log out') ?>"><strong><?= $userUid ?></strong></a>-->
-            <a href="/logout" title="<?= T_('Logout') ?>"><strong>logout</strong></a>
+          <li class="">
+            <a class="logout-button" href="/logout" title="<?= T_('Logout') ?>"></a>
           </li>
         </ul>
       </div>
@@ -76,19 +75,16 @@
         <nav class="section-bar">
             <ul>
                 <li class="tab <?= ($tab == 'user') ? 'active' : '' ?>">
-                    <a href="/user/list" title="<?= T_('Users') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Users') ?></a>
+                    <a class="users-tab" href="/user/list" title="<?= T_('Users') ?>"><?= T_('Users') ?></a>
                 </li>
                 <li class="tab <?= ($tab == 'app') ? 'active' : '' ?>">
-                    <a href="/app/list" title="<?= T_('Apps') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Apps') ?></a>
-                </li>
-                <li class="tab <?= ($tab == 'setting') ? 'active' : '' ?>">
-                    <a href="/settings" title="<?= T_('Settings') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Settings') ?></a>
+                    <a class="apps-tab" href="/app/list" title="<?= T_('Apps') ?>"><?= T_('Apps') ?></a>
                 </li>
                 <li class="tab <?= ($tab == 'domain') ? 'active' : '' ?>">
-                    <a href="/domain/list" title="<?= T_('Domains') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Domains') ?></a>
+                    <a class="domains-tab" href="/domain/list" title="<?= T_('Domains') ?>"><?= T_('Domains') ?></a>
                 </li>
                 <li class="tab <?= ($tab == 'monitor') ? 'active' : '' ?>">
-                    <a href="/monitor" title="<?= T_('Monitor') ?>"><img src="http://dummyimage.com/30x30" style=""/><?= T_('Monitor') ?></a>
+                    <a class="monitor-tab" href="/monitor" title="<?= T_('Monitor') ?>"><?= T_('Monitor') ?></a>
                 </li>
             </ul>
         </div>

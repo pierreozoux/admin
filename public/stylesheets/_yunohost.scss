@@ -197,8 +197,14 @@ nav.tool-bar {
                 color: white;
                 border: 3px solid white;
                 font-family: 'Source Code Pro';
+                &:hover {
+                    border-color: $yellow;
+                }
                 a {
                     color: white;
+                    &:hover {
+                        color: $yellow;
+                    }
                 }
             }
         }
@@ -213,19 +219,15 @@ nav.tool-bar {
             display: inline-block;
             vertical-align: middle;
             &.text {
-                padding-top: 2px;
+                padding-top: 4px;
             }
             a {
                 color: white;
                 padding: 0 6px;
             }
             &.text a {
-                -moz-box-sizing:    border-box;
-                -webkit-box-sizing: border-box;
-                box-sizing:        border-box;
                 &:hover {
-                    padding: 0 3px;
-                    border: 3px solid white;
+                    color: $yellow;
                 }
             }
             ul#locale-dropdown {
@@ -238,12 +240,8 @@ nav.tool-bar {
                         color: $black;
                         font-weight: 700;
                         padding: 0 6px;
-                        -moz-box-sizing:    border-box;
-                        -webkit-box-sizing: border-box;
-                        box-sizing:        border-box;
                         &:hover {
-                            padding: 0 3px;
-                            border: 3px solid $black;
+                            text-shadow: 3px -3px 0 $yellow;
                         }
                     }
                 }
@@ -268,8 +266,9 @@ nav.section-bar {
                 text-shadow: 3px -3px 0 $yellow;
             }
             display: inline-block;
+            height: 32px;
             vertical-align: middle;
-            margin-right: 27px;
+            margin-right: 37px;
             @media screen and (max-width: 980px) {
                 display: block;
                 margin-left: 27px;
@@ -279,10 +278,7 @@ nav.section-bar {
                 text-transform: uppercase;
                 font-size: 24px;
                 font-weight: 700;
-                padding-left: 7px;
-                img {
-                    float: left;
-                }
+                padding-left: 40px;
             }
         }
     }

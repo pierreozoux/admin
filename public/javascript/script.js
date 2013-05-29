@@ -18,12 +18,12 @@ function showModal(template, url, need_close_btn) {
 $(document).ready(function () {
     // Pun gestion
     if ($(".tab.active").length == 1) {
-        var position = $(".tab.active a").position().left + $(".tab.active a").width()/2 - 17;
+        var position = $(".tab.active a").position().left + $(".tab.active a").width()/2 - 7;
         $("#poc").css('left', position).show();
     }
     $(window).resize(function() {
         if ($(".tab.active").length == 1) {
-            var position = $(".tab.active a").position().left + $(".tab.active a").width()/2 - 17;
+            var position = $(".tab.active a").position().left + $(".tab.active a").width()/2 - 7;
             $("#poc").css('left', position).show();
         }
     });
