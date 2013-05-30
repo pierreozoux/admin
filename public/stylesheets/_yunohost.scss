@@ -253,7 +253,7 @@ nav.tool-bar {
 
 nav.section-bar {
     max-width: 920px;
-    margin: 0 auto;
+    margin: 4px auto 0;
     ul {
         list-style-type: none;
         padding-left: 5px;
@@ -266,7 +266,7 @@ nav.section-bar {
                 text-shadow: 3px -3px 0 $yellow;
             }
             display: inline-block;
-            height: 32px;
+            height: 37px;
             vertical-align: middle;
             margin-right: 37px;
             @media screen and (max-width: 980px) {

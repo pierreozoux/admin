@@ -29,13 +29,13 @@ function configure()
 {
   option('env', ENV_PRODUCTION);
   option('debug', false);
-  option('base_uri', '/');
+  option('base_uri', '/ynh-admin/');
   //option('controllers_dir', dirname(__FILE__).'/controllers');
   //option('views_dir', dirname(__FILE__).'/views');
   define('MODELS_DIR', dirname(__FILE__).'/../models');
   layout("layout.html.php");
   //option('public_dir', dirname(__FILE__).'/../../public');
-  define('PUBLIC_DIR', '/public');
+  define('PUBLIC_DIR', '/ynh-admin/public');
 }
 
 /**

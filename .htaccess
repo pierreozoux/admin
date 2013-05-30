@@ -1,5 +1,0 @@
-AuthType Basic
-AuthName Internal
-AuthBasicProvider ldap
-AuthLDAPURL ldap://127.0.0.1:389/dc=yunohost,dc=org?uid
-require user admin
