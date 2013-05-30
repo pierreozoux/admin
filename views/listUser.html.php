@@ -32,7 +32,7 @@
       <?php foreach ($users['Users'] as $user) { ?>
         <li>
             <div class="btn-container user-container">
-                <a class="blue button normal-font vpadded" onclick="showModal('userDetails', '/user/details/<?= $user['Username']?>')" title="<?= $user['Username'].' ('.$user['Fullname'].')' ?>">
+                <a class="blue button normal-font vpadded" onclick="showModal('userDetails', '<?= url_for('/user/details/'.$user['Username']) ?>')" title="<?= $user['Username'].' ('.$user['Fullname'].')' ?>">
                    <div class="left user-avatar">
                      <img class="stroked" src="http://dummyimage.com/80x80" />
                    </div>

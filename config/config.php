@@ -29,7 +29,11 @@ function configure()
 {
   option('env', ENV_PRODUCTION);
   option('debug', false);
-  option('base_uri', '/ynh-admin/');
+  if (preg_match('/^\/ynh\-admin/', $_SERVER['REQUEST_URI'])) { 
+      option('base_uri', '/ynh-admin/');
+  } else {
+      option('base_uri', '/');
+  }
   //option('controllers_dir', dirname(__FILE__).'/controllers');
   //option('views_dir', dirname(__FILE__).'/views');
   define('MODELS_DIR', dirname(__FILE__).'/../models');
@@ -146,7 +150,6 @@ function after($output, $route)
 # ============================================================================ #
 #   4. OTHERS                                                                  #
 # ============================================================================ #
-
 
 function moulinette($command, $as_json = false) {
     exec('cd /var/moulinette && sudo ./parse_args '. $command .' --admin-password "'.$_SERVER['PHP_AUTH_PW'].'"', $result, $result_code);

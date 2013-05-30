@@ -46,25 +46,22 @@
       <div class="tool-bar-wrapper">
         <ul class="left">
           <li class="name">
-              <h1><a class="brand" href="/"><span class="logo-white">YUNOHOST</span></a></h1>
+              <h1><a class="brand" href="<?= url_for('/') ?>"><span class="logo-white">YUNOHOST</span></a></h1>
           </li>
         </ul>
         <ul class="right">
-          <!--<li class=">">
-            <a href="/user/list"><?= T_('Users') ?></a>
-          </li>-->
           <li class="text">
             <a href="#" data-dropdown="locale-dropdown"><span class="uppercase"><?= $locale ?></span></a>
             <ul id="locale-dropdown" class="f-dropdown tiny" data-dropdown-content>
-              <li><a href="/lang/en">EN</a></li>
-              <li><a href="/lang/fr">FR</a></li>
+              <li><a href="<?= url_for('/lang/en') ?>">EN</a></li>
+              <li><a href="<?= url_for('/lang/fr') ?>">FR</a></li>
             </ul>
           </li>
           <li class="">
-            <a class="chat-button" href="/support" title="<?= T_('Support chat') ?>"></a>
+            <a class="chat-button" href="<?= url_for('/support') ?>" title="<?= T_('Support chat') ?>"></a>
           </li>
           <li class="">
-            <a class="logout-button" href="/logout" title="<?= T_('Logout') ?>"></a>
+            <a class="logout-button" href="<?= url_for('/logout') ?>" title="<?= T_('Logout') ?>"></a>
           </li>
         </ul>
       </div>
@@ -75,16 +72,16 @@
         <nav class="section-bar">
             <ul>
                 <li class="tab <?= ($tab == 'user') ? 'active' : '' ?>">
-                    <a class="users-tab" href="/user/list" title="<?= T_('Users') ?>"><?= T_('Users') ?></a>
+                    <a class="users-tab" href="<?= url_for('/user/list') ?>" title="<?= T_('Users') ?>"><?= T_('Users') ?></a>
                 </li>
                 <li class="tab <?= ($tab == 'app') ? 'active' : '' ?>">
-                    <a class="apps-tab" href="/app/list" title="<?= T_('Apps') ?>"><?= T_('Apps') ?></a>
+                    <a class="apps-tab" href="<?= url_for('/app/list') ?>" title="<?= T_('Apps') ?>"><?= T_('Apps') ?></a>
                 </li>
                 <li class="tab <?= ($tab == 'domain') ? 'active' : '' ?>">
-                    <a class="domains-tab" href="/domain/list" title="<?= T_('Domains') ?>"><?= T_('Domains') ?></a>
+                    <a class="domains-tab" href="<?= url_for('/domain/list') ?>" title="<?= T_('Domains') ?>"><?= T_('Domains') ?></a>
                 </li>
                 <li class="tab <?= ($tab == 'monitor') ? 'active' : '' ?>">
-                    <a class="monitor-tab" href="/monitor" title="<?= T_('Monitor') ?>"><?= T_('Monitor') ?></a>
+                    <a class="monitor-tab" href="<?= url_for('/monitor') ?>" title="<?= T_('Monitor') ?>"><?= T_('Monitor') ?></a>
                 </li>
             </ul>
         </div>
