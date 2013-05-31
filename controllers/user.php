@@ -62,7 +62,7 @@ function showUserAjax() {
 function addUser () {
   $_SESSION['first-install'] = false;
   $username = htmlspecialchars($_POST["username"]);
-  $password = '{MD5}'.base64_encode(pack('H*',md5($_POST["password"])));
+  $password = $_POST["password"];
   $firstname = htmlspecialchars($_POST["firstname"]);
   $lastname = htmlspecialchars($_POST["lastname"]);
   $mail = htmlspecialchars($_POST["mail"]);
