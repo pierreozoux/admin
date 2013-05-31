@@ -56,18 +56,18 @@
           <? if($page == 1){?>
             <li class="arrow unavailable"><a>&lsaquo;</a></li>
           <?} else { ?>
-            <li class="arrow"><a href="/user/list?page=<?= $page - 1?>">&lsaquo;</a></li>
+            <li class="arrow"><a href="<?= url_for('/user/list?page='.$page - 1) ?>">&lsaquo;</a></li>
           <? }
           for($i = 1; $i <= ($nbUsers%$limit) + 1; $i++ ) {
             if($i == $page) { ?>
               <li class="current"><a class="stroked" href="#"><?= $i ?></a></li>
             <? } else { ?>
-              <li><a href="/user/list?page=<?= $i ?>"><?= $i ?></a></li>
+              <li><a href="<?= url_for('/user/list?page='.$i) ?>"><?= $i ?></a></li>
             <? } 
           } if($page == ($nbUsers%$limit) + 1) { ?>
             <li class="arrow unavailable"><a>&rsaquo;</a></li>
           <?} else { ?>
-            <li class="arrow"><a href="/user/list?page=<?= $page + 1?>">&rsaquo;</a></li>
+            <li class="arrow"><a href="<?= url_for('/user/list?page='.$page + 1) ?>">&rsaquo;</a></li>
           <? } ?>
         </ul>
       </div>
@@ -113,7 +113,7 @@
 <!-- add User Form modal -->
 <script id="addForm" type="text/template">
   <h1><?= T_('Add new user') ?></h1>
-  <form action="/user/add" method="post" class="custom small-11 small-centered columns padding-kill entityForm">
+  <form action="<?= url_for('/user/add') ?>" method="post" class="custom small-11 small-centered columns padding-kill entityForm">
     <div class="row">
       <label class="large-4 columns" for="username"><?= T_('Username') ?></label>
       <input class="large-8 columns" type="text" name="username" id="username" placeholder="<?= T_('j0hn') ?>" required />
