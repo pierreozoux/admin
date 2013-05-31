@@ -29,7 +29,7 @@ function configure()
 {
   option('env', ENV_PRODUCTION);
   option('debug', false);
-  if (preg_match('/^\/ynh\-admin/', $_SERVER['REQUEST_URI'])) { 
+  if (preg_match('/^\/ynh\-admin/', $_SERVER['REQUEST_URI'])) {
       option('base_uri', '/ynh-admin/');
   } else {
       option('base_uri', '/');
@@ -107,7 +107,11 @@ function before($route)
     /**
      * Extract category from URI
      */
-    $uri = $_SERVER['REQUEST_URI'];
+    if (preg_match('/^\/ynh\-admin/', $_SERVER['REQUEST_URI'])) {
+        $uri = substr($_SERVER['REQUEST_URI'], 11);
+    } else {
+        $uri = $_SERVER['REQUEST_URI'];
+    }
     if (substr_count($uri, '/') > 1) { // more than a '/' in uri
       if (strlen(substr($uri, 1, strpos($uri, '/', 1) - 1)) == 2) { // uri contains i18n param
         $uri = substr($uri, 3);
@@ -154,8 +158,8 @@ function after($output, $route)
 function moulinette($command, $as_json = false) {
     exec('cd /usr/bin && sudo ./yunohost '. $command .' --admin-password "'.$_SERVER['PHP_AUTH_PW'].'"', $result, $result_code);
 
-    if ($as_json) { 
-        return end($result); 
+    if ($as_json) {
+        return end($result);
     } elseif ($result_code == 0) {
         $result = json_decode(end($result), true);
         if (array_key_exists('success', $result)) {
