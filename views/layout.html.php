@@ -74,7 +74,7 @@
                 <li class="tab <?= ($tab == 'user') ? 'active' : '' ?>">
                     <a class="users-tab" href="<?= url_for('/user/list') ?>" title="<?= T_('Users') ?>"><?= T_('Users') ?></a>
                 </li>
-                <li class="tab <?= ($tab == 'app') ? 'active' : '' ?>">
+                <!--<li class="tab <?= ($tab == 'app') ? 'active' : '' ?>">
                     <a class="apps-tab" href="<?= url_for('/app/list') ?>" title="<?= T_('Apps') ?>"><?= T_('Apps') ?></a>
                 </li>
                 <li class="tab <?= ($tab == 'domain') ? 'active' : '' ?>">
@@ -82,11 +82,15 @@
                 </li>
                 <li class="tab <?= ($tab == 'monitor') ? 'active' : '' ?>">
                     <a class="monitor-tab" href="<?= url_for('/monitor') ?>" title="<?= T_('Monitor') ?>"><?= T_('Monitor') ?></a>
-                </li>
+                </li>-->
             </ul>
         </div>
         <div id="content">
             <div id="content-wrapper" class="stroked">
+                    <div class="alert-box alert">
+                      <?= T_('The administration is not quite functionnal yet') ?>
+                      <a href="#" class="close">&times;</a>
+                    </div>
                 <?php if (isset($flash['error'])) { ?>
                     <div data-alert class="alert-box alert">
                       <?= $flash['error'] ?>
