@@ -114,19 +114,17 @@ function before($route)
    * Check connection and installation
    */
   if (!isset($_SESSION['isConnected']) || !$_SESSION['isConnected']) {
-      $allowed_urls = array('/login', '/postinstall');
-      foreach ($allowed_urls as $url) {
-          if ($uri == $url) { break; }
+      $allowed_uris = array('/login', '/postinstall');
+      if (!in_array($uri, $allowed_uris)) {
           if (isset($_SERVER['PHP_AUTH_USER']) && $_SERVER['PHP_AUTH_USER'] == 'admin') {
               $_SESSION['pwd'] = $_SERVER['PHP_AUTH_PW'];
               $_SESSION['isConnected'] = true;
               redirect_to('/user/list');
           }
-          redirect_to('/login');
-      }
-      if ($_SESSION['mainDomain'] == 'yunohost.org') {
-          if ($uri != '/postinstall' || sizeof($_POST) == 0) {
-            redirect_to('/postinstall');
+          if ($_SESSION['mainDomain'] == 'yunohost.org') {
+              redirect_to('/postinstall');
+          } else {
+              redirect_to('/login');
           }
       }
   }
