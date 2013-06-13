@@ -32,12 +32,59 @@ function home() {
 }
 
 /**
+ * GET /login
+ */
+function login() {
+  set('title', T_('Authentication'));
+  return render("login.html.php", "emptyLayout.html.php");
+}
+
+/**
+ * POST /login
+ */
+function doLogin() {
+  $ldap = @ldap_connect('localhost');
+  if (@ldap_bind($ldap, 'cn=admin,dc=yunohost,dc=org', $_POST['password'])) {
+      $_SESSION['isConnected'] = true;
+      $_SESSION['pwd'] = $_POST['password'];
+      redirect_to('/user/list');
+  } else {
+      flash('error', T_('Wrong password'));
+      redirect_to('/login');
+  }
+}
+
+/**
  * GET /logout
  */
 function logout() {
   $_SESSION['isConnected'] = false;
 
   redirect_to('/user/list');
+}
+
+/**
+ * GET /postinstall
+ */
+function postInstall() {
+  set('title', T_('Post-Install'));
+  return render("postInstall.html.php", "emptyLayout.html.php");
+}
+
+/**
+ * POST /postinstall
+ */
+function doPostInstall() {
+  if ($_POST["password"] === $_POST["confirm"]) {
+      $_SESSION['pwd'] = 'yunohost';
+      if moulinette('tools postinstall --domain "'. $_POST["domain"] .'" --password "'. $_POST["password"] .'"') {
+          $_SESSION['isConnected'] = true;
+          $_SESSION['pwd'] = $_POST['password'];
+      }
+  } else {
+      flash('error', T_("Passwords doesn't match"));
+  }
+  redirect_to('/');
 }
 
 /**

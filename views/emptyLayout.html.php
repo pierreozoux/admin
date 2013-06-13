@@ -41,7 +41,6 @@
 	<script src="<?= PUBLIC_DIR ?>/javascript/libs/custom.modernizr.js"></script>
 </head>
 <body class="">
-    <img src="<?= url_for('/public/images/poc.png') ?>" id="poc" style="position: absolute; top: 112px; left: 130px; display: none;" />
     <nav class="tool-bar">
       <div class="tool-bar-wrapper">
         <ul class="left">
@@ -60,9 +59,6 @@
           <li class="">
             <a class="chat-button" href="<?= url_for('/support') ?>" title="<?= T_('Support chat') ?>"></a>
           </li>
-          <li class="">
-            <a class="logout-button" href="<?= url_for('/logout') ?>" title="<?= T_('Logout') ?>"></a>
-          </li>
         </ul>
       </div>
     </nav>
@@ -70,20 +66,6 @@
 
     <div id="container" class="row small-fix">
         <nav class="section-bar">
-            <ul>
-                <li class="tab <?= ($tab == 'user') ? 'active' : '' ?>">
-                    <a class="users-tab" href="<?= url_for('/user/list') ?>" title="<?= T_('Users') ?>"><?= T_('Users') ?></a>
-                </li>
-                <!--<li class="tab <?= ($tab == 'app') ? 'active' : '' ?>">
-                    <a class="apps-tab" href="<?= url_for('/app/list') ?>" title="<?= T_('Apps') ?>"><?= T_('Apps') ?></a>
-                </li>
-                <li class="tab <?= ($tab == 'domain') ? 'active' : '' ?>">
-                    <a class="domains-tab" href="<?= url_for('/domain/list') ?>" title="<?= T_('Domains') ?>"><?= T_('Domains') ?></a>
-                </li>
-                <li class="tab <?= ($tab == 'monitor') ? 'active' : '' ?>">
-                    <a class="monitor-tab" href="<?= url_for('/monitor') ?>" title="<?= T_('Monitor') ?>"><?= T_('Monitor') ?></a>
-                </li>-->
-            </ul>
         </nav>
         <div id="content">
             <div id="content-wrapper" class="stroked">

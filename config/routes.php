@@ -23,7 +23,11 @@
  * => controllers/other.php
  */
 dispatch('/', 'home');
+dispatch('/login', 'login');
+dispatch_post('/login', 'doLogin');
 dispatch('/logout', 'logout');
+dispatch('/postinstall', 'postInstall');
+dispatch_post('/postinstall', 'doPostInstall');
 dispatch('/lang/:locale', 'changeLocale');
 dispatch('/images/:name/:size', 'image_show');
 dispatch('/images/*.jpg/:size', 'image_show_jpeg_only');

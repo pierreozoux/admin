@@ -58,8 +58,6 @@ function not_found($errno, $errstr, $errfile=null, $errline=null)
 
 function before($route)
 {
-  global $config;
-
   /**
    * Set host
    */
@@ -95,45 +93,49 @@ function before($route)
   set('locale', $_SESSION['locale']);
 
   /**
-   * Proceed routing
+   * Extract category from URI
    */
-  function continueRouting($route) {
-    //header("X-LIM-route-function: ".$route['function']);
-    header("X-LIM-route-params: ".json_encode($route['params']));
-    header("X-LIM-route-options: ".json_encode($route['options']));
-
-    $_SESSION['isConnected'] = true;
-
-    /**
-     * Extract category from URI
-     */
-    if (preg_match('/^\/ynh\-admin/', $_SERVER['REQUEST_URI'])) {
-        $uri = substr($_SERVER['REQUEST_URI'], 11);
-    } else {
-        $uri = $_SERVER['REQUEST_URI'];
-    }
-    if (substr_count($uri, '/') > 1) { // more than a '/' in uri
-      if (strlen(substr($uri, 1, strpos($uri, '/', 1) - 1)) == 2) { // uri contains i18n param
-        $uri = substr($uri, 3);
-      }
-      $tab = substr($uri, 1, strpos($uri, '/', 1) - 1);
-    } else {
-      $tab = substr($uri, 1);
-    }
-    set('userUid', $_SERVER['PHP_AUTH_USER']);
-    set('tab', $tab);
+  if (preg_match('/^\/ynh\-admin/', $_SERVER['REQUEST_URI'])) {
+      $uri = substr($_SERVER['REQUEST_URI'], 10);
+  } else {
+      $uri = $_SERVER['REQUEST_URI'];
   }
+  if (substr_count($uri, '/') > 1) { // more than a '/' in uri
+    if (strlen(substr($uri, 1, strpos($uri, '/', 1) - 1)) == 2) { // uri contains i18n param
+      $uri = substr($uri, 3);
+    }
+    $tab = substr($uri, 1, strpos($uri, '/', 1) - 1);
+  } else {
+    $tab = substr($uri, 1);
+  }
+  set('tab', $tab);
 
   /**
-   * Check installation
+   * Check connection and installation
    */
-  if ($_SESSION['mainDomain'] == 'yunohost.org' && sizeof($_POST) == 0) {
-      die(render("postinstall.html.php", null, array('title' => T_('Configuration'))));
+  if (!$_SESSION['isConnected']) {
+      $allowed_urls = array('/login', '/postinstall', '/');
+      foreach ($url as $allowed_urls) {
+          if ($uri == $url) { break; }
+          if (isset($_SERVER['PHP_AUTH_USER']) && $_SERVER['PHP_AUTH_USER'] == 'admin') {
+              $_SESSION['isConnected'] = true;
+              redirect_to('/user/list');
+          }
+          redirect_to('/login');
+      }
+      if ($_SESSION['mainDomain'] != 'yunohost.org') {
+          if ($uri != '/postinstall' || sizeof($_POST) == 0) {
+            redirect_to('/postinstall');
+          }
+      } else redirect_to('/login');
   } else {
-      continueRouting($route);
+      //header("X-LIM-route-function: ".$route['function']);
+      header("X-LIM-route-params: ".json_encode($route['params']));
+      header("X-LIM-route-options: ".json_encode($route['options']));
   }
 }
 
+//die(render("postinstall.html.php", null, array('title' => T_('Configuration'))));
 
 # ============================================================================ #
 #   3. AFTER ROUTING                                                           #
@@ -156,7 +158,7 @@ function after($output, $route)
 # ============================================================================ #
 
 function moulinette($command, $as_json = false) {
-    exec('cd /usr/bin && sudo ./yunohost '. $command .' --admin-password "'.$_SERVER['PHP_AUTH_PW'].'"', $result, $result_code);
+    exec('cd /usr/bin && sudo ./yunohost '. $command .' --admin-password "'.$_SESSION['pwd'].'"', $result, $result_code);
 
     if ($as_json) {
         return end($result);
