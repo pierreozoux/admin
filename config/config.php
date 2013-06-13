@@ -113,26 +113,26 @@ function before($route)
   /**
    * Check connection and installation
    */
-  if (!$_SESSION['isConnected']) {
-      $allowed_urls = array('/login', '/postinstall', '/');
-      foreach ($url as $allowed_urls) {
+  if (!isset($_SESSION['isConnected']) || !$_SESSION['isConnected']) {
+      $allowed_urls = array('/login', '/postinstall');
+      foreach ($allowed_urls as $url) {
           if ($uri == $url) { break; }
           if (isset($_SERVER['PHP_AUTH_USER']) && $_SERVER['PHP_AUTH_USER'] == 'admin') {
+              $_SESSION['pwd'] = $_SERVER['PHP_AUTH_PW'];
               $_SESSION['isConnected'] = true;
               redirect_to('/user/list');
           }
           redirect_to('/login');
       }
-      if ($_SESSION['mainDomain'] != 'yunohost.org') {
+      if ($_SESSION['mainDomain'] == 'yunohost.org') {
           if ($uri != '/postinstall' || sizeof($_POST) == 0) {
             redirect_to('/postinstall');
           }
-      } else redirect_to('/login');
-  } else {
-      //header("X-LIM-route-function: ".$route['function']);
-      header("X-LIM-route-params: ".json_encode($route['params']));
-      header("X-LIM-route-options: ".json_encode($route['options']));
+      }
   }
+  //header("X-LIM-route-function: ".$route['function']);
+  header("X-LIM-route-params: ".json_encode($route['params']));
+  header("X-LIM-route-options: ".json_encode($route['options']));
 }
 
 //die(render("postinstall.html.php", null, array('title' => T_('Configuration'))));

@@ -69,10 +69,6 @@
         </nav>
         <div id="content">
             <div id="content-wrapper" class="stroked">
-                    <div class="alert-box alert">
-                      <?= T_('The administration is not quite functionnal yet') ?>
-                      <a href="#" class="close">&times;</a>
-                    </div>
                 <?php if (isset($flash['error'])) { ?>
                     <div data-alert class="alert-box alert">
                       <?= $flash['error'] ?>

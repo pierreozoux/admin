@@ -43,8 +43,9 @@ function login() {
  * POST /login
  */
 function doLogin() {
-  $ldap = @ldap_connect('localhost');
-  if (@ldap_bind($ldap, 'cn=admin,dc=yunohost,dc=org', $_POST['password'])) {
+  $ldapconn = ldap_connect('localhost') or die("Could not connect to LDAP server.");
+  ldap_set_option($ldapconn, LDAP_OPT_PROTOCOL_VERSION, 3);
+  if (ldap_bind($ldapconn, 'cn=admin,dc=yunohost,dc=org', $_POST['password'])) {
       $_SESSION['isConnected'] = true;
       $_SESSION['pwd'] = $_POST['password'];
       redirect_to('/user/list');
@@ -77,7 +78,7 @@ function postInstall() {
 function doPostInstall() {
   if ($_POST["password"] === $_POST["confirm"]) {
       $_SESSION['pwd'] = 'yunohost';
-      if moulinette('tools postinstall --domain "'. $_POST["domain"] .'" --password "'. $_POST["password"] .'"') {
+      if (moulinette('tools postinstall --domain "'. $_POST["domain"] .'" --password "'. $_POST["password"] .'"')) {
           $_SESSION['isConnected'] = true;
           $_SESSION['pwd'] = $_POST['password'];
       }
