@@ -128,6 +128,10 @@ function before($route)
           }
       }
   }
+
+  if ($uri == '/postinstall' && $_SESSION['mainDomain'] != 'yunohost.org') {
+      redirect_to('/user/list');
+  }
   //header("X-LIM-route-function: ".$route['function']);
   header("X-LIM-route-params: ".json_encode($route['params']));
   header("X-LIM-route-options: ".json_encode($route['options']));
