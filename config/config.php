@@ -129,9 +129,16 @@ function before($route)
       }
   }
 
-  if ($uri == '/postinstall' && $_SESSION['mainDomain'] != 'yunohost.org') {
+  if ($uri == '/login') {
+      flash('error', T_("You are already logged in"));
       redirect_to('/user/list');
   }
+
+  if ($uri == '/postinstall' && $_SESSION['mainDomain'] != 'yunohost.org') {
+      flash('error', T_("YunoHost is already installed"));
+      redirect_to('/user/list');
+  }
+
   //header("X-LIM-route-function: ".$route['function']);
   header("X-LIM-route-params: ".json_encode($route['params']));
   header("X-LIM-route-options: ".json_encode($route['options']));

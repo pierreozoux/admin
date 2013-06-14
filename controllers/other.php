@@ -81,6 +81,7 @@ function doPostInstall() {
       if ($result_code == 0) {
           flash('success', T_("YunoHost successfully installed"));
           $_SESSION['isConnected'] = true;
+          $_SESSION['mainDomain'] = $_POST["domain"];
           $_SESSION['pwd'] = $_POST['password'];
           redirect_to('/user/list');
       }
