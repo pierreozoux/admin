@@ -84,6 +84,8 @@ function doPostInstall() {
           $_SESSION['mainDomain'] = $_POST["domain"];
           $_SESSION['pwd'] = $_POST['password'];
           redirect_to('/user/list');
+      } else {
+          die(T_("\nPlease retry the installation"));
       }
   } else {
       flash('error', T_("Passwords doesn't match"));

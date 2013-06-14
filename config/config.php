@@ -127,9 +127,7 @@ function before($route)
               redirect_to('/login');
           }
       }
-  }
-
-  if ($uri == '/login') {
+  } elseif ($uri == '/login') {
       flash('error', T_("You are already logged in"));
       redirect_to('/user/list');
   }
