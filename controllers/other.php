@@ -77,15 +77,17 @@ function postInstall() {
  */
 function doPostInstall() {
   if ($_POST["password"] === $_POST["confirm"]) {
-      $_SESSION['pwd'] = 'yunohost';
-      if (moulinette('tools postinstall --domain "'. $_POST["domain"] .'" --password "'. $_POST["password"] .'"')) {
+      passthru('cd /usr/bin && sudo ./yunohost tools postinstall --domain "'. $_POST["domain"] .'" --password "'. $_POST["password"] .'"', $result_code);
+      if ($result_code == 0) {
+          flash('success', T_("YunoHost successfully installed"));
           $_SESSION['isConnected'] = true;
           $_SESSION['pwd'] = $_POST['password'];
+          redirect_to('/user/list');
       }
   } else {
       flash('error', T_("Passwords doesn't match"));
+      redirect_to('/postinstall');
   }
-  redirect_to('/');
 }
 
 /**
