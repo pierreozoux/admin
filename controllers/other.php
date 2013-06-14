@@ -77,7 +77,7 @@ function postInstall() {
  */
 function doPostInstall() {
   if ($_POST["password"] === $_POST["confirm"]) {
-      passthru('cd /usr/bin && sudo ./yunohost tools postinstall --domain "'. $_POST["domain"] .'" --password "'. $_POST["password"] .'"', $result_code);
+      passthru('cd /usr/bin && sudo ./yunohost tools postinstall --domain "'. escapeshellcmd($_POST["domain"]) .'" --password "'. escapeshellcmd($_POST["password"]) .'"', $result_code);
       if ($result_code == 0) {
           flash('success', T_("YunoHost successfully installed"));
           $_SESSION['isConnected'] = true;

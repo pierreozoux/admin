@@ -160,7 +160,7 @@ function after($output, $route)
 # ============================================================================ #
 
 function moulinette($command, $as_json = false) {
-    exec('cd /usr/bin && sudo ./yunohost '. $command .' --admin-password "'.$_SESSION['pwd'].'"', $result, $result_code);
+    exec('cd /usr/bin && sudo ./yunohost '. escapeshellcmd($command) .' --admin-password "'.escapeshellcmd($_SESSION['pwd']).'"', $result, $result_code);
 
     if ($as_json) {
         return end($result);
